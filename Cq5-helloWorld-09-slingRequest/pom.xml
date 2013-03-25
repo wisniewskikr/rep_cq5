@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>pl.kwi</groupId>
-  <artifactId>testCq</artifactId>
+  <artifactId>webapp</artifactId>
   <version>0.1</version>
-  <packaging>jar</packaging>
+  <packaging>bundle</packaging>
   <description>Test CQ project</description>
   
   
@@ -27,7 +27,22 @@
 					<target>1.5</target>
 				</configuration>
 			</plugin>
-		  			  			
+				
+			<!-- Plugin creating manifest -->
+			<plugin>
+  				<groupId>org.apache.felix</groupId>
+  				<artifactId>maven-bundle-plugin</artifactId>
+  				<version>1.4.3</version>
+  				<extensions>true</extensions>
+  				<configuration>
+  					<instructions>
+  						<Bundle-Name>${project.artifactId}</Bundle-Name>
+  						<Bundle-SymbolicName>${project.groupId}</Bundle-SymbolicName>
+  						<Export-Package>pl.kwi</Export-Package> 
+  					</instructions>
+  				</configuration>
+  			</plugin>
+  					  			  			
   			<!-- Plugin creating file *.zip with bundle for cq -->
   			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -64,6 +79,28 @@
 		</plugins>
 	
   </build>
+  
+  
+  
+  	<dependencies>
+
+		<!-- Dependencies of Sling -->
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.api</artifactId>
+			<version>2.2.0</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- Dependencies of Servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.4</version>
+			<scope>provided</scope>
+		</dependency>
+
+	</dependencies>
   
   
     
