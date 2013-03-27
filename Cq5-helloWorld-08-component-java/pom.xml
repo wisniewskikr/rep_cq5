@@ -3,7 +3,7 @@
   <groupId>pl.kwi</groupId>
   <artifactId>webapp</artifactId>
   <version>1.0</version>
-  <packaging>bundle</packaging>
+  <packaging>jar</packaging>
   <description>Test CQ project</description>
   
   

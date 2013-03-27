@@ -9,7 +9,7 @@
   
   
   <properties>
-  	<crx.url>http://localhost:5402</crx.url>
+  	<crx.url>http://localhost:4502</crx.url>
   	<crx.user>admin</crx.user>
   	<crx.password>admin</crx.password>
   </properties>
@@ -38,6 +38,7 @@
   					<instructions>
   						<Bundle-Name>${project.artifactId}</Bundle-Name>
   						<Bundle-SymbolicName>${project.groupId}</Bundle-SymbolicName>
+  						<Bundle-Version>${maven.build.timestamp}</Bundle-Version>
   						<Export-Package>pl.kwi</Export-Package> 
   					</instructions>
   				</configuration>
