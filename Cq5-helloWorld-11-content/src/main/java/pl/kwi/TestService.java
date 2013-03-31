@@ -14,6 +14,9 @@ public class TestService implements ITestService {
 	private IFelixService felixService;
 
 	public String getHelloWorldMessage() {
+		
+		System.out.println("---Here");
+		
 		return felixService.getHelloWorldMessage();
 	}
 

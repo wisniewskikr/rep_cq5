@@ -1,5 +1,5 @@
 <%@include file="/libs/foundation/global.jsp" %>
-<%@page import="pl.kwi.TestService"%>
+<%@page import="pl.kwi.MessageServiceImpl"%>
 
-<div><%= new TestService().getHelloWorldMessage() %></div>
+<div><%=new MessageServiceImpl().getHelloWord()%></div>
 

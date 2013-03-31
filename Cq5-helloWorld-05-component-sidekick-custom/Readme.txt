@@ -5,6 +5,7 @@ Cq5 and component sidekick custom:
 -	if you want to add custom sidekick component then:
 	*	in code
 		*	in file .content of custom component add
+			jcr:title="Component Title"
 			componentGroup="Test Group"
     		Group="TestGroup"
     	*	add file _cq_editConfig.xml which adds component to drag and drop sidekick	

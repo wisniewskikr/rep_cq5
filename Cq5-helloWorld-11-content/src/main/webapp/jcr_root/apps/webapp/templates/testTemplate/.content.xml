@@ -5,14 +5,13 @@
 	xmlns:jcr="http://www.jcp.org/jcr/1.0" 
 	xmlns:nt="http://www.jcp.org/jcr/nt/1.0"    
     jcr:primaryType="cq:Template"
-    jcr:title="Sample Template Title"
-    jcr:description="Sample Template Description"
+    jcr:title="Test Template Title"
+    jcr:description="Test Template Description"
     allowedPaths="/content(/.*)?"
     ranking="{Long}1">
     
     <jcr:content
-        cq:designPath="/etc/designs/webapp" 
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="webapp/components/sampleTemplateComponent"/>
+        sling:resourceType="webapp/components/testTemplate"/>
                 
 </jcr:root>
