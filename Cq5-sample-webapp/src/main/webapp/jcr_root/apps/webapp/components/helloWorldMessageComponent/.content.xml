@@ -6,7 +6,6 @@
 	cq:isContainer="{Boolean}false"
     jcr:primaryType="cq:Component"
     sling:resourceSuperType="foundation/components/text"
-    allowedParents="*/parsys"
     jcr:title="Hello World Message Component"
     componentGroup="Sample Group"
     Group="SampleGroup"/>
