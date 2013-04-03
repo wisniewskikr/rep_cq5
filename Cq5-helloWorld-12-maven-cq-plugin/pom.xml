@@ -1,0 +1,72 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>pl.kwi</groupId>
+  <artifactId>testCq</artifactId>
+  <version>0.1</version>
+  <packaging>jar</packaging>
+  <description>Test CQ project</description>
+  
+  
+  
+  <properties>
+  	<crx.url>http://localhost:4502</crx.url>
+  	<crx.user>admin</crx.user>
+  	<crx.password>admin</crx.password>
+  	<timestamp>${maven.build.timestamp}</timestamp>
+  </properties>
+    
+  
+  
+  <build>
+		<plugins>
+		
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+		  			  			
+  			<!-- Plugin creating file *.zip with bundle for cq -->
+  			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptors>
+						<descriptor>src/main/assembly/cq.xml</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+						      
+		    <plugin>
+				<groupId>com.cognifide.cq.maven.plugins</groupId>
+				<artifactId>maven-cq-plugin</artifactId>
+				<version>1.0.4</version>
+				<configuration>
+					<skip>false</skip>
+					<runOnlyAtExecutionRoot>true</runOnlyAtExecutionRoot>
+					<packageFileName>${project.build.directory}/${project.build.finalName}.zip</packageFileName>
+					<packageName>${project.artifactId}</packageName>
+					<cqUrl>${crx.url}</cqUrl>
+					<user>${crx.user}</user>
+					<password>${crx.password}</password>
+				</configuration>
+			</plugin>
+  						  
+		</plugins>
+	
+  </build>
+  
+  
+    
+</project>

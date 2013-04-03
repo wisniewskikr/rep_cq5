@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment></comment>
+<entry key="createdBy">Cognifide</entry>
+<entry key="groupId">pl.kwi</entry>
+<entry key="group">pl.kwi</entry>
+<entry key="name">webapp</entry>
+<entry key="version">0.1</entry>
+<entry key="buildCount">1</entry>
+<entry key="description">Some description</entry>
+</properties>
