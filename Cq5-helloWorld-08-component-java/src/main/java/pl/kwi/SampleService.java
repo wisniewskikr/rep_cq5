@@ -1,6 +1,6 @@
 package pl.kwi;
 
-public interface ITestService {
+public interface SampleService {
 	
 	public String getHelloWorldMessage();
 

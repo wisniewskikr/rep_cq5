@@ -9,7 +9,7 @@
   
   
   <properties>
-  	<crx.url>http://localhost:5402</crx.url>
+  	<crx.url>http://localhost:4502</crx.url>
   	<crx.user>admin</crx.user>
   	<crx.password>admin</crx.password>
   </properties>
