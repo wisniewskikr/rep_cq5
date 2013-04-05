@@ -1,5 +1,6 @@
 package pl.kwi.components.testComponent;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 
@@ -18,8 +19,10 @@ public class TestComponentPresenter extends AbstractPresenter{
 		
 		TestComponentDto dto = dao.getDtoOrNewOnError(resource);
 		
-		System.out.println("---HERE");
-		
+		if(StringUtils.isEmpty(dto.getTestComponentText())){
+			dto.setTestComponentText("Put some text here!!!");			
+		}
+				
 		return new TestComponentModel<TestComponentDto>(dto);
 	}
 

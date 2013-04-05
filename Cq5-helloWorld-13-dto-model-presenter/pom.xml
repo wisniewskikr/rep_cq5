@@ -14,6 +14,7 @@
   	<crx.password>admin</crx.password>
   	
   	<framework.version>2.3.0</framework.version>
+  	<assembly.id>cq</assembly.id>
   </properties>
     
   
@@ -42,7 +43,7 @@
   						<Bundle-SymbolicName>${project.groupId}</Bundle-SymbolicName>
   						<Bundle-Version>${maven.build.timestamp}</Bundle-Version> 
   						<Export-Package>pl.kwi.*</Export-Package>
-  						<Embed-Dependency>*;*;scope=compile</Embed-Dependency>  						 
+  						<!-- Embed-Dependency>*;*;scope=compile</Embed-Dependency -->  						 
   					</instructions>
   				</configuration>
   			</plugin>
@@ -51,13 +52,15 @@
   			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4</version>
 				<configuration>
 					<descriptors>
-						<descriptor>src/main/assembly/cq.xml</descriptor>
+						<descriptor>src/main/assembly/${assembly.id}.xml</descriptor>
 					</descriptors>
 				</configuration>
 				<executions>
 					<execution>
+						<id>${assembly.id}</id>
 						<phase>package</phase>
 						<goals>
 							<goal>single</goal>
@@ -73,7 +76,7 @@
 			        <artifactId>maven-crx-plugin</artifactId>
 			        <version>1.0.3</version>
 			        <configuration>
-			        	<packageFileName>${project.build.directory}/${project.build.finalName}.zip</packageFileName>
+			        	<packageFileName>${project.build.directory}/${project.build.finalName}-${assembly.id}.zip</packageFileName>
 			          	<url>${crx.url}</url>
 			          	<user>${crx.user}</user>
 			          	<password>${crx.password}</password>
@@ -86,22 +89,7 @@
   
   
   
-  <dependencies>
-  		<dependency>
-			<groupId>com.cognifide.cq</groupId>
-			<artifactId>framework-54-api</artifactId>
-			<version>${framework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.cognifide.cq</groupId>
-			<artifactId>framework-54-core</artifactId>
-			<version>${framework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.cognifide.cq</groupId>
-			<artifactId>framework-54-taglib</artifactId>
-			<version>${framework.version}</version>
-		</dependency>
+  <dependencies> 		
 		
 		<!-- Dependencies of Sling -->
 		<dependency>
@@ -118,6 +106,32 @@
 			<version>2.4</version>
 			<scope>provided</scope>
 		</dependency>
+		
+		<!-- Dependencies with Presenter, Model and Dto -->
+		<dependency>
+			<groupId>com.cognifide.cq</groupId>
+			<artifactId>framework-54-api</artifactId>
+			<version>${framework.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.cognifide.cq</groupId>
+			<artifactId>framework-54-core</artifactId>
+			<version>${framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.cognifide.cq</groupId>
+			<artifactId>framework-54-taglib</artifactId>
+			<version>${framework.version}</version>
+		</dependency>
+		
+		<!-- Dependency with StringUtils -->
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.5</version>
+		</dependency>
+		
   </dependencies>
   
   

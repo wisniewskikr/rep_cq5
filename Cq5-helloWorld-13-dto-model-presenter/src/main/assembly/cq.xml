@@ -4,8 +4,12 @@
 	xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 
 						http://maven.apache.org/xsd/assembly-1.1.0.xsd">
 						
-						
-						
+	
+	
+	<id>cq</id>
+	
+	
+		
 	<formats>
 		<format>zip</format>
 	</formats>
@@ -13,6 +17,20 @@
 	
 	
 	<includeBaseDirectory>false</includeBaseDirectory>
+	
+	
+	
+	<dependencySets>
+	
+		<dependencySet>
+			<outputDirectory>/jcr_root/apps/webapp/install</outputDirectory>
+			<includes>
+				<include>com.cognifide.cq</include>
+				<include>commons-lang</include>				
+			</includes>
+		</dependencySet>
+				
+	</dependencySets>
 	
 	
 	
