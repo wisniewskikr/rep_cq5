@@ -5,5 +5,5 @@
 <c:set var="model" value="<%= new LinkPresenter().getModelFromRequest(slingRequest) %>"/>
 
 <cog:checkErrors model="${model}">
-	<a href="${model.url}" class="linkComponent" title="${model.title}">${model.text}</a>
+	<span id="flagBrasil"/> <a href="${model.url}" class="linkComponent" title="${model.title}">${model.text}</a>
 </cog:checkErrors>
