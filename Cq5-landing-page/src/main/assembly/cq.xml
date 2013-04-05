@@ -6,6 +6,10 @@
 						
 						
 						
+	<id>cq</id>
+	
+	
+	
 	<formats>
 		<format>zip</format>
 	</formats>
@@ -13,6 +17,20 @@
 	
 	
 	<includeBaseDirectory>false</includeBaseDirectory>
+	
+	
+	
+	<dependencySets>
+	
+		<dependencySet>
+			<outputDirectory>/jcr_root/apps/webapp/install</outputDirectory>
+			<includes>
+				<include>com.cognifide.cq</include>
+				<include>commons-lang</include>				
+			</includes>
+		</dependencySet>
+				
+	</dependencySets>
 	
 	
 	
@@ -31,13 +49,13 @@
 			</includes>			
 		</fileSet>	
 			
-		<!-- fileSet>
+		<fileSet>
 			<directory>${project.build.directory}</directory>
-			<outputDirectory>/jcr_root/apps/website/install</outputDirectory>
+			<outputDirectory>/jcr_root/apps/webapp/install</outputDirectory>
 			<includes>
 				<include>*.jar</include>
 			</includes>
-		</fileSet -->
+		</fileSet>
 		
 	</fileSets>
 	

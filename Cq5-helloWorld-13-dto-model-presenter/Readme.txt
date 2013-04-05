@@ -8,11 +8,13 @@ receives data from dialog. Class of Model returns data to compnent.
 
 -	in *.pom file add id and version to maven-assembly-plugin
 
--	in assembly *.xml file add dependency set with cognifide dependencies
+-	in assembly *.xml file add id and dependency set with cognifide dependencies
 
 -	create Dto, Model and Presenter classes
 
--	improve component *.jsp file. Add Presenter class import and usage 
+-	improve component *.jsp file. Add Presenter class import and usage
+
+-	improve or create dialog.xml file. Values have to fit to Dto variables 
 	
 -	build and install example by Maven command:
 	mvn clean install crx:install
