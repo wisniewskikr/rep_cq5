@@ -1,0 +1,36 @@
+div#content {
+	width: 960px;
+	height: 450px;
+	background-image: url('background.jpg'); 
+
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	margin: auto;
+}
+
+div#links {
+	margin-left: 40em;
+	margin-top: 4em;
+}
+
+--#flagBrasil {
+--	display: block;
+--	width: 50px;
+--	height: 50px;
+--	background: url('BR.png') left no-repeat;
+--}
+
+.linkComponent {
+	font-family: Verdana, Tahoma, Geneva, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #6A6A6A;
+	text-decoration: none;
+	display: inline;
+	margin-left: 50px;
+	margin-top: 20px;
+}

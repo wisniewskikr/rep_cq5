@@ -84,7 +84,7 @@
 			      </plugin>
   						  
 		</plugins>
-  						  
+	
   </build>
   
   
@@ -133,18 +133,6 @@
 		</dependency>
 		
   </dependencies>
-  
-  
-  
-  <!-- Internal project repository - for jars 
-	which are not in any oficial Maven repositories 
-	(for instnce opencloud) -->
-	<repositories>
-		<repository>
-			<id>project-repo</id>
-			<url>file://${basedir}/repo</url>
-		</repository>
-	</repositories>
   
   
     
