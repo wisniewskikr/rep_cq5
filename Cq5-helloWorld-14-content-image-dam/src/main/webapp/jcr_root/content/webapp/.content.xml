@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2013-04-10T08:30:23.787+02:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/apps/webapp/templates/testTemplate"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="webapp"
+        sling:resourceType="webapp/components/testTemplate">
+        <par jcr:primaryType="nt:unstructured">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys">
+                <image
+                    jcr:created="{Date}2013-04-10T08:30:21.722+02:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2013-04-10T08:30:23.782+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="foundation/components/image"
+                    fileReference="/content/dam/webapp/icons/test.png"/>
+            </par>
+        </par>
+    </jcr:content>
+</jcr:root>

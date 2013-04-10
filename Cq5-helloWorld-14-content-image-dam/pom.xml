@@ -1,0 +1,82 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>pl.kwi</groupId>
+  <artifactId>webapp</artifactId>
+  <version>1.0</version>
+  <packaging>jar</packaging>
+  <description>Test CQ project</description>
+  
+  
+  
+  <properties>
+  	<crx.url>http://localhost:4502</crx.url>
+  	<crx.user>admin</crx.user>
+  	<crx.password>admin</crx.password>
+  </properties>
+    
+  
+  
+  <build>
+		<plugins>
+		
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+	  					  			  			
+  			<!-- Plugin creating file *.zip with bundle for cq -->
+  			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptors>
+						<descriptor>src/main/assembly/cq.xml</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+							
+				<!-- Plugin installing and deploying application on crx. 
+				Command: mvn clean install crx:install -->
+				<plugin>
+			        <groupId>com.cognifide.maven.plugins</groupId>
+			        <artifactId>maven-crx-plugin</artifactId>
+			        <version>1.0.3</version>
+			        <configuration>
+			        	<packageFileName>${project.build.directory}/${project.build.finalName}.zip</packageFileName>
+			          	<url>${crx.url}</url>
+			          	<user>${crx.user}</user>
+			          	<password>${crx.password}</password>
+			        </configuration>
+			      </plugin>
+  						  
+		</plugins>
+	
+  </build>
+  
+  
+  
+  <dependencies>
+  
+  	<dependency>
+	    <groupId>org.apache.felix</groupId>
+	    <artifactId>org.apache.felix.scr.annotations</artifactId>
+	    <version>1.2.0</version>
+	</dependency>
+  
+  </dependencies>
+  
+  
+    
+</project>
