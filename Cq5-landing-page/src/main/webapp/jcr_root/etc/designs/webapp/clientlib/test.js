@@ -1,11 +1,7 @@
 function test1(obj, src) {
-	jQuery(obj).attr("src", src);
+	jQuery(obj).find('img').attr("src", src);
 }
 
 function test2(obj, src) {
-	jQuery(obj).attr("src", src);
-}
-
-function test(obj) {
-	alert("444");
+	jQuery(obj).find('img').attr("src", src);
 }

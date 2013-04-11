@@ -5,8 +5,14 @@
 <c:set var="model" value="<%= new LinkPresenter().getModelFromRequest(slingRequest) %>"/>
 
 <cog:checkErrors model="${model}">
-	<p class="linkComponent">		 
-		<img src="/content/dam/webapp/BR.png" class="flag" onmouseover="test1(this, '/content/dam/webapp/BR_.png')" onmouseout="test2(this, '/content/dam/webapp/BR.png')"/> 
-		<a href="${model.url}" title="${model.title}">${model.text}</a>
-	</p>
+	
+		
+	<span class="linkComponent">
+		<a href="${model.url}" title="${model.title}" onmouseover="test1(this, '/content/dam/webapp/BR_.png')" onmouseout="test2(this, '/content/dam/webapp/BR.png')">
+			<span class="linkComponent"><img src="/content/dam/webapp/BR.png"/></span>
+			<span class="linkComponent">${model.text}</span>
+		</a>
+	</span>
+	
+	
 </cog:checkErrors>

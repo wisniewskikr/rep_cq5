@@ -17,15 +17,25 @@ div#links {
 	margin-top: 4em;
 }
 
-.linkComponent a {
+img {
+	vertical-align: middle;
+}
+
+span.linkComponent  {
+	display:table-cell; 
+	vertical-align:middle;
+	width: 200px;
+	height: 50px;
+	--border-style: solid;
+}
+
+.text {
 	font-family: Verdana, Tahoma, Geneva, sans-serif;
 	font-size: 10px;
 	font-weight: bold;
 	color: #6A6A6A;
 	text-decoration: none;
-	margin-left: 40px;
+	--margin-left: 40px;
 }
 
-.flag {
-	vertical-align: middle;	
-}
+
