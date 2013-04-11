@@ -1,32 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:rep="internal"
-    jcr:mixinTypes="[mix:lockable,rep:AccessControllable]"
+    jcr:mixinTypes="[mix:lockable]"
     jcr:primaryType="sling:OrderedFolder">
     <jcr:content/>
-    <avastin/>
-    <rep:policy/>
-    <eipf/>
-    <edetailing/>
-    <corporate/>
-    <clinicaltrials/>
-    <customerportal/>
-    <PEAP/>
-    <internet/>
-    <brafde/>
-    <hedgehogpathway/>
-    <mtc/>
-    <dialogo/>
-    <zelboraf/>
-    <patient-websites/>
-    <ADCresearch/>
-    <vismodegib/>
-    <geometrixx/>
-    <showcase/>
-    <MC-Poland/>
-    <cobas/>
-    <branding_cobas/>
-    <roactemra/>
-    <hedgehogpathway_DE/>
-    <Dialogo-Mexico/>
     <webapp/>
 </jcr:root>

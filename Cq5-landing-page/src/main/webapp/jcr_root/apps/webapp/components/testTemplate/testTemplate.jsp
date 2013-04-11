@@ -8,6 +8,7 @@
 	<cq:include script="head.jsp"/>
 	<head>
 		<cq:includeClientLib css="myproject.all" />
+		<cq:includeClientLib js="myproject.all" />
 	</head>
 	
 	<cq:include script="body.jsp"/>
