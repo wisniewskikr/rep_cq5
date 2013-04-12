@@ -17,25 +17,27 @@ div#links {
 	margin-top: 4em;
 }
 
-.linkComponent  {
-	display:table-cell; 
-	vertical-align:middle;	
-	height: 50px;
-	--border-style: solid;	
-}
-
-.link {
+.link{
+	display: block;	
+	height: 40px;
+	
+	line-height: 50px;
+	vertical-align:middle;
+	
 	font-family: Verdana, Tahoma, Geneva, sans-serif;
 	font-size: 10px;
 	font-weight: bold;
-	color: #6A6A6A;
+	color: rgb(106, 106, 106);
 	text-decoration: none;	
 }
 
-.linkImage {
-	width: 60px;
+.link span {
+	display: inline-block;
+	width: 60px;	
 }
 
-img {
+.link span img {
 	vertical-align: middle;
 }
+
+
