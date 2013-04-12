@@ -7,12 +7,12 @@
 <cog:checkErrors model="${model}">
 	
 		
-	<span class="linkComponent">
-		<a href="${model.url}" title="${model.title}" onmouseover="test1(this, '/content/dam/webapp/BR_.png')" onmouseout="test2(this, '/content/dam/webapp/BR.png')">
-			<span class="linkComponent"><img src="/content/dam/webapp/BR.png"/></span>
+	<div class="linkComponent">
+		<a class="link" href="${model.url}" title="${model.title}" onmouseover="test1(this, '/content/dam/webapp/BR_.png')" onmouseout="test2(this, '/content/dam/webapp/BR.png')">
+			<span class="linkComponent linkImage"><img src="/content/dam/webapp/BR.png"/></span>
 			<span class="linkComponent">${model.text}</span>
 		</a>
-	</span>
+	</div>
 	
 	
 </cog:checkErrors>
