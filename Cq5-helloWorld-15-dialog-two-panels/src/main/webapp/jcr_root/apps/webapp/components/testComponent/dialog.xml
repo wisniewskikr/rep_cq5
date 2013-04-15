@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    xtype="tabpanel">
+    <items jcr:primaryType="cq:WidgetCollection">
+    	
+    	 <tab1
+            jcr:primaryType="cq:Widget"
+            title="Text Panel"
+            xtype="panel">
+             <items jcr:primaryType="cq:WidgetCollection">    	
+		        <testComponentText
+		            jcr:primaryType="cq:Widget"
+		            xtype="textfield"
+		            fieldLabel="Test component text"                       
+		            defaultValue="Put test component text here"
+		            name="./testComponentText" />        
+		      </items>
+		  </tab1>
+		  
+		  <tab2
+            jcr:primaryType="cq:Widget"
+            title="Name Panel"
+            xtype="panel">
+             <items jcr:primaryType="cq:WidgetCollection">    	
+		        <testComponentText
+		            jcr:primaryType="cq:Widget"
+		            xtype="textfield"
+		            fieldLabel="Name"                       
+		            defaultValue="Put name here"
+		            name="./name" />        
+		      </items>
+		  </tab2>
+		            
+    </items>
+</jcr:root>

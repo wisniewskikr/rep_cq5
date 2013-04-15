@@ -8,34 +8,14 @@
   
   
   
-  <properties>  	
+  <properties>
+  	<crx.url>http://localhost:4502</crx.url>
   	<crx.user>admin</crx.user>
   	<crx.password>admin</crx.password>
   	
   	<framework.version>2.3.0</framework.version>
   	<assembly.id>cq</assembly.id>
   </properties>
-  
-  
-  
-  <profiles>
-  	<profile>
-		<id>test-author</id>
-		<activation>
-			<activeByDefault>true</activeByDefault>
-		</activation>		
-		<properties>							
-			<crx.url>http://localhost:4502</crx.url>				
-		</properties>
-	</profile>
-	
-	<profile>
-		<id>test-publish</id>		
-		<properties>							
-			<crx.url>http://localhost:4503</crx.url>				
-		</properties>
-	</profile>
-  </profiles>
     
   
   
@@ -104,7 +84,7 @@
 			      </plugin>
   						  
 		</plugins>
-  						  
+	
   </build>
   
   
