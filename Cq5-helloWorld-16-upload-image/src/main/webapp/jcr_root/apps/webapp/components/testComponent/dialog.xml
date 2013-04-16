@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:TabPanel"
-    activeTab="{Long}0"
-    helpPath="en/cq/current/wcm/default_components.html#Text Image"
     xtype="tabpanel">
     <items jcr:primaryType="cq:WidgetCollection">
     	
@@ -13,8 +11,7 @@
             fileReferenceParameter="./fileReference"
             name="./fileName"
             sizeLimit="100"
-            title="Image"
-            uploadUrl="/tmp/upload_test/*"
+            title="Image"            
             xtype="smartimage"/>  
 		 		            
     </items>

@@ -1,14 +1,8 @@
-Cq5 and two panels
+Cq5 and tab with image
 
-In file dialog.xml use:
-
-- For root:
-	* jcr:primaryType="cq:Dialog"
-	* xtype="tabpanel"
-	* <items jcr:primaryType="cq:WidgetCollection">
-
-- For every tab:
-	 * jcr:primaryType="cq:Widget"
-     * title="Text Panel"
-     * xtype="panel"
-     * <items jcr:primaryType="cq:WidgetCollection">
+If you want to upload image you have to add in dialogo.xml:
+	* jcr:primaryType="cq:Widget"
+    * ddGroups="[media]"
+    * fileReferenceParameter="./fileReference"
+    * name="./fileName"
+    * xtype="smartimage"
