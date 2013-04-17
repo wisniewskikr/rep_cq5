@@ -9,6 +9,10 @@ public class LinkModel<T extends Dto> extends SingleDtoModelObject<T> {
 	private String text;
 	private String url;
 	private String title;
+	private String smallFlagFileName;
+	private String smallFlagFileReference;
+	private String bigFlagFileName;
+	private String bigFlagFileReference;
 
 
 	public LinkModel(T dto) {
@@ -16,6 +20,10 @@ public class LinkModel<T extends Dto> extends SingleDtoModelObject<T> {
 		text = ((LinkDto)dto).getText();
 		url = ((LinkDto)dto).getUrl();
 		title = ((LinkDto)dto).getTitle();
+		smallFlagFileName = ((LinkDto)dto).getSmallFlagFileName();
+		smallFlagFileReference = ((LinkDto)dto).getSmallFlagFileReference();
+		bigFlagFileName = ((LinkDto)dto).getBigFlagFileName();
+		bigFlagFileReference = ((LinkDto)dto).getBigFlagFileReference();
 	}
 
 
@@ -38,6 +46,34 @@ public class LinkModel<T extends Dto> extends SingleDtoModelObject<T> {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	
+	public String getSmallFlagFileName() {
+		return smallFlagFileName;
+	}
+	public void setSmallFlagFileName(String smallFlagFileName) {
+		this.smallFlagFileName = smallFlagFileName;
+	}
+	
+	public String getSmallFlagFileReference() {
+		return smallFlagFileReference;
+	}
+	public void setSmallFlagFileReference(String smallFlagFileReference) {
+		this.smallFlagFileReference = smallFlagFileReference;
+	}
+	
+	public String getBigFlagFileName() {
+		return bigFlagFileName;
+	}
+	public void setBigFlagFileName(String bigFlagFileName) {
+		this.bigFlagFileName = bigFlagFileName;
+	}
+	
+	public String getBigFlagFileReference() {
+		return bigFlagFileReference;
+	}
+	public void setBigFlagFileReference(String bigFlagFileReference) {
+		this.bigFlagFileReference = bigFlagFileReference;
 	}
 
 

@@ -6,8 +6,8 @@
 
 <cog:checkErrors model="${model}">
 		
-	<a class="link" href="${model.url}" title="${model.title}" onmouseover="test1(this, '/content/dam/webapp/BR_.png')" onmouseout="test2(this, '/content/dam/webapp/BR.png')">
-		<span><img src="/content/dam/webapp/BR.png"/></span>
+	<a class="link" href="${model.url}" title="${model.title}" onmouseover="test1(this, '${model.bigFlagFileReference}')" onmouseout="test2(this, '${model.smallFlagFileReference}')">
+		<span><img src="${model.smallFlagFileReference}"/></span>
 		${model.text}
 	</a>
 		
