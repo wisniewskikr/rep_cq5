@@ -1,0 +1,10 @@
+div.image {
+    margin-bottom: 20px;
+}
+
+div.image img {
+    display: block;
+}
+div.image small {
+    display: block;
+}
