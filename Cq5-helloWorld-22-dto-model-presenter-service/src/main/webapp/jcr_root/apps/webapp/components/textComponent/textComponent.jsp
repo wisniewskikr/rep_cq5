@@ -1,4 +1,4 @@
-<%@page import="pl.kwi.components.textComponent.pl.kwi.components.textComponent.TextComponentPresenter"%>
+<%@page import="pl.kwi.components.textComponent.TextComponentPresenter"%>
 <%
 	
 %>
@@ -6,7 +6,7 @@
 <%
 	
 %>
-<c:set var="model" value="<%=new CountComponentPresenter().getModelFromRequest(slingRequest)%>"/>
+<c:set var="model" value="<%=new TextComponentPresenter().getModelFromRequest(slingRequest)%>"/>
 
 <cog:checkErrors model="${model}">
 	

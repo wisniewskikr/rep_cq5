@@ -1,9 +1,13 @@
-<%@page import="pl.kwi.components.testComponent.TestComponentPresenter"%>
-<% %>
+<%@page import="pl.kwi.components.textComponent.pl.kwi.components.textComponent.TextComponentPresenter"%>
+<%
+	
+%>
 <%@include file="/libs/foundation/global.jsp" %>
-<% %>
+<%
+	
+%>
 <cq:setContentBundle/>
-<c:set var="model" value="<%= new TestComponentPresenter().getModelFromRequest(slingRequest) %>"/>
+<c:set var="model" value="<%=new CountComponentPresenter().getModelFromRequest(slingRequest)%>"/>
 
 <cog:checkErrors model="${model}">
 	<c:choose>
