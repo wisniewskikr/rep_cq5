@@ -1,0 +1,222 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.roche</groupId>
+  <artifactId>landingPage</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  
+  
+  
+  <modules>  	
+  	<module>landingPage-docroot</module>
+  	<module>landingPage-webapp</module>
+  	<module>landingPage-example-content</module>
+  	<module>landingPage-example-dam</module>
+  	<module>landingPage-initial-content</module>
+  	<module>landingPage-assembly</module>
+  </modules>
+  
+  
+  
+  <properties>  	
+  	<crx.user>admin</crx.user>
+  	<crx.password>admin</crx.password>
+  	
+  	<framework.version>2.3.0</framework.version>  	
+  </properties>
+  
+  
+  
+  <profiles>
+  
+  	<!-- PROFILES OF HOSTS -->
+  	<profile>
+		<id>local-author</id>				
+		<properties>							
+			<crx.url>http://localhost:4502</crx.url>				
+		</properties>
+	</profile>
+	
+	<profile>
+		<id>local-publish</id>		
+		<properties>							
+			<crx.url>http://localhost:4503</crx.url>				
+		</properties>
+	</profile>
+	
+	<!-- PROFILES OF ASSEMBLY -->
+	<!-- Creates package with webapp and docroot -->
+	<profile>
+		<id>assembly-live</id>				
+		<properties>							
+			<assembly.id>cq-live</assembly.id>				
+		</properties>
+	</profile>
+	
+	<!-- Creates package with all -->
+	<profile>
+		<id>assembly-full</id>
+		<properties>							
+			<assembly.id>cq-full</assembly.id>				
+		</properties>
+	</profile>
+	
+	<!-- Creates package with example -->
+	<profile>
+		<id>assembly-content</id>
+		<properties>							
+			<assembly.id>cq-content</assembly.id>				
+		</properties>
+	</profile>
+	
+	<!-- Creates package with initial content -->
+	<profile>
+		<id>assembly-initial</id>
+		<properties>							
+			<assembly.id>cq-initial</assembly.id>				
+		</properties>
+	</profile>
+	
+  </profiles>
+  
+  
+  
+  <build>
+		<plugins>
+		
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>com.cognifide.cq.maven.plugins</groupId>
+				<artifactId>maven-cq-plugin</artifactId>
+				<inherited>false</inherited>
+				<version>1.0.4</version>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>			
+			  						  
+		</plugins>
+		
+		<pluginManagement>		
+			<plugins>
+			
+				<!-- Plugin creating manifest -->
+				<plugin>
+	  				<groupId>org.apache.felix</groupId>
+	  				<artifactId>maven-bundle-plugin</artifactId>
+	  				<version>1.4.3</version>
+	  				<extensions>true</extensions>
+	  				<configuration>
+	  					<instructions>
+	  						<Bundle-Name>${project.artifactId}</Bundle-Name>
+	  						<Bundle-SymbolicName>${project.groupId}</Bundle-SymbolicName>
+	  						<Bundle-Version>${maven.build.timestamp}</Bundle-Version> 
+	  						<Export-Package>com.roche.*</Export-Package>
+	  						<!-- Embed-Dependency>*;*;scope=compile</Embed-Dependency -->  						 
+	  					</instructions>
+	  				</configuration>
+	  			</plugin>
+			  			  			
+	  			<!-- Plugin creating file *.zip with bundle for cq -->
+	  			<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>2.4</version>
+					<configuration>
+						<descriptors>
+							<descriptor>src/main/assembly/${assembly.id}.xml</descriptor>
+						</descriptors>
+					</configuration>
+					<executions>
+						<execution>
+							<id>${assembly.id}</id>
+							<phase>package</phase>
+							<goals>
+								<goal>single</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				
+				<plugin>
+					<groupId>com.cognifide.cq.maven.plugins</groupId>
+					<artifactId>maven-cq-plugin</artifactId>
+					<version>1.0.4</version>
+					<configuration>
+						<skip>false</skip>
+						<runOnlyAtExecutionRoot>true</runOnlyAtExecutionRoot>
+						<packageFileName>${project.build.directory}/${project.build.finalName}-${assembly.id}.zip</packageFileName>
+						<packageName>${project.artifactId}</packageName>
+						<cqUrl>${crx.url}</cqUrl>
+						<user>${crx.user}</user>
+						<password>${crx.password}</password>
+					</configuration>
+				</plugin>								
+			
+			</plugins>		
+		</pluginManagement>		
+		  						  
+  </build>
+  
+  
+  
+  <dependencyManagement>
+  
+  	<dependencies> 		
+		
+		<!-- Dependencies of Sling -->
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.api</artifactId>
+			<version>2.2.0</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- Dependencies of Servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.4</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- Dependencies with Presenter, Model and Dto -->
+		<dependency>
+			<groupId>com.cognifide.cq</groupId>
+			<artifactId>framework-54-api</artifactId>
+			<version>${framework.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.cognifide.cq</groupId>
+			<artifactId>framework-54-core</artifactId>
+			<version>${framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.cognifide.cq</groupId>
+			<artifactId>framework-54-taglib</artifactId>
+			<version>${framework.version}</version>
+		</dependency>
+		
+		<!-- Dependency with StringUtils -->
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.5</version>
+		</dependency>
+		
+	</dependencies>	
+  
+  </dependencyManagement>
+      
+  
+  
+</project>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment></comment>
+<entry key="createdBy">${project.organization.name}</entry>
+<entry key="groupId">${project.groupId}</entry>
+<entry key="group">${project.groupId}</entry>
+<entry key="name">${project.artifactId}</entry>
+<entry key="version">${project.version}</entry>
+</properties>

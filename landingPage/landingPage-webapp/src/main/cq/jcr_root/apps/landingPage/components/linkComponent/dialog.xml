@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:TabPanel"
+    title="Link Component"
+    xtype="tabpanel">
+    <items jcr:primaryType="cq:WidgetCollection">
+    	
+    	<smallFlag
+            jcr:primaryType="cq:Widget"
+            autoUploadDelay="1"
+            ddGroups="[media]"
+            fileReferenceParameter="./smallFlagFileReference"
+            name="./smallFlagFileName"
+            sizeLimit="100"
+            title="Small flag"           
+            xtype="smartimage"/>
+            
+          <bigFlag
+            jcr:primaryType="cq:Widget"
+            autoUploadDelay="1"
+            ddGroups="[media]"
+            fileReferenceParameter="./bigFlagFileReference"
+            name="./bigFlagFileName"
+            sizeLimit="100"
+            title="Big flag"           
+            xtype="smartimage"/> 
+    	
+    	<data
+            jcr:primaryType="cq:Widget"            
+            title="Data"            
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+            	 <text
+		            jcr:primaryType="cq:Widget"
+		            xtype="textfield"
+		            fieldLabel="Text"                       
+		            name="./text" />
+		         <url
+		            jcr:primaryType="cq:Widget"
+		            xtype="textfield"
+		            fieldLabel="Url"                       
+		            name="./url" />
+		         <title
+		            jcr:primaryType="cq:Widget"
+		            xtype="textfield"
+		            fieldLabel="Title"                       
+		            name="./title" />
+            </items>
+        </data>    
+    	       
+                    
+    </items>
+</jcr:root>

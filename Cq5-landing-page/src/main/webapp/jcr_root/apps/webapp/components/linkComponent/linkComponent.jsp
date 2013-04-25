@@ -1,4 +1,4 @@
-<%@page import="pl.kwi.components.link.LinkPresenter"%>
+<%@page import="com.roche.components.link.LinkPresenter"%>
 <% %>
 <%@include file="/libs/foundation/global.jsp" %>
 <% %>
