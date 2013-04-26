@@ -8,6 +8,10 @@
   
   
   
+  <!-- IMPORTANT!!! 
+  Assembly module has to be on the end 
+  because there final *.zip file is created
+  and then deployed on CQ sever. -->
   <modules>  	
   	<module>landingPage-docroot</module>
   	<module>landingPage-webapp</module>
@@ -31,8 +35,7 @@
   
   
   <profiles>
-	
-	<!-- PROFILES OF ASSEMBLY -->
+		
 	<!-- Creates package with webapp and docroot.
 	This is default profile for CQ developers. -->
 	<profile>
@@ -102,7 +105,7 @@
 			</plugin>
 			
 			<!-- This plugin is necessary for every build
-			but it can be skipped -->
+			but it can be skipped and run only when is needed -->
 			<plugin>
 				<groupId>com.cognifide.cq.maven.plugins</groupId>
 				<artifactId>maven-cq-plugin</artifactId>
@@ -118,7 +121,7 @@
 		<pluginManagement>		
 			<plugins>
 			
-				<!-- Plugin creating manifest -->
+				<!-- Plugin creating manifest file -->
 				<plugin>
 	  				<groupId>org.apache.felix</groupId>
 	  				<artifactId>maven-bundle-plugin</artifactId>
