@@ -4,6 +4,7 @@
   <artifactId>landingPage</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
+  <name>landingPage-parent</name>
   
   
   
@@ -32,7 +33,8 @@
   <profiles>
 	
 	<!-- PROFILES OF ASSEMBLY -->
-	<!-- Creates package with webapp and docroot -->
+	<!-- Creates package with webapp and docroot.
+	This is default profile for CQ developers. -->
 	<profile>
 		<id>assembly-live</id>
 		<activation>
@@ -43,7 +45,7 @@
 		</properties>
 	</profile>
 	
-	<!-- Creates package with all -->
+	<!-- Creates package with all resources -->
 	<profile>
 		<id>assembly-full</id>
 		<properties>							
@@ -51,7 +53,7 @@
 		</properties>
 	</profile>
 	
-	<!-- Creates package with example -->
+	<!-- Creates package with example content -->
 	<profile>
 		<id>assembly-content</id>
 		<properties>							
@@ -99,6 +101,8 @@
 				</configuration>
 			</plugin>
 			
+			<!-- This plugin is necessary for every build
+			but it can be skipped -->
 			<plugin>
 				<groupId>com.cognifide.cq.maven.plugins</groupId>
 				<artifactId>maven-cq-plugin</artifactId>
@@ -130,7 +134,8 @@
 	  				</configuration>
 	  			</plugin>
 			  			  			
-	  			<!-- Plugin creating file *.zip with bundle for cq -->
+	  			<!-- Plugin creating file *.zip with bundle for cq.
+	  			It requires assembly xml files. -->
 	  			<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-assembly-plugin</artifactId>
@@ -151,6 +156,8 @@
 					</executions>
 				</plugin>
 				
+				<!-- Plugin installing package on CQ server.
+				It requires maven command: cq:install -->
 				<plugin>
 					<groupId>com.cognifide.cq.maven.plugins</groupId>
 					<artifactId>maven-cq-plugin</artifactId>

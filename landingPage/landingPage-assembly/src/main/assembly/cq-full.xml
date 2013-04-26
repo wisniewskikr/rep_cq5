@@ -6,6 +6,7 @@
 						
 						
 						
+	<!-- It builds package with all resources. -->
 	<id>cq-full</id>
 	
 	
@@ -58,7 +59,7 @@
 	
 	
 	
-	<!-- vault files from parent project -->
+	<!-- vault files -->
 	<fileSets>
 		<fileSet>
 			<directory>src/main/vault</directory>
@@ -69,6 +70,10 @@
 	
 	
 	
+	<!-- ATTENTION!!!
+	These are required dependencies for model-dto-presenter.	  
+	They are required only for example project - landingPage. 
+	For ordinary projects these dependencies are delivered by rochefundation project. -->
 	<dependencySets>	
 		<dependencySet>
 			<outputDirectory>/jcr_root/apps/landingPage/install</outputDirectory>

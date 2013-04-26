@@ -7,12 +7,14 @@
   </parent>
   <artifactId>landingPage-webapp</artifactId>
   <packaging>bundle</packaging>
+  <name>landingPage-webapp</name>
   
   
   
   <build>  
   	<plugins>
   	
+  		<!-- Here bundle is created -->
   		<plugin>
   			<groupId>org.apache.felix</groupId>
 	  		<artifactId>maven-bundle-plugin</artifactId>

@@ -7,17 +7,20 @@
   </parent>
   <artifactId>landingPage-assembly</artifactId>
   <packaging>pom</packaging>
+  <name>landingPage-assembly</name>
   
   
   
   <build>
   
   	<plugins>
+  		<!-- In this project *.zip file with package is created -->
   		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-assembly-plugin</artifactId>
 		</plugin>
 		
+		<!-- From this file package is deployed on CQ -->
 		<plugin>
 			<groupId>com.cognifide.cq.maven.plugins</groupId>
 			<artifactId>maven-cq-plugin</artifactId>

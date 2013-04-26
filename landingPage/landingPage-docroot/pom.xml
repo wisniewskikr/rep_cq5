@@ -7,4 +7,5 @@
   </parent>
   <artifactId>landingPage-docroot</artifactId>
   <packaging>pom</packaging>
+  <name>landingPage-docroot</name>
 </project>

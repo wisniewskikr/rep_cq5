@@ -6,6 +6,7 @@
 						
 						
 						
+	<!-- It builds package with example content and dam. -->
 	<id>cq-content</id>
 	
 	
@@ -49,7 +50,7 @@
 	
 	
 	
-	<!-- vault files from parent project -->
+	<!-- vault files -->
 	<fileSets>
 		<fileSet>
 			<directory>src/main/vault</directory>

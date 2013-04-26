@@ -7,4 +7,5 @@
   </parent>
   <artifactId>landingPage-example-content</artifactId>
   <packaging>pom</packaging>
+  <name>landingPage-example-content</name>
 </project>
