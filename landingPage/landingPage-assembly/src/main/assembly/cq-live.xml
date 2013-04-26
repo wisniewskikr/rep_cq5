@@ -6,7 +6,7 @@
 						
 						
 						
-	<id>cq-content</id>
+	<id>cq-live</id>
 	
 	
 	
@@ -28,8 +28,8 @@
 
 			<!-- Now, select which projects to include in this module-set. -->
 			<includes>
-				<include>com.roche:landingPage-example-content</include>
-				<include>com.roche:landingPage-example-dam</include>
+				<include>com.roche:landingPage-docroot</include>
+				<include>com.roche:landingPage-webapp</include>
 			</includes>
 			
 			<!-- items from source folder -->
@@ -44,6 +44,12 @@
 				</fileSets>
 			</sources>
 			
+			<!-- compiled java classes - jars -->
+			<binaries>
+				<outputDirectory>/jcr_root/apps/landingPage/install</outputDirectory>
+				<unpack>false</unpack>
+			</binaries>
+			
 		</moduleSet>
 	</moduleSets>
 	
@@ -57,6 +63,18 @@
 			<outputDirectory>/META-INF/vault</outputDirectory>
 		</fileSet>		
 	</fileSets>
+	
+	
+	
+	<dependencySets>	
+		<dependencySet>
+			<outputDirectory>/jcr_root/apps/landingPage/install</outputDirectory>
+			<includes>
+				<include>com.cognifide.cq</include>
+				<include>commons-lang</include>				
+			</includes>
+		</dependencySet>				
+	</dependencySets>
 	
 	
 	

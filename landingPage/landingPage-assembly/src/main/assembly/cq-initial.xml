@@ -6,7 +6,7 @@
 						
 						
 						
-	<id>cq-content</id>
+	<id>cq-initial</id>
 	
 	
 	
@@ -28,8 +28,7 @@
 
 			<!-- Now, select which projects to include in this module-set. -->
 			<includes>
-				<include>com.roche:landingPage-example-content</include>
-				<include>com.roche:landingPage-example-dam</include>
+				<include>com.roche:landingPage-initial-content</include>
 			</includes>
 			
 			<!-- items from source folder -->

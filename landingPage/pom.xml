@@ -19,8 +19,10 @@
   
   
   <properties>  	
-  	<crx.user>admin</crx.user>
-  	<crx.password>admin</crx.password>
+  	<!-- It should be defined globally in settings.xml -->
+  	<!-- crx.user></crx.user>
+  	<crx.password></crx.password>
+  	<instance.url><instance.url/ -->
   	
   	<framework.version>2.3.0</framework.version>  	
   </properties>
@@ -28,26 +30,14 @@
   
   
   <profiles>
-  
-  	<!-- PROFILES OF HOSTS -->
-  	<profile>
-		<id>local-author</id>				
-		<properties>							
-			<crx.url>http://localhost:4502</crx.url>				
-		</properties>
-	</profile>
-	
-	<profile>
-		<id>local-publish</id>		
-		<properties>							
-			<crx.url>http://localhost:4503</crx.url>				
-		</properties>
-	</profile>
 	
 	<!-- PROFILES OF ASSEMBLY -->
 	<!-- Creates package with webapp and docroot -->
 	<profile>
-		<id>assembly-live</id>				
+		<id>assembly-live</id>
+		<activation>
+			<activeByDefault>true</activeByDefault>
+		</activation>				
 		<properties>							
 			<assembly.id>cq-live</assembly.id>				
 		</properties>
@@ -76,6 +66,22 @@
 			<assembly.id>cq-initial</assembly.id>				
 		</properties>
 	</profile>
+	
+	<!-- PROFILES OF HOSTS -->
+  	<!-- It should be defined globally in settings.xml -->
+  	<!-- profile>
+		<id>roche-local-author</id>				
+		<properties>							
+			<crx.url>http://localhost:4502</crx.url>				
+		</properties>
+	</profile>
+	
+	<profile>
+		<id>roche-local-publish</id>		
+		<properties>							
+			<crx.url>http://localhost:4503</crx.url>				
+		</properties>
+	</profile -->
 	
   </profiles>
   
@@ -120,7 +126,6 @@
 	  						<Bundle-SymbolicName>${project.groupId}</Bundle-SymbolicName>
 	  						<Bundle-Version>${maven.build.timestamp}</Bundle-Version> 
 	  						<Export-Package>com.roche.*</Export-Package>
-	  						<!-- Embed-Dependency>*;*;scope=compile</Embed-Dependency -->  						 
 	  					</instructions>
 	  				</configuration>
 	  			</plugin>
@@ -155,7 +160,7 @@
 						<runOnlyAtExecutionRoot>true</runOnlyAtExecutionRoot>
 						<packageFileName>${project.build.directory}/${project.build.finalName}-${assembly.id}.zip</packageFileName>
 						<packageName>${project.artifactId}</packageName>
-						<cqUrl>${crx.url}</cqUrl>
+						<cqUrl>${instance.url}</cqUrl>
 						<user>${crx.user}</user>
 						<password>${crx.password}</password>
 					</configuration>
