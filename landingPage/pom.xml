@@ -24,13 +24,35 @@
   
   
   <properties>  	
-  	<!-- It should be defined globally in settings.xml -->
-  	<!-- crx.user></crx.user>
+  	<!-- 
+  	This is necessary for maven-cq-plugin.
+  	It should be defined globally in settings.xml.
+  	These are credentials to Cq server -->
+  	<!-- 
+  	<crx.user></crx.user>
   	<crx.password></crx.password>
-  	<instance.url><instance.url/ -->
+  	<instance.url><instance.url/>
+  	-->
+  	
+  	<!-- 
+  	This is necessary for maven-release-plugin.
+  	It should be defined globally in settings.xml.
+  	These are credentials to Svn server -->
+  	<!-- scm.username></scm.username>
+  	<scm.password></scm.password -->
   	
   	<framework.version>2.3.0</framework.version>  	
   </properties>
+  
+  
+  
+  <!-- This is necessary for maven-release-plugin.
+  It indicates location of Svn server -->
+  <scm>
+	<connection>scm:svn:http://wisniewskikr.unfuddle.com/svn/wisniewskikr_test/landingPage/trunk</connection>
+	<developerConnection>scm:svn:http://wisniewskikr.unfuddle.com/svn/wisniewskikr_test/landingPage/trunk</developerConnection>
+	<url>file:///c:/svnFakeRepo/repo</url>
+  </scm>
   
   
   
@@ -88,35 +110,31 @@
 		</properties>
 	</profile -->
 	
+	<!-- This profile is automatically called by maven-release-plugin.
+	So output of release is assembly *.zip file -->
+	<profile>
+		<id>release</id>
+		<build>
+			<pluginManagement>
+				<plugins>
+					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<configuration>
+							<descriptors>
+                                  <descriptor>src/main/assembly/cq-live.xml</descriptor>
+                               </descriptors>            
+						</configuration>
+					</plugin>
+				</plugins>
+			</pluginManagement>
+		</build>
+	</profile>
+	
   </profiles>
   
   
   
-  <build>
-		<plugins>
-		
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.5</source>
-					<target>1.5</target>
-				</configuration>
-			</plugin>
-			
-			<!-- This plugin is necessary for every build
-			but it can be skipped and run only when is needed -->
-			<plugin>
-				<groupId>com.cognifide.cq.maven.plugins</groupId>
-				<artifactId>maven-cq-plugin</artifactId>
-				<inherited>false</inherited>
-				<version>1.0.4</version>
-				<configuration>
-					<skip>true</skip>
-				</configuration>
-			</plugin>			
-			  						  
-		</plugins>
+  <build>		
 		
 		<pluginManagement>		
 			<plugins>
@@ -174,10 +192,63 @@
 						<user>${crx.user}</user>
 						<password>${crx.password}</password>
 					</configuration>
+				</plugin>
+				
+				<!-- This is release plugin. When you release project
+				it creates tag in Svn, increases version and build
+				package without SNAPSHOT -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.2.2</version>
+					<configuration>
+						<autoVersionSubmodules>true</autoVersionSubmodules>
+						<useReleaseProfile>false</useReleaseProfile>
+						<preparationGoals>clean verify install</preparationGoals>
+						<goals>deploy</goals>
+						<arguments>-Prelease</arguments>
+					</configuration>
 				</plugin>								
 			
 			</plugins>		
-		</pluginManagement>		
+		</pluginManagement>
+		
+		
+		
+		<plugins>
+		
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+			
+			<!-- This plugin is necessary for every build
+			but it can be skipped and run only when is needed -->
+			<plugin>
+				<groupId>com.cognifide.cq.maven.plugins</groupId>
+				<artifactId>maven-cq-plugin</artifactId>
+				<inherited>false</inherited>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			
+			<!-- This is release plugin. When you release project
+			it creates tag in Svn, increases version and build
+			package without SNAPSHOT -->
+			<plugin>
+				<artifactId>maven-release-plugin</artifactId>
+				<configuration>
+					<username>${scm.username}</username>
+					<password>${scm.password}</password>
+				</configuration>
+			</plugin>			
+			  						  
+		</plugins>		
 		  						  
   </build>
   
@@ -231,6 +302,25 @@
 	</dependencies>	
   
   </dependencyManagement>
+  
+  
+  
+  <!-- 
+  This is necessery for release:perform.
+  Then package with previous version is build.
+   -->
+  <distributionManagement>
+        <repository>
+            <id>fakerepo</id>
+            <name>Local file system</name>
+            <url>file:///c:/svnFakeRepo/repo</url>
+        </repository>
+        <snapshotRepository>
+            <id>fakesnapshotrepo</id>
+            <name>Local file system</name>
+            <url>file:///c:/svnFakeRepo/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
       
   
   

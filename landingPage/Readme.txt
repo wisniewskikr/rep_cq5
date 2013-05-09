@@ -11,3 +11,7 @@ Host profiles:
 
 
 mvn clean install cq:install -P assembly-full,local-author
+
+
+mvn release:prepare -Dusername= -Dpassword=
+mvn release:perform -Dusername= -Dpassword=
