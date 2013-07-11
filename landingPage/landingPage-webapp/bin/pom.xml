@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.roche</groupId>
+    <artifactId>landingPage</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>landingPage-webapp</artifactId>
+  <packaging>bundle</packaging>
+  <name>landingPage-webapp</name>
+  
+  
+  
+  <build>  
+  	<plugins>
+  	
+  		<!-- Here bundle is created -->
+  		<plugin>
+  			<groupId>org.apache.felix</groupId>
+	  		<artifactId>maven-bundle-plugin</artifactId>
+  		</plugin>
+  	
+  	</plugins>  
+  </build>
+  
+  
+  
+  <dependencies> 		
+		
+		<!-- Dependencies of Sling -->
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.api</artifactId>
+		</dependency>
+		
+		<!-- Dependencies of Servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+		</dependency>
+		
+		<!-- Dependencies with Presenter, Model and Dto -->
+		<dependency>
+			<groupId>com.cognifide.cq</groupId>
+			<artifactId>framework-54-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.cognifide.cq</groupId>
+			<artifactId>framework-54-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.cognifide.cq</groupId>
+			<artifactId>framework-54-taglib</artifactId>
+		</dependency>
+		
+		<!-- Dependency with StringUtils -->
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+		</dependency>
+		
+	</dependencies>	
+  
+  
+  
+</project>

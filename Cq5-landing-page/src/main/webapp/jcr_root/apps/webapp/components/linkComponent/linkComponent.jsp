@@ -1,4 +1,4 @@
-<%@page import="com.roche.components.link.LinkPresenter"%>
+<%@page import="pl.kwi.components.link.LinkPresenter"%>
 <% %>
 <%@include file="/libs/foundation/global.jsp" %>
 <% %>
@@ -6,7 +6,7 @@
 
 <cog:checkErrors model="${model}">
 		
-	<a class="link" href="${model.url}" title="${model.title}" onmouseover="test1(this, '${model.bigFlagFileReference}')" onmouseout="test2(this, '${model.smallFlagFileReference}')">
+	<a class="link" href="${model.url}" title="${model.title}" onmouseover="changeImgSrc(this, '${model.bigFlagFileReference}')" onmouseout="changeImgSrc(this, '${model.smallFlagFileReference}')">
 		<span><img src="${model.smallFlagFileReference}"/></span>
 		${model.text}
 	</a>
