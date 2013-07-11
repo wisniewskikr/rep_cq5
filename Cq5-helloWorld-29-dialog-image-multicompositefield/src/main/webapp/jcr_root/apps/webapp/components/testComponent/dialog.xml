@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Widget"
+	title="Test Components"		            
+    xtype="panel">
+    <items jcr:primaryType="cq:WidgetCollection">
+                  
+      	<testComponentItems
+            jcr:primaryType="cq:Widget"
+            name="./testComponentItems"
+            xtype="multicompositefield">
+            <itemPanelConfig jcr:primaryType="nt:unstructured">
+                <layoutConfig jcr:primaryType="nt:unstructured"
+                    trackLabels="{Boolean}true"
+                 />
+            </itemPanelConfig>
+            <fieldConfigs jcr:primaryType="cq:WidgetCollection">
+                
+                <initiator 
+                    jcr:primaryType="cq:Widget"
+                    name="fileReference_null"
+                    hidden="true"
+                    />
+                    
+                <file
+                    jcr:primaryType="cq:Widget"
+                    allowUpload="false"
+                    allowBlank="{Boolean}false"
+                    allowFileNameEditing="{Boolean}false"
+                    ddAccept="[image/.*]"
+                    ddGroups="[media]"
+                    deferLayout="{Boolean}false"
+                    fieldLabel="Image"
+                    fileReferenceParameter="fileReference"
+                    forceLayout="{Boolean}true"
+                    hidden="false"
+                    height="180"
+                    name="fileReference"
+                    noFileNameText=""
+                    title="Media File"
+                    transferFileName="{Boolean}false"
+                    uploadUrl="/tmp/upload_test/*"
+                    xtype="smartfile"
+                    setValue="function(value) { /* poor-man's loadcontent */
+                        var dlg = this.findParentByType('dialog');
+                        try {
+                            var record = dlg.store.getAt(0);
+                            this.processRecord(record, dlg.path);
+                        }
+                        catch (e) {
+                            if( window.console ) {
+                                window.console.log('setValue() smartfile: '+ this.name);
+                                window.console.log(e);
+                            }
+                        }
+                    }">                             
+                    
+                    <listeners jcr:primaryType="nt:unstructured"
+                        afterrender="function() {
+                            var smartfile = this;
+                            var frefName = this.previousSibling().name;
+                            
+                            this.enable();
+                            this.show();
+                            this.updateViewBasics();
+                            
+                            frefName = frefName.substring(0, frefName.lastIndexOf('/'));
+                            this.fileReferenceParameter =  frefName + '/' + this.fileReferenceParameter;
+
+                            /* handle remove button */
+                            var mcfi = this.findParentByType('multicompositefielditem');
+                            var mcf = mcfi.ownerCt;
+                            mcf.ownerCt.on('remove', function unpin(mcf, item) {
+                                if (item === mcfi) {
+                                    var dialog = this.findParentByType('dialog');
+                                    var dlgListeners = dialog.events.beforesubmit.listeners;
+                                    for (var i = 0 ; i !== dlgListeners.length ; ++i) {
+                                        if (dlgListeners[i].scope === smartfile) {
+                                            dialog.un('beforesubmit', dlgListeners[i].fn, smartfile);
+                                            break;
+                                        }
+                                    }
+                                    mcf.un('remove', unpin);
+                                }
+                            });
+                        }"
+                        />
+                	</file>
+                
+                  <link
+               jcr:primaryType="cq:Widget"
+               fieldLabel="Link"
+               name="link"
+               allowBlank="{Boolean}false"			                            			                            		                            
+               typeAhead="false"
+               xtype="pathfield"/>                  
+               
+            	</fieldConfigs>
+             <listeners
+                 jcr:primaryType="nt:unstructured"
+                 loadcontent="function() {
+                     this.isFormField = false;
+                 }"
+             />
+         </testComponentItems> 
+         
+	</items>
+		        
+</jcr:root>

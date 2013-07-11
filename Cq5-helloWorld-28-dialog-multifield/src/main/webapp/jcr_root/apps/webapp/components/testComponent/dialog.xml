@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:TabPanel"
+    xtype="tabpanel">
+    <items jcr:primaryType="cq:WidgetCollection">
+    
+    	<Textlist
+             jcr:primaryType="cq:Widget"
+             title="Text List"
+             xtype="panel">
+             <items jcr:primaryType="cq:WidgetCollection">
+                 <whitelist
+                     jcr:primaryType="cq:Widget"
+                     fieldDescription="Text list description"
+                     fieldLabel="Text list"
+                     name="./textList"
+                     orderable="false"
+                     typeHint="String"
+                     xtype="multifield">
+                     <fieldConfig 
+                         jcr:primaryType="cq:Widget"
+                         xtype="textfield"/> 
+                 </whitelist>
+             </items>
+         </Textlist>	 
+        		            
+    </items>
+</jcr:root>
