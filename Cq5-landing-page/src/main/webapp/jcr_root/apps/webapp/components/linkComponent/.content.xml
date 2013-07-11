@@ -3,5 +3,5 @@
     jcr:description="Link Component"
     jcr:primaryType="cq:Component"
     jcr:title="Link Component"
-    componentGroup="Dialogo"
-    Group="Dialogo"/>
+    componentGroup="Test Group"
+    Group="Test Group"/>

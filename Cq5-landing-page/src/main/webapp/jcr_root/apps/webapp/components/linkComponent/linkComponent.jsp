@@ -2,7 +2,7 @@
 <% %>
 <%@include file="/libs/foundation/global.jsp" %>
 <% %>
-<c:set var="model" value="<%=new LinkGoToPresenter().getModelFromRequest(slingRequest)%>"/>
+<c:set var="model" value="<%=new LinkPresenter().getModelFromRequest(slingRequest)%>"/>
 
 <cog:checkErrors model="${model}">
 		
