@@ -4,9 +4,9 @@
 	xmlns:cq="http://www.day.com/jcr/cq/1.0" 
 	xmlns:jcr="http://www.jcp.org/jcr/1.0"
 	cq:isContainer="{Boolean}false"
-    jcr:description="Test Component"
+    jcr:description="Component of Background"
     jcr:primaryType="cq:Component"
-    jcr:title="Test component"
+    jcr:title="Background Component"
     sling:resourceSuperType="foundation/components/text"
     allowedParents="*/parsys"
     componentGroup=".hidden"/>

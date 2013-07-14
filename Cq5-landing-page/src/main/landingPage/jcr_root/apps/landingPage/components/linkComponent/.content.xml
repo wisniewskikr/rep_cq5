@@ -3,5 +3,5 @@
     jcr:description="Link Component"
     jcr:primaryType="cq:Component"
     jcr:title="Link Component"
-    componentGroup="Test Group"
-    Group="Test Group"/>
+    componentGroup="Landing Page Group"
+    Group="Landing Page Group"/>

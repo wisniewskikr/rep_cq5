@@ -3,8 +3,8 @@
 	xmlns:sling="http://sling.apache.org/jcr/sling/1.0" 
 	xmlns:cq="http://www.day.com/jcr/cq/1.0" 
 	xmlns:jcr="http://www.jcp.org/jcr/1.0"
-    jcr:description="Test Template Component"
+    jcr:description="Renderer of Langing Page Template"
     jcr:primaryType="cq:Component"
-    jcr:title="Test Template Component"
+    jcr:title="Langing Page Template Renderer"
     sling:resourceSuperType="foundation/components/page"
     componentGroup=".hidden"/>

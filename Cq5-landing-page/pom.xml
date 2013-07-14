@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>pl.kwi</groupId>
-  <artifactId>webapp</artifactId>
+  <artifactId>landingPage</artifactId>
   <version>0.1</version>
   <packaging>bundle</packaging>
   <description>Test CQ project</description>
@@ -11,6 +11,8 @@
   <properties>  	
   	<crx.user>admin</crx.user>
   	<crx.password>admin</crx.password>
+  	<crx.url.author>http://localhost:4502</crx.url.author>
+  	<crx.url.publish>http://localhost:4503</crx.url.publish>
   	
   	<framework.version>2.3.0</framework.version>
   	<assembly.id>cq</assembly.id>
@@ -20,19 +22,19 @@
   
   <profiles>
   	<profile>
-		<id>test-author</id>
+		<id>cq-author</id>
 		<activation>
 			<activeByDefault>true</activeByDefault>
 		</activation>		
 		<properties>							
-			<crx.url>http://localhost:4502</crx.url>				
+			<crx.url>${crx.url.author}</crx.url>				
 		</properties>
 	</profile>
 	
 	<profile>
-		<id>test-publish</id>		
+		<id>cq-publish</id>		
 		<properties>							
-			<crx.url>http://localhost:4503</crx.url>				
+			<crx.url>${crx.url.publish}</crx.url>				
 		</properties>
 	</profile>
   </profiles>
@@ -157,8 +159,7 @@
   
   
   <!-- Internal project repository - for jars 
-	which are not in any oficial Maven repositories 
-	(for instnce opencloud) -->
+	which are not in any oficial Maven repositories -->
 	<repositories>
 		<repository>
 			<id>project-repo</id>

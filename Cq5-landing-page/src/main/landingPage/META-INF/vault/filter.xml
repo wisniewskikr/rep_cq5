@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
-    <filter root="/apps/webapp"/>
-    <filter root="/etc/designs/webapp"/>
+    <filter root="/apps/landingPage"/>
+    <filter root="/etc/designs/landingPage"/>
 </workspaceFilter>

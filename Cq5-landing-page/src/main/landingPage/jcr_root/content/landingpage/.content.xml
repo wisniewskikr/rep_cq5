@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2013-07-14T12:44:05.701+02:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/apps/landingPage/templates/landingPageTemplate"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="landingPage"
+        sling:resourceType="landingPage/renderers/landingPageRenderer">
+        <par1 jcr:primaryType="nt:unstructured">
+            <par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys">
+                <linkcomponent
+                    jcr:created="{Date}2013-07-14T12:41:12.935+02:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2013-07-14T12:43:48.904+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="landingPage/components/linkComponent"
+                    bigFlagFileReference="/content/dam/landingPage/MX_.png"
+                    smallFlagFileReference="/content/dam/landingPage/MX.png"
+                    text="Mexico"
+                    title="Link to google of Mexico"
+                    url="http://www.google.com.mx"/>
+                <linkcomponent_0
+                    jcr:created="{Date}2013-07-14T12:42:26.592+02:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2013-07-14T12:44:05.685+02:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="landingPage/components/linkComponent"
+                    bigFlagFileReference="/content/dam/landingPage/BR_.png"
+                    smallFlagFileReference="/content/dam/landingPage/BR.png"
+                    text="Brasil"
+                    title="Link to google of Brasil"
+                    url="http://www.google.com.br"/>
+            </par>
+        </par1>
+    </jcr:content>
+</jcr:root>

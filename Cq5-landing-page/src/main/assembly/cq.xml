@@ -23,7 +23,7 @@
 	<dependencySets>
 	
 		<dependencySet>
-			<outputDirectory>/jcr_root/apps/webapp/install</outputDirectory>
+			<outputDirectory>/jcr_root/apps/landingPage/install</outputDirectory>
 			<includes>
 				<include>com.cognifide.cq</include>
 				<include>commons-lang</include>				
@@ -37,12 +37,12 @@
 	<fileSets>
 	
 		<fileSet>
-			<directory>src/main/webapp/jcr_root</directory>
+			<directory>src/main/landingPage/jcr_root</directory>
 			<outputDirectory>/jcr_root</outputDirectory>			
 		</fileSet>	
 			
 		<fileSet>
-			<directory>src/main/webapp/META-INF</directory>
+			<directory>src/main/landingPage/META-INF</directory>
 			<outputDirectory>/META-INF</outputDirectory>
 			<includes>
 				<include>**/*</include>
@@ -51,7 +51,7 @@
 			
 		<fileSet>
 			<directory>${project.build.directory}</directory>
-			<outputDirectory>/jcr_root/apps/webapp/install</outputDirectory>
+			<outputDirectory>/jcr_root/apps/landingPage/install</outputDirectory>
 			<includes>
 				<include>*.jar</include>
 			</includes>

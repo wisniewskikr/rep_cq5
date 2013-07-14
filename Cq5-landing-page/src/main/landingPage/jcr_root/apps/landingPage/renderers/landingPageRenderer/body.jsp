@@ -5,7 +5,7 @@
 
 	<div id="content">
 
-		<cq:include path="par1" resourceType="webapp/components/testComponent" />
+		<cq:include path="par1" resourceType="landingPage/components/backgroundComponent" />
 		
 	</div>
 
