@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2013-07-15T09:03:41.636+02:00"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2013-07-15T09:18:48.680+02:00"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicationAction="Activate"
+        cq:template="/apps/webapp/templates/testTemplate"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="en"
+        jcr:uuid="94f9b42b-c14a-423a-abbb-1fab867f6ea0"
+        sling:resourceType="webapp/components/testTemplate"/>
+    <pages/>
+    <login/>
+</jcr:root>
