@@ -1,6 +1,10 @@
 CQ5, LOGIN AND LOGOUT
 
 
+!Attention
+Log out does not work properly - CQ and custom solutions.
+
+
 This project is connected with authentication and login to restrict page. It shows how log out works basing on example content. 
 Example content consists of:
 - restricted page: /content/webapp/en/pages/page.html
