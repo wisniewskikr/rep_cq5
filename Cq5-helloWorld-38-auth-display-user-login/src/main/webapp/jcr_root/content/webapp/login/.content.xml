@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2013-07-30T09:35:15.155+02:00"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2013-07-30T09:50:43.030+02:00"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicationAction="Activate"
+        cq:template="/apps/webapp/templates/testTemplate"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="login"
+        jcr:uuid="b1d18c73-5b56-4c9c-855a-f17c8f5f5623"
+        sling:resourceType="webapp/components/testTemplate">
+        <par
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys">
+            <sitemap
+                jcr:created="{Date}2013-07-30T09:33:21.429+02:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2013-07-30T09:35:15.151+02:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/sitemap"
+                rootPath="/content/webapp"/>
+            <login
+                jcr:created="{Date}2013-07-30T09:33:28.884+02:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2013-07-30T09:34:18.396+02:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/login"
+                passwordLabel="Password"
+                redirectTo="/content/webapp/page"
+                usernameLabel="Username"/>
+        </par>
+    </jcr:content>
+</jcr:root>
