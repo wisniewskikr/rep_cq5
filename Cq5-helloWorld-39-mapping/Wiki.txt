@@ -1,0 +1,150 @@
+CQ Mappings
+Introduction
+Mapping configuration by default is placed under /etc/map.
+We usually use different location /etc/map.publish.
+This configuration is set by resource.resolver.map.location property of the org.apache.sling.jcr.resource.internal.JcrResourceResolverFactoryImpl.
+It is included in avastin configuration on all production and test servers but it has to be configured on new instance (e.g. developer instance) because mappings entries are usually placed under map.publish.
+
+Mapping configuration for the site consist of series of entries which map url to resource (and resource to url).
+For older project flat structures of nodes (all entries directly under /etc/map.publish) was used. It's acceptable for relatively small amount of entries.
+New approach is based on grouping entries for a single domain under one root node.
+
+/etc/map.publish
+      http.somedomain1.com
+          example11
+          example12
+          example13
+      http.somedomain2.com
+          example21
+          example22
+This will facilitate review and maintenance mappings configuration.
+
+Mapping entries
+Single mapping entry is a node with a few properties.
+
+primaryType - has to be sling:Mapping
+properties that are usually used:
+
+sling:match - This property when set on a node in the /etc/map tree (see below) defines a partial regular expression which is used instead of the node's name to match the incoming request. This property is only needed if the regular expression includes characters which are not valid JCR name characters. The list of invalid characters for JCR names is: /, :, ,, *, ', ", | and any whitespace except blank space. In addition a name without a name space may not be . or .. and a blank space is only allowed inside the name.
+sling:internalRedirect - This property when set on a node in the /etc/map tree (see below) causes the current path to be modified internally to continue with resource resolution.
+other properties:
+
+sling:redirect - This property when set on a node in the /etc/map tree (see below) causes a redirect response to be sent to the client, which causes the client to send in a new request with the modified location. The value of this property is applied to the actual request and sent back as the value of Location response header.
+sling:status - This property defines the HTTP status code sent to the client with the sling:redirect response. If this property is not set, it defaults to 302 (Found). Other status codes supported are 300 (Multiple Choices), 301 (Moved Permanently), 303 (See Other), and 307 (Temporary Redirect).
+sling:alias - The property may be set on any resource to indicate an alias name for the resource. For example the resource /content/visitors may have the sling:alias property set to besucher allowing the resource to be addressed in an URL as /content/besucher.
+Example mapping entry:
+
+<apps
+    jcr:primaryType="sling:Mapping"
+    sling:internalRedirect="/apps/$1"
+    sling:match="apps/(.*)"/>
+Name and match
+If there sling:match property is present node name is ignored. Match property have to be used if regular expression is required or plain expression caould not be proper JCR node name (because of illegal characters).
+
+Match expression - regexp group capture
+If match without group capturing is used both way mapping works (forward and reverse).
+See example:
+
+<apps
+    jcr:primaryType="sling:Mapping"
+    sling:internalRedirect="/apps"
+    sling:match="apps"/>
+Will produce mappings:
+Forward:
+
+
+
+Reverse:
+
+
+
+If regexp group which should be passed to redirect is used only forward mapping will work.
+See example:
+
+<apps jcr:primaryType="sling:Mapping"
+    sling:internalRedirect="/apps/$1"
+    sling:match="apps/(.*)"/>
+Forward
+
+
+
+It's impossible to produce reverse mapping.
+
+Sometimes it is expected (and desired) behavior e.g mapping of shared paths (/apps, /libs, /etc ..., shared servlets) should have only forward mapping to avoid "resources grabbing" (especially servlets).
+
+Internal redirect list
+	Be Careful
+Using this feature without reason is discouraged.
+It's possible to define a list of internal redirects. For example:
+
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="sling:Mapping"
+    sling:internalRedirect="[/content/internet/portal/customer/hdlscience/en_US/home,/content/internet/portal/customer/hdlscience/en_US/application]">
+It works fine on CQ. Links are correctly rewritten and resources are mapped correctly.
+But this solution will cause problems on dispatcher (especially with single dispatcher configuration). Dispatcher cannot check which resources are available on cq so it's not easy to resolve cache resources correctly.
+
+Complete example
+Entries for one domain could be grouped in folder under under /etc/map (or map.publish).
+In our case usually folder is replaced by mapping entry which points to content subtree root node (see example below).
+Under that node homepage node is added which match to empty string ("$" or "") to map domain url to home page.
+Additionally all pass-trough mappings should be defined. Also all mappings which do not match to main rule should be added.
+(As in example sys <-> /content/internet/portal/customer/someproject/en_US/application)
+
+/etc/map.publish/http/www.somedomain.com/
+
+.content.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"     <!-- main mapping - main rule -->
+    jcr:primaryType="sling:Mapping"
+    sling:internalRedirect="[/content/internet/portal/customer/someproject/en_US/home]">
+    <homepage jcr:primaryType="sling:Mapping"                                                            <!-- homepage resource -->
+        sling:internalRedirect="[/content/internet/portal/customer/someproject/en_US/home.html]"
+        sling:match="$"/>
+    <sys jcr:primaryType="sling:Mapping"                                                                 <!-- application section - additional rule -->
+        sling:internalRedirect="[/content/internet/portal/customer/someproject/en_US/application]"/>
+    <apps jcr:primaryType="sling:Mapping"                                                                <!-- pass-through apps -->
+        sling:internalRedirect="/apps/$1"
+        sling:match="apps/(.*)"/>
+    <bin jcr:primaryType="sling:Mapping"                                                                 <!-- pass-through bin -->
+        sling:internalRedirect="/bin/$1"
+        sling:match="bin/(.*)"/>
+    <dam jcr:primaryType="sling:Mapping"                                                                 <!-- pass-through dam -->
+        sling:internalRedirect="/content/dam/internet/portal/customer/someproject/en_US/$1"
+        sling:match="/content/dam/internet/portal/customer/someproject/en_US/(.*)"/>
+    <etc jcr:primaryType="sling:Mapping"                                                                 <!-- pass-through etc -->
+        sling:internalRedirect="/etc/$1"
+        sling:match="etc/(.*)"/>
+    <libs jcr:primaryType="sling:Mapping"                                                                <!-- pass-through libs -->
+        sling:internalRedirect="/libs/$1"
+        sling:match="libs/(.*)"/>
+</jcr:root>
+Forward mappings:
+
+
+
+Reverse mappings:
+
+
+
+Sling mappings documentation
+Complete sling mapping documentation can be found here: Sling mappings
+
+Apache rewrites for dispatcher.
+To have consistency between CQ content and cache storage and what's more important to avoid collisions in cache we have to rewrite requests accordingly to mapping strategy.
+Example:
+
+part of vhost file
+...
+        RewriteRule ^/dispatcher/(.*) /dispatcher/$1 [PT,L]
+        RewriteRule ^/$ /content/internet/portal/customer/someproject/en_US/home.html [PT,L]
+        RewriteRule ^/apps/(.*)$ /apps/$1 [PT,L]
+        RewriteRule ^/libs/(.*)$ /libs/$1 [PT,L]
+        RewriteRule ^/bin/(.*)$ /bin/$1 [PT,L]
+        RewriteRule ^/etc/(.*)$ /etc/$1 [PT,L]
+        RewriteRule ^/content/dam/internet/portal/customer/someproject/en_US/(.*)$ /content/dam/internet/portal/customer/someproject/en_US/$1 [PT,L]
+        RewriteRule ^/sys/(.*)$ /content/internet/portal/customer/someproject/en_US/application/$1 [PT,L]
+        RewriteRule ^/(.*)\.html(.*)$ /content/internet/portal/customer/someproject/en_US/home/$1\.html$2 [PT,L]
+...
+Labels:
+cq5 mappings Edit Labels

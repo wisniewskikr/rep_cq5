@@ -1,0 +1,43 @@
+div#content {
+	width: 960px;
+	height: 450px;
+	background-image: url('background.jpg'); 
+
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	margin: auto;
+}
+
+div#links {
+	margin-left: 40em;
+	margin-top: 4em;
+}
+
+.link{
+	display: block;	
+	height: 40px;
+	
+	line-height: 50px;
+	vertical-align:middle;
+	
+	font-family: Verdana, Tahoma, Geneva, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: rgb(106, 106, 106);
+	text-decoration: none;	
+}
+
+.link span {
+	display: inline-block;
+	width: 60px;	
+}
+
+.link span img {
+	vertical-align: middle;
+}
+
+
