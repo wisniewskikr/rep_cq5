@@ -4,6 +4,7 @@
 
 
 <c:set var="inputPagePath" value="<%= ResourceUtil.getResourceProperty(resource, "inputPagePath") %>"/>
+<c:set var="name" value="<%= request.getParameter("name") %>"/>
 
 
 <input type="hidden" id="redirectPath" name="redirectPath" value="${inputPagePath}"/>
@@ -14,7 +15,7 @@
 <div class="content">
 	<div class="contentElement">
 		<div>&nbsp;</div>
-		<div class="text"> Hello World <b>NAME</b> </div>
+		<div class="text"> Hello World <b>${name}</b> </div>
 		<div>&nbsp;</div>
 	</div>
 	

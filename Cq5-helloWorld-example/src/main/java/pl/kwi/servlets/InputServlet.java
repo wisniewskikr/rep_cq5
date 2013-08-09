@@ -27,10 +27,8 @@ public class InputServlet extends SlingAllMethodsServlet {
 	protected void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException,
 			IOException {
 		
-		String redirectPath = request.getParameter("redirectPath") + ".html";
-		
 		String name = request.getParameter("name");
-		System.out.println("---name: " + name);
+		String redirectPath = request.getParameter("redirectPath") + ".html?name=" + name;
 		
 		response.sendRedirect(redirectPath);
 		
