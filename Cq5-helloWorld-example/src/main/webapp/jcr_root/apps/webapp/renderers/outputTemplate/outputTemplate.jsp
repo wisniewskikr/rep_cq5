@@ -15,25 +15,11 @@
 
 
 <body>
-<form>
-
-	<div class="page">
-		<div class="title"><h2>Hello World</h2></div>
-		<div class="subtitle"><h3>Page: <b>Output</b></h3></div>
-		<div class="content">
-			<div class="contentElement">
-				<div>&nbsp;</div>
-				<div class="text"> Hello World <b>NAME</b> </div>
-				<div>&nbsp;</div>
-			</div>
-			
-		</div>
-		<div class="buttons">
-			<input type="submit" id="back" name="back" value="Back" title="Go back to previous page"/>
-		</div>
-	</div>		
-
-</form>
+	<form method="POST" action="webapp.OUTPUT.html">
+		<div class="page">
+			<cq:include path="outputFormComponent" resourceType="webapp/components/outputFormComponent"/>
+		</div>		
+	</form>
 </body>
 
 
