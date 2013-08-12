@@ -4,12 +4,13 @@
 
 
 <c:set var="outputPagePath" value="<%= ResourceUtil.getResourceProperty(resource, "outputPagePath") %>"/>
+<c:set var="currentPagePath" value="<%= currentPage.getPath() %>"/>
 <c:set var="errorField" value="<%= request.getParameter("errorField") %>"/>
 <c:set var="errorMessage" value="<%= request.getParameter("errorMessage") %>"/>
 
 
-
 <input type="hidden" id="redirectPath" name="redirectPath" value="${outputPagePath}"/>
+<input type="hidden" id="currentPagePath" name="currentPagePath" value="${currentPagePath}"/>
 
 
 <div class="title"><h2>Hello World</h2></div>

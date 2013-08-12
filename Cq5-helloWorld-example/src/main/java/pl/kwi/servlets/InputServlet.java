@@ -12,6 +12,7 @@ import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 
+
 @Component(immediate=true, metatype=false, label="INPUT SERVLET")
 @Service
 @Properties(value = {
@@ -27,11 +28,11 @@ public class InputServlet extends SlingAllMethodsServlet {
 	@Override
 	protected void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException,
 			IOException {		
-		
+				
 		String errorMessage = getErrorMessage(request);
 		if(errorMessage != null) {
-			//TODO Make flexible
-			response.sendRedirect("/content/webapp/input.html" + errorMessage);
+			String currentPagePath = request.getParameter("currentPagePath");
+			response.sendRedirect(currentPagePath + ".html" + errorMessage);
 			return;
 		}
 		
