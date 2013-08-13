@@ -4,10 +4,30 @@
     title="Output Form"
     xtype="panel">
     <items jcr:primaryType="cq:WidgetCollection">
-        <testComponentText
+        <inputPagePath
             jcr:primaryType="cq:Widget"
             xtype="pathfield"
             fieldLabel="Input page path"                       
-            name="./inputPagePath" />        
+            name="./inputPagePath" />
+        <pageTitle
+            fieldLabel="Page title"                       
+            name="./pageTitle"
+            jcr:primaryType="cq:Widget"
+            xtype="textfield" />
+        <pageName
+            fieldLabel="Page name"                       
+            name="./pageName"
+            jcr:primaryType="cq:Widget"
+            xtype="textfield" />
+        <fieldHelloWorldText
+            fieldLabel="Field 'Hello World' text"                       
+            name="./fieldHelloWorldText"
+            jcr:primaryType="cq:Widget"
+            xtype="textfield" />
+        <buttonText      
+            fieldLabel="Button text"                       
+            name="./buttonText"
+            jcr:primaryType="cq:Widget"
+            xtype="textfield" />                     
     </items>
 </jcr:root>
