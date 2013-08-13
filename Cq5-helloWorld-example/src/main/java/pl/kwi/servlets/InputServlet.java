@@ -44,10 +44,10 @@ public class InputServlet extends SlingAllMethodsServlet {
 	}
 	
 	/**
-	 * Method gets error message.
+	 * Method gets error field name.
 	 * 
 	 * @param request object SlingHttpServletRequest with request from browser
-	 * @return object String with error message
+	 * @return object String with error field name
 	 */
 	private String getErrorMessage(SlingHttpServletRequest request) {
 				
@@ -55,10 +55,7 @@ public class InputServlet extends SlingAllMethodsServlet {
 		
 		String name = request.getParameter("name");
 		if(StringUtils.isBlank(name)) {
-			sb.append("?");
-			sb.append("errorField=name");
-			sb.append("&");
-			sb.append("errorMessage=Please fill this field");
+			sb.append("?errorField=name");
 			return sb.toString();
 		}
 		
