@@ -14,20 +14,30 @@
             name="./pageTitle"
             jcr:primaryType="cq:Widget"
             xtype="textfield" />
+        <pageText
+            fieldLabel="Text 'Page'"                       
+            name="./textPage"
+            jcr:primaryType="cq:Widget"
+            xtype="textfield" />     
         <pageName
             fieldLabel="Page name"                       
             name="./pageName"
             jcr:primaryType="cq:Widget"
             xtype="textfield" />
         <fieldHelloWorldText
-            fieldLabel="Field 'Hello World' text"                       
-            name="./fieldHelloWorldText"
+            fieldLabel="Text 'Hello World'"                       
+            name="./textHelloWorld"
             jcr:primaryType="cq:Widget"
             xtype="textfield" />
         <buttonText      
             fieldLabel="Button text"                       
             name="./buttonText"
             jcr:primaryType="cq:Widget"
-            xtype="textfield" />                     
+            xtype="textfield" /> 
+        <buttonHint      
+            fieldLabel="Button hint"                       
+            name="./buttonHint"
+            jcr:primaryType="cq:Widget"
+            xtype="textfield" />                        
     </items>
 </jcr:root>
