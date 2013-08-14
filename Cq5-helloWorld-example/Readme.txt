@@ -20,16 +20,20 @@ This project shows additionally:
 
 
 
-USAGE
-=====
+CONFIGURATION
+=============
 
 
-1. Configuration
 All flexible configuration of project (server`s urls, logins, passwords etc.) can be changed in file:
 <project_home>/project.properties
 
 
-2. Deployment
+
+
+DEPLOYMENT
+==========
+
+
 User can deploy project using maven commands:
 
 - Deployment of components on author server:
