@@ -1,23 +1,45 @@
-CQ5 AND FORM WITH SERVLETS
+CQ5 AND HELLO WORLD EXAMPLE
 
 
-This tutorial is about using form and servlets in CQ5. In other words it is about how to send 
-data from form to servlet.
 
-To use form in CQ you have to:
-- in *.jsp file:	add selector to action in form. Selector has to begin with "." and end with suffix.
-					For instance in action "webapp.SELECTORNAME.html" selector is "SELECTORNAME";
-- in servlet:		extend SlingAllMethodsServlet;
-- in servlet:		create service with specified properties. For instance "sling.servlet.selectors"
-					has to have "SELECTORNAME" from action;
 
-Example properties:
 
-@Component(immediate=true, metatype=false, label="EXAMPLE SERVLET")
-@Service
-@Properties(value = {
-    @org.apache.felix.scr.annotations.Property(name="sling.servlet.methods", value={"POST"}),
-    @org.apache.felix.scr.annotations.Property(name="sling.servlet.resourceTypes", value={"sling/servlet/default"}),
-    @org.apache.felix.scr.annotations.Property(name="sling.servlet.selectors", value={"SELECTORNAME"}),
-    @org.apache.felix.scr.annotations.Property(name="sling.servlet.extensions", value={"html"})
-})
+DESCRIPTION
+===========
+
+
+This is Hello World project for CQ. This project consists of two pages:
+- input page: user types here his name;
+- output page: text "Hello World <user_name>" is displayed here.
+
+This project shows additionally:
+- validation: user can not send empty name;
+- java script: hints/titles for buttons are handled by jquery
+
+
+
+
+
+USAGE
+=====
+
+
+1. Configuration
+All flexible configuration of project (server`s urls, logins, passwords etc.) can be changed in file:
+<project_home>/project.properties
+
+
+2. Deployment
+User can deploy project using maven commands:
+
+- Deployment of components on author server:
+mvn clean install crx:install -Pauthor,componens
+
+- Deployment of components on publish server:
+mvn clean install crx:install -Ppublish,componens
+
+- Deployment of content on author server:
+mvn clean install crx:install -Pauthor,content
+
+- Deployment of content on publish server:
+mvn clean install crx:install -Ppublish,content

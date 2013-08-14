@@ -8,11 +8,5 @@
     <rep:repoPolicy/>
     <rep:policy/>
     <jcr:system/>
-    <var/>
-    <libs/>
-    <etc/>
-    <apps/>
-    <home/>
-    <tmp/>
     <content/>
 </jcr:root>
