@@ -9,10 +9,8 @@
   
   
   <properties>
-  	<!-- File properties -->
+  	<!-- Properties with location of file properties -->
 	<project.properties.file>project.properties</project.properties.file>
-  	<!-- Cognifide framework version -->
-  	<framework.version>2.3.0</framework.version>
   </properties>
   
   
