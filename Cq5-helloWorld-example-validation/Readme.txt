@@ -1,4 +1,4 @@
-CQ5 AND HELLO WORLD EXAMPLE (WITH VALIDATION)
+CQ5 AND HELLO WORLD (HTML TAG "FORM" WITH VALIDATION)
 
 
 
@@ -13,6 +13,7 @@ This is Hello World project for CQ. This project consists of two pages:
 - output page: text "Hello World <user_name>" is displayed here.
 
 This project shows additionally:
+- html tag "form": just html tag "form" is here used;
 - validation: user can not send empty name;
 - java script: hints/titles for buttons are handled by jquery
 
@@ -57,7 +58,7 @@ USAGE
 =====
 
 
-User can use this project after deployment using following links:
+User can work with this project after deployment using following links:
 
 - Author Server:
 http://localhost:4502/cf#/content/webapp.html
