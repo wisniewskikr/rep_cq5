@@ -8,7 +8,8 @@
             jcr:primaryType="cq:Widget"
             xtype="pathfield"
             fieldLabel="Output page path"                       
-            name="./outputPagePath" />
+            name="./outputPagePath" 
+            allowBlank="false" />
         <pageTitle
             fieldLabel="Page title"                       
             name="./pageTitle"
@@ -38,7 +39,8 @@
             fieldLabel="Field 'name' error message"                       
             name="./fieldNameErrorMessage"
             jcr:primaryType="cq:Widget"
-            xtype="textfield" />
+            xtype="textfield" 
+            allowBlank="false" />
         <buttonText      
             fieldLabel="Button text"                       
             name="./buttonText"
@@ -48,6 +50,7 @@
             fieldLabel="Button hint"                       
             name="./buttonHint"
             jcr:primaryType="cq:Widget"
-            xtype="textfield" />                                         
+            xtype="textfield" 
+            allowBlank="false" />                                         
     </items>
 </jcr:root>
