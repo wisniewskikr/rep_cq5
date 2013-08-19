@@ -176,39 +176,6 @@
 			<scope>provided</scope>
 		</dependency>
 		
-		<!-- Dependencies of Servlet -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.4</version>
-			<scope>provided</scope>
-		</dependency>
-		
-		<!-- Dependencies with Presenter, Model and Dto -->
-		<dependency>
-			<groupId>com.cognifide.cq</groupId>
-			<artifactId>framework-54-api</artifactId>
-			<version>${framework.version}</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.cognifide.cq</groupId>
-			<artifactId>framework-54-core</artifactId>
-			<version>${framework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.cognifide.cq</groupId>
-			<artifactId>framework-54-taglib</artifactId>
-			<version>${framework.version}</version>
-		</dependency>
-		
-		<!-- Dependencies with StringUtils -->
-		<dependency>
-			<groupId>commons-lang</groupId>
-			<artifactId>commons-lang</artifactId>
-			<version>2.5</version>
-		</dependency>
-		
 		<!-- Dependencies with annotations -->
 		<dependency>
 	    	<groupId>org.apache.felix</groupId>
@@ -216,20 +183,25 @@
 	    	<version>1.2.0</version>
 		</dependency>
 		
+		<!-- Dependencies of Servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.4</version>
+			<scope>provided</scope>
+		</dependency>
+				
+		<!-- Dependencies with StringUtils
+		Attention!!! 
+		It has to be added to CQ by "install" folder -->
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.5</version>
+		</dependency>
+		
   </dependencies>
   
-  
-  
-  <!-- Internal project repository - for jars 
-	which are not in any oficial Maven repositories 
-	(for instnce opencloud) -->
-	<repositories>
-		<repository>
-			<id>project-repo</id>
-			<url>file://${basedir}/repo</url>
-		</repository>
-	</repositories>
-  
-  
+
     
 </project>
