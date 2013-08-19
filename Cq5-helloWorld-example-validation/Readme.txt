@@ -48,3 +48,21 @@ mvn clean install crx:install -Pauthor,content
 
 - Deployment of content on publish server:
 mvn clean install crx:install -Ppublish,content
+
+
+
+
+
+USAGE
+=====
+
+
+User can use this project after deployment using following links:
+
+- Author Server:
+http://localhost:4502/cf#/content/webapp.html
+http://localhost:4502/cf#/content/webapp/input.html
+http://localhost:4502/cf#/content/webapp/output.html
+
+- Publish Server:
+http://localhost:4503/content/webapp.html
