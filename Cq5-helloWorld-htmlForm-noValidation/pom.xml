@@ -1,0 +1,205 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>pl.kwi</groupId>
+  <artifactId>Cq5-helloWorld-htmlForm-noValidation</artifactId>
+  <version>0.1</version>
+  <packaging>bundle</packaging>
+  <description>Test CQ project</description>
+  
+  
+  
+  <properties>
+  	<!-- Properties with location of file properties -->
+	<project.properties.file>project.properties</project.properties.file>
+  </properties>
+  
+  
+  
+  <profiles>
+  
+  	<profile>
+		<id>author</id>
+		<activation>
+			<activeByDefault>true</activeByDefault>
+		</activation>				
+		<properties>							
+			<crx.url>${author.crx.url}</crx.url>
+			<crx.user>${author.crx.user}</crx.user>
+  			<crx.password>${author.crx.password}</crx.password>				
+		</properties>
+	</profile>
+	
+	<profile>
+		<id>publish</id>				
+		<properties>							
+			<crx.url>${publish.crx.url}</crx.url>
+			<crx.user>${publish.crx.user}</crx.user>
+  			<crx.password>${publish.crx.password}</crx.password>				
+		</properties>
+	</profile>
+	
+	<profile>
+		<id>components</id>
+		<activation>
+			<activeByDefault>true</activeByDefault>
+		</activation>				
+		<properties>							
+			<assembly.id>components</assembly.id>				
+		</properties>
+	</profile>
+	
+	<profile>
+		<id>content</id>
+		<properties>							
+			<assembly.id>content</assembly.id>				
+		</properties>
+	</profile>
+	
+  </profiles>
+    
+  
+  
+  <build>
+		<plugins>
+		
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+			
+			<!-- Plugin removing activator class -->
+  			<plugin>
+		       <groupId>org.apache.felix</groupId>
+		       <artifactId>maven-scr-plugin</artifactId>
+		       <version>1.2.0</version>
+		        <executions>
+		            <execution>
+		                <id>generate-scr-scrdescriptor</id>
+		                <goals>
+		                    <goal>scr</goal>
+		               </goals>
+		           </execution>
+		       </executions>
+		   </plugin>
+			
+			<!-- Plugin creating manifest -->
+			<plugin>
+  				<groupId>org.apache.felix</groupId>
+  				<artifactId>maven-bundle-plugin</artifactId>
+  				<version>1.4.3</version>
+  				<extensions>true</extensions>
+  				<configuration>
+  					<instructions>
+  						<Bundle-Name>${project.artifactId}</Bundle-Name>
+  						<Bundle-SymbolicName>${project.groupId}</Bundle-SymbolicName>
+  						<Bundle-Version>${maven.build.timestamp}</Bundle-Version> 
+  						<Export-Package>pl.kwi.*</Export-Package>  						 
+  					</instructions>
+  				</configuration>
+  			</plugin>
+		  			  			
+  			<!-- Plugin creating file *.zip with bundle for cq -->
+  			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<descriptors>
+						<descriptor>src/main/assembly/${assembly.id}.xml</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+						<id>${assembly.id}</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+							
+			<!-- Plugin installing and deploying application on crx. 
+			Command: mvn clean install crx:install -->
+			<plugin>
+		        <groupId>com.cognifide.maven.plugins</groupId>
+		        <artifactId>maven-crx-plugin</artifactId>
+		        <version>1.0.3</version>
+		        <configuration>
+		        	<packageFileName>${project.build.directory}/${project.build.finalName}-${assembly.id}.zip</packageFileName>
+		          	<url>${crx.url}</url>
+		          	<user>${crx.user}</user>
+		          	<password>${crx.password}</password>
+		        </configuration>
+		      </plugin>
+		      
+		    <!-- Plugin for reading properties from
+			external file -->
+			<plugin>
+		        <groupId>org.codehaus.mojo</groupId>
+		        <artifactId>properties-maven-plugin</artifactId>
+		        <version>1.0-alpha-2</version>
+		        <executions>
+		          <execution>
+		            <phase>initialize</phase>
+		            <goals>
+		              <goal>read-project-properties</goal>
+		            </goals>
+		            <configuration>
+		              <files>
+		                <file>${project.properties.file}</file>
+		              </files>
+		            </configuration>
+		          </execution>
+		        </executions>
+		      </plugin>
+  						  
+		</plugins>
+	
+  </build>
+  
+  
+  
+  <dependencies> 		
+		
+		<!-- Dependencies of Sling -->
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.api</artifactId>
+			<version>2.2.0</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- Dependencies with annotations -->
+		<dependency>
+	    	<groupId>org.apache.felix</groupId>
+	    	<artifactId>org.apache.felix.scr.annotations</artifactId>
+	    	<version>1.2.0</version>
+		</dependency>
+		
+		<!-- Dependencies of Servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.4</version>
+			<scope>provided</scope>
+		</dependency>
+				
+		<!-- Dependencies with StringUtils
+		Attention!!! 
+		It has to be added to CQ by "install" folder -->
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.5</version>
+		</dependency>
+		
+  </dependencies>
+  
+
+    
+</project>
