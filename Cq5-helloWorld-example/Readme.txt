@@ -1,4 +1,4 @@
-CQ5 AND HELLO WORLD EXAMPLE
+CQ5 AND HELLO WORLD EXAMPLE (WITH VALIDATION)
 
 
 
@@ -26,6 +26,7 @@ CONFIGURATION
 
 All flexible configuration of project (server`s urls, logins, passwords etc.) can be changed in file:
 <project_home>/project.properties
+
 
 
 
