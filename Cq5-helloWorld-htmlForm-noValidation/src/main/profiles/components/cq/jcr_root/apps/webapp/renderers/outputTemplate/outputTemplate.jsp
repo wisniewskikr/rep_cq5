@@ -5,7 +5,7 @@
 <%@page import="pl.kwi.utils.ResourceUtil" %>
 
 
-<c:set var="inputPagePath" value="<%= ResourceUtil.getResourceProperty(resource, "inputPagePath") %>"/>
+<c:set var="inputPagePath" value="<%= ResourceUtil.getResourcePropertyFromChild(resource, "inputPagePath", "outputFormComponent") %>"/>
 
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
@@ -21,7 +21,7 @@
 
 
 <body>
-	<form method="GET" action="/content/webapp/input.html">
+	<form method="GET" action="${inputPagePath}.html">
 		<div class="page">
 			<cq:include path="outputFormComponent" resourceType="webapp/components/outputFormComponent"/>
 		</div>		

@@ -1,4 +1,4 @@
-CQ5 AND HELLO WORLD (HTML TAG "FORM" WITH VALIDATION)
+CQ5 AND HELLO WORLD (HTML TAG "FORM" WITHOUT VALIDATION)
 
 
 
@@ -14,7 +14,6 @@ This is Hello World project for CQ. This project consists of two pages:
 
 This project shows additionally:
 - html tag "form": just html tag "form" is here used;
-- validation: user can not send empty name;
 - java script: hints/titles for buttons are handled by jquery
 
 
