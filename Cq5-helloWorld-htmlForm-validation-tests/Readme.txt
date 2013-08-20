@@ -55,6 +55,24 @@ mvn clean install crx:install -Ppublish,content
 
 
 
+TESTS
+=====
+
+User can run tests:
+
+- Unit Tests:
+mvn clean test -Punit
+
+- Integration Tests:
+mvn clean install -Pintg
+
+- Acceptance Tests:
+mvn clean install -Paccpt
+
+
+
+
+
 USAGE
 =====
 
