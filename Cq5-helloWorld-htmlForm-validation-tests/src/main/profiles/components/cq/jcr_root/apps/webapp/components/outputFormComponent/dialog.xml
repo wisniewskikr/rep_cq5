@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Output Form"
+    xtype="panel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <inputPagePath
+            jcr:primaryType="cq:Widget"
+            xtype="pathfield"
+            fieldLabel="Input page path"                       
+            name="./inputPagePath"
+            allowBlank="false" />
+        <pageTitle
+            fieldLabel="Page title"                       
+            name="./pageTitle"
+            jcr:primaryType="cq:Widget"
+            xtype="textfield" />
+        <pageText
+            fieldLabel="Text 'Page'"                       
+            name="./textPage"
+            jcr:primaryType="cq:Widget"
+            xtype="textfield" />     
+        <pageName
+            fieldLabel="Page name"                       
+            name="./pageName"
+            jcr:primaryType="cq:Widget"
+            xtype="textfield" />
+        <fieldHelloWorldText
+            fieldLabel="Text 'Hello World'"                       
+            name="./textHelloWorld"
+            jcr:primaryType="cq:Widget"
+            xtype="textfield" />
+        <buttonText      
+            fieldLabel="Button text"                       
+            name="./buttonText"
+            jcr:primaryType="cq:Widget"
+            xtype="textfield" /> 
+        <buttonHint      
+            fieldLabel="Button hint"                       
+            name="./buttonHint"
+            jcr:primaryType="cq:Widget"
+            xtype="textfield"
+            allowBlank="false" />                        
+    </items>
+</jcr:root>
