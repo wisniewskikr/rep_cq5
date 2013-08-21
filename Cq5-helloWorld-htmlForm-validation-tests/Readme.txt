@@ -1,4 +1,4 @@
-CQ5 AND HELLO WORLD (HTML TAG "FORM" WITH VALIDATION AND TESTS)
+CQ5 AND HELLO WORLD (HTML TAG "FORM" WITH VALIDATION AND ALL KIND OF TESTS)
 
 
 
@@ -37,25 +37,27 @@ DEPLOYMENT
 ==========
 
 
-User can deploy project using maven commands:
+User can deploy project using maven commands. Template of maven command looks like:
 
-- Deployment of components on author server:
+mvn clean install crx:install -P<location_profile>,<action_profile>
+-------------------------------------------------------------------
+
+
+Location profiles:
+- author				: indicates author server as location
+- publish				: indicates publish server as location
+
+
+Action profiles:
+- components			: deploys components
+- content				: deploys content
+- content-accept		: deploys content for acceptance tests
+
+
+Example maven commands:
 mvn clean install crx:install -Pauthor,componens
-
-- Deployment of components on publish server:
-mvn clean install crx:install -Ppublish,componens
-
-- Deployment of content on author server:
-mvn clean install crx:install -Pauthor,content
-
-- Deployment of content on publish server:
-mvn clean install crx:install -Ppublish,content
-
-- Deployment of content of acceptance tests on author server:
-mvn clean install crx:install -Pauthor,content-accept
-
-- Deployment of content of acceptance tests on publish server:
 mvn clean install crx:install -Ppublish,content-accept
+etc.
 
 
 

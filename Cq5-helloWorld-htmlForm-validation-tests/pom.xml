@@ -19,6 +19,9 @@
   
   <profiles>
   
+  	<!-- START LOCATION PROFILES -->
+  	<!-- PROFILES: AUTHOR, PUBLISH -->
+  	
   	<profile>
 		<id>author</id>
 		<activation>
@@ -39,6 +42,12 @@
   			<crx.password>${publish.crx.password}</crx.password>				
 		</properties>
 	</profile>
+	
+	<!-- END LOCATION PROFILES -->
+	
+	
+	<!-- START ACTION PROFILES -->
+	<!-- PROFILES: COMPONENTS, CONTENT, CONTENT-ACCEPT -->
 	
 	<profile>
 		<id>components</id>
@@ -63,6 +72,12 @@
 			<assembly.id>accept</assembly.id>
 		</properties>
 	</profile>
+	
+	<!-- END ACTION PROFILES -->
+	
+	
+	<!-- START TESTS PROFILES -->
+	<!-- PROFILES: UNIT, ACCEPT -->
 	
 	<profile>
 		<id>unit</id>		
@@ -215,6 +230,8 @@
 			</plugins>
 		</build>			
 	</profile>
+	
+	<!-- END TESTS PROFILES -->
 	
   </profiles>
     
