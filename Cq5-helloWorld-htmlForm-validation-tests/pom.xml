@@ -44,14 +44,14 @@
 			<activeByDefault>true</activeByDefault>
 		</activation>				
 		<properties>							
-			<assembly.id>components</assembly.id>				
+			<assembly.id>components</assembly.id>
 		</properties>
 	</profile>
 	
 	<profile>
 		<id>content</id>
 		<properties>							
-			<assembly.id>content</assembly.id>				
+			<assembly.id>content</assembly.id>
 		</properties>
 	</profile>
 	
@@ -79,11 +79,177 @@
            					</includes>
 		                	<excludes>
                					<exclude>**/IntgTests.java</exclude>
-           					</excludes>			                
+               					<exclude>**/AccptTests.java</exclude>
+           					</excludes>
 		            	  </configuration>
 				        </execution>					        
 				     </executions>			              
 		        </plugin>			        
+			</plugins>
+		</build>			
+	</profile>
+	
+	<profile>
+		<id>accept</id>
+		<properties>							
+			<assembly.id>accept</assembly.id>
+		</properties>		
+		<build>
+			<plugins>				
+		        
+	  			<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>2.4</version>
+					<configuration>
+						<descriptors>
+							<descriptor>src/main/assembly/${assembly.id}.xml</descriptor>
+						</descriptors>
+					</configuration>
+					<executions>
+						<execution>
+							<id>${assembly.id}</id>
+							<phase>test</phase>
+							<goals>
+								<goal>single</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+		        
+		        <plugin>
+	                <groupId>org.codehaus.gmaven</groupId>
+	                <artifactId>gmaven-plugin</artifactId>
+	                <version>1.2</version>	                
+	                <executions>
+	                    <execution>
+	                        <phase>test</phase>
+	                        <goals>
+	                            <goal>execute</goal>
+	                        </goals>
+	                        <configuration>
+	                            <defaults>
+	                                <cqservers>${publish.crx.url}</cqservers>
+	                                <cquser>${publish.crx.user}</cquser>
+	                                <cqpassword>${publish.crx.password}</cqpassword>
+	                                <packageName>${project.build.finalName}-${assembly.id}.zip</packageName>
+	                                <projectDir>${basedir}</projectDir>
+	                            </defaults>
+	                            <source>
+	                                import org.apache.commons.httpclient.*
+	                                import org.apache.commons.httpclient.methods.*
+	                                import org.apache.commons.httpclient.auth.*
+	                                import org.apache.commons.httpclient.methods.multipart.*
+	
+	                                //method declaration for execute of PostMethod
+	                                def executePost(httpclient, httppost, outputResponse){
+	                                    try {
+	                                        httpclient.executeMethod(httppost);
+	                                        if (outputResponse){
+	                                            println httppost.responseBodyAsString
+	                                        }
+	                                    } catch (Exception e) {
+	                                        println("exception: " + e)
+	                                    } finally {
+	                                        httppost.releaseConnection()
+	                                    }
+	                                }
+	
+	                                def uploadAndInstall(hostPort, packageName, projectRoot, httpclient){
+	                                    //upload package
+	                                    def httppost = new PostMethod(hostPort + '/crx/packmgr/service.jsp')	                                    
+	                                    def file = new File(projectRoot + '/target/' + packageName)
+	
+	                                    println("Installing package " + packageName + " to " + hostPort)
+	
+	                                    if(file.exists()){
+	
+	                                        def parts = [new FilePart("file", file)] as Part[]
+	                                        httppost.setRequestEntity(new MultipartRequestEntity(parts,
+	                                        httppost.getParams()))
+	
+	                                        executePost(httpclient, httppost, true)
+	
+	                                        //install package
+	                                        def installURL = hostPort + '/crx/packmgr/service/.json/etc/packages/' + packageName
+	                                        println('INASTALL: ' + installURL)
+	                                        httppost = new PostMethod(installURL)
+	                                        httppost.addParameter("cmd", "install")
+	
+	                                        executePost(httpclient, httppost, true)
+	                                    } else {
+	                                        println("File does not exist for " + packageName + ". Not Deploying.")
+	                                    }
+	                                }
+	
+	                                def user = project.properties['cquser']
+	                                def pass = project.properties['cqpassword']
+	                                def packageName = project.properties['packageName']
+	                                def projectRoot = project.properties['projectDir']
+	
+	                                // set up the client
+	                                def httpclient = new HttpClient()
+	                                def defaultcreds = new UsernamePasswordCredentials(user, pass)
+	                                httpclient.getState().setCredentials(AuthScope.ANY, defaultcreds)
+	                                httpclient.getParams().setAuthenticationPreemptive(true)
+	
+	                                println "CQSERVERS:" + project.properties['cqservers']
+	
+	                                project.properties['cqservers'].tokenize(',').each {
+	                                    uploadAndInstall(it, packageName, projectRoot, httpclient)
+	                                }	
+	                            </source>
+	                        </configuration>
+	                    </execution>
+	                </executions>
+	                <dependencies>
+	                    <dependency>
+	                        <groupId>org.codehaus.gmaven.runtime</groupId>
+	                        <artifactId>gmaven-runtime-1.7</artifactId>
+	                        <version>1.2</version>
+	                    </dependency>
+	                    <dependency>
+	                        <groupId>commons-httpclient</groupId>
+	                        <artifactId>commons-httpclient</artifactId>
+	                        <version>3.1</version>
+	                    </dependency>
+	                    <dependency>
+	                        <groupId>commons-logging</groupId>
+	                        <artifactId>commons-logging</artifactId>
+	                        <version>1.1.1</version>
+	                        <type>jar</type>
+	                        <scope>compile</scope>
+	                    </dependency>
+	                </dependencies>
+	            </plugin>
+	            
+	            <plugin>
+		            <groupId>org.apache.maven.plugins</groupId>
+		            <artifactId>maven-surefire-plugin</artifactId>
+		            <configuration>			            	
+		                <skip>true</skip>			                
+		            </configuration>
+		            <executions>
+				       <execution>
+				          <id>unit-tests</id>
+				          <phase>test</phase>
+				          <goals>
+				             <goal>test</goal>
+				          </goals>
+				          <configuration>			            	
+		                	<skip>false</skip>
+		                	<includes>
+           						<include>**/AccptTests.java</include>
+           					</includes>
+		                	<excludes>
+               					<exclude>**/*Test.java</exclude>
+               					<exclude>**/IntgTests.java</exclude>
+           					</excludes>
+		            	  </configuration>
+				        </execution>					        
+				     </executions>			              
+		        </plugin>
+
 			</plugins>
 		</build>			
 	</profile>
@@ -162,7 +328,7 @@
 		        <groupId>com.cognifide.maven.plugins</groupId>
 		        <artifactId>maven-crx-plugin</artifactId>
 		        <version>1.0.3</version>
-		        <configuration>
+		        <configuration>		        	        
 		        	<packageFileName>${project.build.directory}/${project.build.finalName}-${assembly.id}.zip</packageFileName>
 		          	<url>${crx.url}</url>
 		          	<user>${crx.user}</user>

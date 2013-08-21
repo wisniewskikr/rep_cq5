@@ -67,7 +67,7 @@ mvn clean test -Punit
 mvn clean install -Pintg
 
 - Acceptance Tests:
-mvn clean install -Paccpt
+mvn clean install -Paccept
 
 
 
