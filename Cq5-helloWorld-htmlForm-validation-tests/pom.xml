@@ -77,7 +77,7 @@
 	
 	
 	<!-- START TESTS PROFILES -->
-	<!-- PROFILES: UNIT, ACCEPT -->
+	<!-- PROFILES: UNIT, INTG, ACCEPT -->
 	
 	<profile>
 		<id>unit</id>		
@@ -120,6 +120,113 @@
 				        </execution>					        
 				     </executions>			              
 		        </plugin>			        
+			</plugins>
+		</build>			
+	</profile>
+	
+	<profile>
+		<id>intg</id>
+		<properties>							
+			<assembly.id>intg</assembly.id>
+		</properties>		
+		<build>
+			<plugins>				
+		        
+	  			<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>2.4</version>
+					<configuration>
+						<descriptors>
+							<descriptor>src/main/assembly/${assembly.id}.xml</descriptor>
+						</descriptors>
+					</configuration>
+					<executions>
+						<execution>
+							<id>${assembly.id}</id>
+							<phase>test</phase>
+							<goals>
+								<goal>single</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+		        
+		        <plugin>
+	                <groupId>org.codehaus.gmaven</groupId>
+	                <artifactId>gmaven-plugin</artifactId>
+	                <version>1.2</version>	                
+	                <executions>	                    
+	                    <execution>
+	                        <phase>test</phase>
+	                        <goals>
+	                            <goal>execute</goal>
+	                        </goals>
+	                        <configuration>
+	                            <defaults>
+	                                <cqservers>${intg.crx.url}</cqservers>
+	                                <cquser>${intg.crx.user}</cquser>
+	                                <cqpassword>${intg.crx.password}</cqpassword>
+	                                <packageName>${project.build.finalName}-${assembly.id}.zip</packageName>
+	                                <projectDir>${basedir}</projectDir>
+	                            </defaults>
+	                            <source>${cq.deploy.groovy.scipt.path}</source>
+	                        </configuration>
+	                    </execution>
+	                </executions>
+	                <dependencies>
+	                    <dependency>
+	                        <groupId>org.codehaus.gmaven.runtime</groupId>
+	                        <artifactId>gmaven-runtime-1.7</artifactId>
+	                        <version>1.2</version>
+	                    </dependency>
+	                    <dependency>
+	                        <groupId>commons-httpclient</groupId>
+	                        <artifactId>commons-httpclient</artifactId>
+	                        <version>3.1</version>
+	                    </dependency>
+	                    <dependency>
+	                        <groupId>commons-logging</groupId>
+	                        <artifactId>commons-logging</artifactId>
+	                        <version>1.1.1</version>
+	                        <type>jar</type>
+	                        <scope>compile</scope>
+	                    </dependency>
+	                </dependencies>
+	            </plugin>
+	            
+	            <plugin>
+		            <groupId>org.apache.maven.plugins</groupId>
+		            <artifactId>maven-surefire-plugin</artifactId>
+		            <version>2.16</version>
+		            <configuration>			            	
+		                <skip>true</skip>			                
+		            </configuration>
+		            <executions>
+				       <execution>
+				          <id>unit-tests</id>
+				          <phase>test</phase>
+				          <goals>
+				             <goal>test</goal>
+				          </goals>				          
+				          <configuration>			            	
+		                	<skip>false</skip>
+		                	<systemPropertyVariables>
+					            <accept.host>${accept.crx.url}</accept.host>
+					            <accept.init.context>${accept.init.context}</accept.init.context>
+					         </systemPropertyVariables>
+		                	<includes>
+           						<include>**/IntgTests.java</include>
+           					</includes>
+		                	<excludes>
+               					<exclude>**/*Test.java</exclude>
+               					<exclude>**/AccptTests.java</exclude>
+           					</excludes>
+		            	  </configuration>
+				        </execution>					        
+				     </executions>			              
+		        </plugin>
+
 			</plugins>
 		</build>			
 	</profile>
@@ -230,7 +337,7 @@
 			</plugins>
 		</build>			
 	</profile>
-	
+		
 	<!-- END TESTS PROFILES -->
 	
   </profiles>
