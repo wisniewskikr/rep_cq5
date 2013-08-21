@@ -1,4 +1,4 @@
-package pl.kwi.accept;
+package pl.kwi.accept.pages;
 
 import static org.junit.Assert.assertEquals;
 
@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
+
+import pl.kwi.accept.abstr.AbstrAcceptTestPage;
 
 public class InputAcceptTestPage extends AbstrAcceptTestPage {
 

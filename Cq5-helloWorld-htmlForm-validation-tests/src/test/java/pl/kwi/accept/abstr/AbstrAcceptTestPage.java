@@ -1,4 +1,4 @@
-package pl.kwi.accept;
+package pl.kwi.accept.abstr;
 
 import static org.junit.Assert.assertEquals;
 

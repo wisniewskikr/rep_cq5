@@ -1,4 +1,4 @@
-package pl.kwi.accept;
+package pl.kwi.accept.main;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -6,6 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import pl.kwi.accept.pages.InputAcceptTestPage;
+import pl.kwi.accept.pages.OutputAcceptTestPage;
 
 public class AccptTests {
 	
