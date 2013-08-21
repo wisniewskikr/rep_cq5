@@ -67,7 +67,7 @@ TESTS
 User can run tests:
 
 - Unit Tests:
-mvn clean test -Punit
+mvn clean install -Punit
 
 - Integration Tests:
 mvn clean install -Pintg
