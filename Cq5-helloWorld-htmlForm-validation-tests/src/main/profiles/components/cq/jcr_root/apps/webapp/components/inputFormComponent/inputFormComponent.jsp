@@ -21,16 +21,16 @@
 <input type="hidden" id="currentPagePath" name="currentPagePath" value="${currentPagePath}"/>
 
 
-<div class="title"><h2>${pageTitle}</h2></div>
-<div class="subtitle"><h3>${textPage}: <b>${pageName}</b></h3></div>
+<div class="title"><h2 id="title">${pageTitle}</h2></div>
+<div class="subtitle"><h3 id="subtitle">${textPage}: <b>${pageName}</b></h3></div>
 <div class="content">
 	<div class="contentElement">
 		<div class="text">
 			${textName} * 
-			<c:if test="${errorField == 'name'}"><span class="error">${fieldNameErrorMessage}</span></c:if>
+			<c:if test="${errorField == 'name'}"><span class="error" id="errorName">${fieldNameErrorMessage}</span></c:if>
 		</div>
 		<div class="input"><input type="text" id="name" name="name"/></div>
-		<div class="description">${fieldNameDescription}</div>
+		<div class="description" id="descriptionName">${fieldNameDescription}</div>
 	</div>
 	
 </div>

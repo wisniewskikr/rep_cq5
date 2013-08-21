@@ -7,7 +7,7 @@
 
 
 <head>
-	<title>Hello World</title>
+	<title>Hello World - Input</title>
 	<cq:includeClientLib js="myproject.all" />
 	<cq:includeClientLib css="myproject.all" />
 </head>
