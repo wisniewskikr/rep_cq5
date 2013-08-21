@@ -3,6 +3,14 @@
     jcr:mixinTypes="[rep:AccessControllable,sling:Redirect]"
     jcr:primaryType="sling:OrderedFolder"
     sling:resourceType="sling:redirect"
-    sling:target="/content/webapp">
+    sling:target="/content/geometrixx">
+    <geometrixx/>
+    <geometrixx_mobile/>
+    <campaigns/>
+    <dam/>
+    <usergenerated/>
+    <wiki/>
+    <rep:policy/>
     <webapp/>
+    <accept/>
 </jcr:root>

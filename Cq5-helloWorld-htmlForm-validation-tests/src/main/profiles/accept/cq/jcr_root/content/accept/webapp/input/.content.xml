@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2013-08-13T09:11:38.390+02:00"
+        cq:lastModified="{Date}2013-08-21T09:33:22.473+02:00"
         cq:lastModifiedBy="admin"
         cq:lastReplicated="{Date}2013-08-13T14:16:11.578+02:00"
         cq:lastReplicatedBy="admin"
@@ -12,10 +12,10 @@
         jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="input"
-        jcr:uuid="4cc387b9-84aa-4932-a272-a7a4a77da587"
+        jcr:uuid="12322f70-387b-462d-be29-bf3db0aa2151"
         sling:resourceType="webapp/renderers/inputTemplate">
         <inputFormComponent
-            jcr:lastModified="{Date}2013-08-13T09:11:38.388+02:00"
+            jcr:lastModified="{Date}2013-08-21T09:33:22.469+02:00"
             jcr:lastModifiedBy="admin"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="webapp/components/inputFormComponent"
@@ -24,7 +24,7 @@
             fieldNameDescription="Type your name here"
             fieldNameErrorMessage="Please fill this field"
             fieldNameText="Name"
-            outputPagePath="/content/webapp/output"
+            outputPagePath="/content/accept/webapp/output"
             pageName="Input"
             pageText="Page"
             pageTitle="Hello World"

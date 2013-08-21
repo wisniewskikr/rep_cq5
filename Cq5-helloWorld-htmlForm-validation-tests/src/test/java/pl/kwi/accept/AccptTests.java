@@ -24,7 +24,7 @@ public class AccptTests {
 	@Test
 	public void typeNameToInputPageAndCheckOutputPage() {
 		
-		inputPage.initBrowserByUrl("http://localhost:4503/content/accept/webapp/input.html");
+		inputPage.initBrowserByUrl("http://localhost:4503/content/accept/webapp.html");
 		
 		inputPage.checkIfPageLoaded();		
 		
