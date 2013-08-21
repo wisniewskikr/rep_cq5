@@ -51,6 +51,12 @@ mvn clean install crx:install -Pauthor,content
 - Deployment of content on publish server:
 mvn clean install crx:install -Ppublish,content
 
+- Deployment of content of acceptance tests on author server:
+mvn clean install crx:install -Pauthor,content-accept
+
+- Deployment of content of acceptance tests on publish server:
+mvn clean install crx:install -Ppublish,content-accept
+
 
 
 
