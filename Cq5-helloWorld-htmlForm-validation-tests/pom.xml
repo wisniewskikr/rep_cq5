@@ -133,6 +133,30 @@
 			<plugins>				
 		        
 	  			<plugin>
+			        <groupId>org.apache.maven.plugins</groupId>
+			        <artifactId>maven-jar-plugin</artifactId>
+			        <version>2.4</version>
+			        <executions>
+			        	<execution>
+				            <phase>test</phase>
+				            <goals>
+				              <goal>test-jar</goal>
+				            </goals>
+				            <configuration>
+				            	<finalName>intg</finalName>
+				            	<outputDirectory>${project.build.directory}/intg-tests/</outputDirectory>
+				            	<includes>
+				            		<include>**/*IntgTests.class</include>
+				            	</includes>
+				            	<excludes>
+				            		<exclude>**/IntgTests.class</exclude>
+				            	</excludes>
+				            </configuration>
+				          </execution>
+			        </executions>
+			    </plugin>
+	  			
+	  			<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-assembly-plugin</artifactId>
 					<version>2.4</version>
@@ -511,6 +535,16 @@
 			<version>2.24.1</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.junit.remote</artifactId>
+			<version>1.0.8</version>
+		</dependency>
+		<dependency>
+      		<groupId>org.apache.sling</groupId>
+      		<artifactId>org.apache.sling.junit.core</artifactId>
+      		<version>1.0.8</version>
+    	</dependency>
 		
   </dependencies>
   

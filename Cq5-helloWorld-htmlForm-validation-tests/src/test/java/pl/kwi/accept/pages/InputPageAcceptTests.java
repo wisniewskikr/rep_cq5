@@ -7,11 +7,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 
-import pl.kwi.accept.abstr.AbstrAcceptTestPage;
+import pl.kwi.accept.abstr.AbstrPageAcceptTests;
 
-public class InputAcceptTestPage extends AbstrAcceptTestPage {
+public class InputPageAcceptTests extends AbstrPageAcceptTests {
 
-	public InputAcceptTestPage(WebDriver driver, Wait<WebDriver> wait) {
+	public InputPageAcceptTests(WebDriver driver, Wait<WebDriver> wait) {
 		super(driver, wait);
 	}
 

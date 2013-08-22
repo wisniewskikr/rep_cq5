@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Wait;
 
-public abstract class AbstrAcceptTestPage {
+public abstract class AbstrPageAcceptTests {
 	
 	protected WebDriver driver;
 	protected Wait<WebDriver> wait;
@@ -14,7 +14,7 @@ public abstract class AbstrAcceptTestPage {
 	protected String title;
 	
 	
-	public AbstrAcceptTestPage(WebDriver driver, Wait<WebDriver> wait) {
+	public AbstrPageAcceptTests(WebDriver driver, Wait<WebDriver> wait) {
 		this.driver = driver;
 		this.wait = wait;
 	}

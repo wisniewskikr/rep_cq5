@@ -7,16 +7,16 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import pl.kwi.accept.pages.InputAcceptTestPage;
-import pl.kwi.accept.pages.OutputAcceptTestPage;
+import pl.kwi.accept.pages.InputPageAcceptTests;
+import pl.kwi.accept.pages.OutputPageAcceptTests;
 
 public class AccptTests {
 	
 	private final static String PATH_HOST = System.getProperty("accept.host");
 	private final static String PATH_CONTEXT = System.getProperty("accept.init.context");
 	
-	private InputAcceptTestPage inputPage;
-	private OutputAcceptTestPage outputPage;
+	private InputPageAcceptTests inputPage;
+	private OutputPageAcceptTests outputPage;
 	
 	@Before
 	public void setUp(){
@@ -24,8 +24,8 @@ public class AccptTests {
 		WebDriver driver = new HtmlUnitDriver();
 		Wait<WebDriver> wait = new WebDriverWait(driver, 10);
 		
-		inputPage = new InputAcceptTestPage(driver, wait);
-		outputPage = new OutputAcceptTestPage(driver, wait);
+		inputPage = new InputPageAcceptTests(driver, wait);
+		outputPage = new OutputPageAcceptTests(driver, wait);
 		
 	}
 	
