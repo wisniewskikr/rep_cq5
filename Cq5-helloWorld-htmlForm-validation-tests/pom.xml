@@ -83,6 +83,20 @@
 		  	<module>../Cq5-helloWorld-htmlForm-validation-tests-accept</module>
 		  </modules>
 	</profile>
+	
+	<profile>
+		<id>intg</id>
+		<properties>							
+			<crx.url>${intg.crx.url}</crx.url>
+			<crx.user>${intg.crx.user}</crx.user>
+  			<crx.password>${intg.crx.password}</crx.password>
+		</properties>
+		<modules>
+			<module>../Cq5-helloWorld-htmlForm-validation-tests-components</module>
+		  	<module>../Cq5-helloWorld-htmlForm-validation-tests-content-intg</module>
+		  	<module>../Cq5-helloWorld-htmlForm-validation-tests-intg</module>
+		  </modules>
+	</profile>
   
   </profiles>
   
