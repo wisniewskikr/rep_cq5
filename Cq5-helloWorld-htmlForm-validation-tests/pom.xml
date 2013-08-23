@@ -64,6 +64,13 @@
 	</profile>
 	
 	<profile>
+		<id>content-intg</id>
+		<modules>
+		  	<module>../Cq5-helloWorld-htmlForm-validation-tests-content-intg</module>
+		  </modules>
+	</profile>
+	
+	<profile>
 		<id>accept</id>
 		<properties>							
 			<crx.url>${accept.crx.url}</crx.url>
