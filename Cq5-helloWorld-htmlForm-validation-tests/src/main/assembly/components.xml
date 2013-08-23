@@ -36,12 +36,12 @@
 	<fileSets>
 	
 		<fileSet>
-			<directory>src/main/profiles/components/cq/jcr_root</directory>
+			<directory>src/main/cq/jcr_root</directory>
 			<outputDirectory>/jcr_root</outputDirectory>			
 		</fileSet>	
 			
 		<fileSet>
-			<directory>src/main/profiles/components/cq/META-INF</directory>
+			<directory>src/main/cq/META-INF</directory>
 			<outputDirectory>/META-INF</outputDirectory>
 			<includes>
 				<include>**/*</include>
