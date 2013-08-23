@@ -3,6 +3,7 @@
   <artifactId>Cq5-helloWorld-htmlForm-validation-tests-components</artifactId>
   <packaging>bundle</packaging>
   <description>Project with components</description>
+  <name>${artifactId}</name>
   
   
   
@@ -90,7 +91,8 @@
 		        <groupId>com.cognifide.maven.plugins</groupId>
 		        <artifactId>maven-crx-plugin</artifactId>
 		        <version>1.0.3</version>
-		        <configuration>		        	        
+		        <configuration>	
+		        	<skip>false</skip>	        	        
 		        	<packageFileName>${project.build.directory}/${project.build.finalName}-${assembly.id}.zip</packageFileName>
 		          	<url>${crx.url}</url>
 		          	<user>${crx.user}</user>

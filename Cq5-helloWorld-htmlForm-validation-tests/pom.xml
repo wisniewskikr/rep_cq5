@@ -1,0 +1,95 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>pl.kwi</groupId>
+  <artifactId>Cq5-helloWorld-htmlForm-validation-tests</artifactId>
+  <version>0.1</version>
+  <packaging>pom</packaging>
+  <description>Test CQ project</description>
+  <name>${artifactId}</name>
+  
+  
+  
+  <properties>
+  	<!-- Property with location of file properties -->
+	<project.properties.file>../Cq5-helloWorld-htmlForm-validation-tests/project.properties</project.properties.file>
+  </properties>
+  
+  
+  
+  <profiles>
+    	
+  	<profile>
+		<id>author</id>
+		<activation>
+			<activeByDefault>true</activeByDefault>
+		</activation>				
+		<properties>							
+			<crx.url>${author.crx.url}</crx.url>
+			<crx.user>${author.crx.user}</crx.user>
+  			<crx.password>${author.crx.password}</crx.password>				
+		</properties>
+	</profile>
+	
+	<profile>
+		<id>publish</id>				
+		<properties>							
+			<crx.url>${publish.crx.url}</crx.url>
+			<crx.user>${publish.crx.user}</crx.user>
+  			<crx.password>${publish.crx.password}</crx.password>				
+		</properties>
+	</profile>
+	
+	<profile>
+		<id>components</id>
+		<activation>
+			<activeByDefault>true</activeByDefault>
+		</activation>
+		<modules>
+		  	<module>../Cq5-helloWorld-htmlForm-validation-tests-components</module>
+		  </modules>
+	</profile>
+  
+  </profiles>
+  
+  
+  
+  <build>
+  
+  	<plugins>
+ 		<!-- Plugin for reading properties from
+		external file -->
+		<plugin>
+	        <groupId>org.codehaus.mojo</groupId>
+	        <artifactId>properties-maven-plugin</artifactId>
+	        <version>1.0-alpha-2</version>
+	        <executions>
+	          <execution>
+	            <phase>initialize</phase>
+	            <goals>
+	              <goal>read-project-properties</goal>
+	            </goals>
+	            <configuration>
+	              <files>
+	                <file>${project.properties.file}</file>
+	              </files>
+	            </configuration>
+	          </execution>
+	        </executions>
+	      </plugin>
+	      
+	      <!-- Plugin installing and deploying application on crx. 
+			Command: mvn clean install crx:install -->
+			<plugin>
+		        <groupId>com.cognifide.maven.plugins</groupId>
+		        <artifactId>maven-crx-plugin</artifactId>
+		        <version>1.0.3</version>
+		        <configuration>
+		        	<skip>true</skip>
+		        </configuration>
+		    </plugin>    
+		        
+  	</plugins>
+  
+  </build>
+
+</project>
