@@ -48,6 +48,13 @@
 		  	<module>../Cq5-helloWorld-htmlForm-validation-tests-components</module>
 		  </modules>
 	</profile>
+	
+	<profile>
+		<id>content</id>
+		<modules>
+		  	<module>../Cq5-helloWorld-htmlForm-validation-tests-content</module>
+		  </modules>
+	</profile>
   
   </profiles>
   
