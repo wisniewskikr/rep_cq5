@@ -4,7 +4,7 @@ import org.apache.sling.junit.remote.testrunner.SlingRemoteTestParameters;
 import org.apache.sling.junit.remote.testrunner.SlingRemoteTestRunner;
 import org.junit.runner.RunWith;
 
-//@RunWith(SlingRemoteTestRunner.class)
+@RunWith(SlingRemoteTestRunner.class)
 public class IntgTest implements SlingRemoteTestParameters {
 
 
