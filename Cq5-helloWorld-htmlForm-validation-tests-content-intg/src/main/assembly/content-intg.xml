@@ -17,20 +17,6 @@
 	
 	
 	<includeBaseDirectory>false</includeBaseDirectory>
-	
-	
-	
-	<dependencySets>
-	
-		<dependencySet>
-			<outputDirectory>/jcr_root/apps/webapp/install</outputDirectory>
-			<includes>
-				<include>org.junit</include>
-				<include>org.apache.sling</include>				
-			</includes>
-		</dependencySet>
-				
-	</dependencySets>
 		
 	
 	
@@ -48,14 +34,6 @@
 				<include>**/*</include>
 			</includes>			
 		</fileSet>
-		
-		<fileSet>
-			<directory>${project.build.directory}/</directory>
-			<outputDirectory>/jcr_root/apps/webapp/install</outputDirectory>
-			<includes>
-				<include>*.jar</include>
-			</includes>
-		</fileSet>	
 		
 	</fileSets>
 	
