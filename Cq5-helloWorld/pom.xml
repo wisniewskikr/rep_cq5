@@ -64,9 +64,9 @@
 	</profile>
 	
 	<profile>
-		<id>tests-intg-content</id>
+		<id>tests-intg-services-content</id>
 		<modules>
-		  	<module>Cq5-helloWorld-tests-intg-content</module>
+		  	<module>Cq5-helloWorld-tests-intg-services-content</module>
 		  </modules>
 	</profile>
 	
@@ -85,7 +85,7 @@
 	</profile>
 	
 	<profile>
-		<id>tests-intg</id>
+		<id>tests-intg-services</id>
 		<properties>							
 			<crx.url>${intg.crx.url}</crx.url>
 			<crx.user>${intg.crx.user}</crx.user>
@@ -93,8 +93,8 @@
 		</properties>
 		<modules>
 			<module>Cq5-helloWorld-components</module>
-		  	<module>Cq5-helloWorld-tests-intg-content</module>
-		  	<module>Cq5-helloWorld-tests-intg</module>
+		  	<module>Cq5-helloWorld-tests-intg-services-content</module>
+		  	<module>Cq5-helloWorld-tests-intg-services</module>
 		  </modules>
 	</profile>
   
