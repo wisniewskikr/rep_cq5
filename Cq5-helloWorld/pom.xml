@@ -1,0 +1,124 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>pl.kwi</groupId>
+  <artifactId>Cq5-helloWorld</artifactId>
+  <version>0.1</version>
+  <packaging>pom</packaging>
+  <description>Hello World CQ project with tests</description>
+  <name>${artifactId}</name>
+  
+  
+  
+  <properties>
+  	<!-- Property with location of file properties -->
+	<project.properties.file>../project.properties</project.properties.file>
+  </properties>
+  
+  
+  
+  <profiles>
+    	
+  	<profile>
+		<id>author</id>
+		<activation>
+			<activeByDefault>true</activeByDefault>
+		</activation>				
+		<properties>							
+			<crx.url>${author.crx.url}</crx.url>
+			<crx.user>${author.crx.user}</crx.user>
+  			<crx.password>${author.crx.password}</crx.password>				
+		</properties>
+	</profile>
+	
+	<profile>
+		<id>publish</id>				
+		<properties>							
+			<crx.url>${publish.crx.url}</crx.url>
+			<crx.user>${publish.crx.user}</crx.user>
+  			<crx.password>${publish.crx.password}</crx.password>				
+		</properties>
+	</profile>
+	
+	<profile>
+		<id>components</id>
+		<activation>
+			<activeByDefault>true</activeByDefault>
+		</activation>
+		<modules>
+		  	<module>Cq5-helloWorld-components</module>
+		  </modules>
+	</profile>
+	
+	<profile>
+		<id>content</id>
+		<modules>
+		  	<module>Cq5-helloWorld-content</module>
+		  </modules>
+	</profile>
+	
+	<profile>
+		<id>tests-accept-content</id>
+		<modules>
+		  	<module>Cq5-helloWorld-tests-accept-content</module>
+		  </modules>
+	</profile>
+	
+	<profile>
+		<id>tests-intg-content</id>
+		<modules>
+		  	<module>Cq5-helloWorld-tests-intg-content</module>
+		  </modules>
+	</profile>
+	
+	<profile>
+		<id>tests-accept</id>
+		<properties>							
+			<crx.url>${accept.crx.url}</crx.url>
+			<crx.user>${accept.crx.user}</crx.user>
+  			<crx.password>${accept.crx.password}</crx.password>
+		</properties>
+		<modules>
+			<module>Cq5-helloWorld-components</module>
+		  	<module>Cq5-helloWorld-tests-accept-content</module>
+		  	<module>Cq5-helloWorld-tests-accept</module>
+		  </modules>
+	</profile>
+	
+	<profile>
+		<id>tests-intg</id>
+		<properties>							
+			<crx.url>${intg.crx.url}</crx.url>
+			<crx.user>${intg.crx.user}</crx.user>
+  			<crx.password>${intg.crx.password}</crx.password>
+		</properties>
+		<modules>
+			<module>Cq5-helloWorld-components</module>
+		  	<module>Cq5-helloWorld-tests-intg-content</module>
+		  	<module>Cq5-helloWorld-tests-intg</module>
+		  </modules>
+	</profile>
+  
+  </profiles>
+  
+  
+  
+  <build>
+  
+  	<plugins>
+ 			      
+	      <!-- Plugin installing and deploying application on crx. 
+			Command: mvn clean install crx:install -->
+			<plugin>
+		        <groupId>com.cognifide.maven.plugins</groupId>
+		        <artifactId>maven-crx-plugin</artifactId>
+		        <version>1.0.3</version>
+		        <configuration>
+		        	<skip>true</skip>
+		        </configuration>
+		    </plugin>    
+		        
+  	</plugins>
+  
+  </build>
+
+</project>
