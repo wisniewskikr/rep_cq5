@@ -97,6 +97,13 @@
 		  	<module>Cq5-helloWorld-tests-intg-services</module>
 		  </modules>
 	</profile>
+	
+	<profile>
+		<id>tests-intg-repository</id>
+		<modules>
+		  	<module>Cq5-helloWorld-tests-intg-repository</module>
+		  </modules>
+	</profile>
   
   </profiles>
   

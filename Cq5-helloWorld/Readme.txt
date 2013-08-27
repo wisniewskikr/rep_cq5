@@ -69,7 +69,10 @@ TESTS
 
 User can run tests:
 
-- Integration Tests:
+- Integration Tests (Repository):
+mvn clean install -Ptests-intg-repository
+
+- Integration Tests (Services):
 mvn clean install -Ptests-intg-services
 
 - Acceptance Tests:
