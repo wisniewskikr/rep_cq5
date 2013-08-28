@@ -92,8 +92,29 @@
 			<artifactId>junit</artifactId>
 			<version>4.11</version>
 			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>pl.kwi</groupId>
+			<artifactId>Cq5-helloWorld-components</artifactId>
+			<version>0.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.roche.cq</groupId>
+    		<artifactId>cq-testing</artifactId>
+    		<version>1.0.2</version>
 		</dependency>		
     				
   </dependencies>
+  
+  
+  
+	<repositories>
+		<repository>
+			<id>project-repo</id>
+			<url>file://${basedir}/repo</url>
+		</repository>
+	</repositories>
   
 </project>

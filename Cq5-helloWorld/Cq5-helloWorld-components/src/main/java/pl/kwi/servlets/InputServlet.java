@@ -1,7 +1,6 @@
 package pl.kwi.servlets;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 
 import org.apache.commons.lang.StringUtils;
@@ -12,6 +11,7 @@ import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
+
 
 import pl.kwi.services.ITestService;
 
@@ -30,7 +30,7 @@ public class InputServlet extends SlingAllMethodsServlet {
 	
 	@Reference
 	private ITestService testService;
-
+	
 	@Override
 	protected void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException,
 			IOException {		
@@ -43,10 +43,12 @@ public class InputServlet extends SlingAllMethodsServlet {
 		}
 		
 		String name = request.getParameter("name");
+		String absPath = request.getResource().getParent().getPath() + "/nameNode";
+		
+		testService.getHelloWorldMessage(request.getResource(), name);		
+		testService.saveNameInNode(absPath, name);		
+		
 		String redirectPath = request.getParameter("redirectPath") + ".html?name=" + name;
-		
-		testService.getHelloWorldMessage(name);
-		
 		response.sendRedirect(redirectPath);
 		
 	}

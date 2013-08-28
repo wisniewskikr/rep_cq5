@@ -100,7 +100,13 @@
 	
 	<profile>
 		<id>tests-intg-repository</id>
+		<properties>							
+			<crx.url>${intg.crx.url}</crx.url>
+			<crx.user>${intg.crx.user}</crx.user>
+  			<crx.password>${intg.crx.password}</crx.password>
+		</properties>
 		<modules>
+			<module>Cq5-helloWorld-components</module>
 		  	<module>Cq5-helloWorld-tests-intg-repository</module>
 		  </modules>
 	</profile>
