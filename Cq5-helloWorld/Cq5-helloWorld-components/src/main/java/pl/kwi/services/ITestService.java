@@ -1,12 +1,15 @@
 package pl.kwi.services;
 
 
-import org.apache.sling.api.resource.Resource;
-
 public interface ITestService {
 
-	public String getHelloWorldMessage(Resource resource, String name);
-
+	/**
+	 * Method saves name to node with specified path in repository.
+	 * 
+	 * @param absPath object <code>String</code> with abstract path to node
+	 * where name should be stored
+	 * @param name object <code>String</code> with name which should be stored
+	 */
 	public void saveNameInNode(String absPath, String name);
 
 }

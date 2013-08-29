@@ -7,7 +7,6 @@ import java.util.Map;
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.Service;
-import org.apache.sling.api.resource.Resource;
 
 import com.day.cq.commons.jcr.JcrConstants;
 
@@ -18,14 +17,9 @@ public class TestService implements ITestService {
 	@Reference
 	private INodeService nodeService;
 	
-	public String getHelloWorldMessage(Resource resource, String name) {
-		
-		String message = "Hello World " + name;
-		System.out.println(message);
-		return message;
-		
-	}
-	
+	/* (non-Javadoc)
+	 * @see pl.kwi.services.ITestService#saveNameInNode(java.lang.String, java.lang.String)
+	 */
 	public void saveNameInNode(String absPath, String name) {
 		
 		try {			

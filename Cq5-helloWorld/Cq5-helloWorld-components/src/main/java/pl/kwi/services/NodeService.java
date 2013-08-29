@@ -49,6 +49,9 @@ public class NodeService implements INodeService {
 				
 	}
 	
+	/* (non-Javadoc)
+	 * @see pl.kwi.services.INodeService#readNode(javax.jcr.Session, java.lang.String, java.lang.String)
+	 */
 	public void createNode(String absPath, Map<String, String> props) throws Exception {
 		createNode(absPath, JcrConstants.NT_UNSTRUCTURED, props);
 	}

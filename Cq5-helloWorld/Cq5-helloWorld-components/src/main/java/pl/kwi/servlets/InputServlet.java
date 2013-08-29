@@ -45,7 +45,6 @@ public class InputServlet extends SlingAllMethodsServlet {
 		String name = request.getParameter("name");
 		String absPath = request.getResource().getParent().getPath() + "/nameNode";
 		
-		testService.getHelloWorldMessage(request.getResource(), name);		
 		testService.saveNameInNode(absPath, name);		
 		
 		String redirectPath = request.getParameter("redirectPath") + ".html?name=" + name;
