@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sv:node sv:name="webapp" xmlns:repl="http://www.day.com/crx/replication/1.0"
+	xmlns:dex="http://ns.optimasc.com/dex/1.0/" xmlns:wiki="http://www.day.com/jcr/wiki/1.0"
+	xmlns:xmpPLUS="http://ns.adobe.com/xap/1.0/PLUS/" xmlns:mix="http://www.jcp.org/jcr/mix/1.0"
+	xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:fn_old="http://www.w3.org/2004/10/xpath-functions"
+	xmlns:xmpNote="http://ns.adobe.com/xmp/note/" xmlns:album="http://ns.adobe.com/album/1.0/"
+	xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:crxde="http://www.day.com/jcr/crxde/1.0"
+	xmlns:xmpTPg="http://ns.adobe.com/xap/1.0/t/pg/" xmlns:exif="http://ns.adobe.com/exif/1.0/"
+	xmlns:MP="http://ns.microsoft.com/photo/1.2/" xmlns:mediapro="http://ns.iview-multimedia.com/mediapro/1.0/"
+	xmlns:Iptc4xmpExt="http://iptc.org/std/Iptc4xmpExt/2008-02-29/"
+	xmlns:Iptc4xmpCore="http://iptc.org/std/Iptc4xmpCore/1.0/xmlns/"
+	xmlns:crs="http://ns.adobe.com/camera-raw-settings/1.0/" xmlns:xmpBJ="http://ns.adobe.com/xap/1.0/bj/"
+	xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:vlt="http://www.day.com/jcr/vault/1.0"
+	xmlns:prl="http://prismstandard.org/namespaces/prl/2.1/" xmlns:dam="http://www.day.com/dam/1.0"
+	xmlns:pdfx="http://ns.adobe.com/pdfx/1.3/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:prism="http://prismstandard.org/namespaces/basic/2.1/"
+	xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:xmpDM="http://ns.adobe.com/xmp/1.0/DynamicMedia/"
+	xmlns:pdf="http://ns.adobe.com/pdf/1.3/" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:acdsee="http://ns.acdsee.com/iptc/1.0/"
+	xmlns:MicrosoftPhoto="http://ns.microsoft.com/photo/1.0" xmlns:psAux="http://ns.adobe.com/exif/1.0/aux/"
+	xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:rep="internal"
+	xmlns:DICOM="http://ns.adobe.com/DICOM/" xmlns:crx="http://www.day.com/crx/1.0"
+	xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xmp="http://ns.adobe.com/xap/1.0/"
+	xmlns:xmpRights="http://ns.adobe.com/xap/1.0/rights/" xmlns:plus="http://ns.useplus.org/ldf/xmp/1.0/"
+	xmlns:prismusagerights="http://prismstandard.org/namespaces/prismusagerights/2.1/"
+	xmlns:cc="http://creativecommons.org/ns#" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+	xmlns:slingevent="http://sling.apache.org/jcr/event/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+	xmlns:photoshop="http://ns.adobe.com/photoshop/1.0/" xmlns:lr="http://ns.adobe.com/lightroom/1.0/">
+	<sv:property sv:name="jcr:primaryType" sv:type="Name">
+		<sv:value>cq:Page</sv:value>
+	</sv:property>
+	<sv:property sv:name="jcr:created" sv:type="Date">
+		<sv:value>2013-08-22T15:36:09.809+02:00</sv:value>
+	</sv:property>
+	<sv:property sv:name="jcr:createdBy" sv:type="String">
+		<sv:value>admin</sv:value>
+	</sv:property>
+	<sv:node sv:name="jcr:content">
+		<sv:property sv:name="jcr:primaryType" sv:type="Name">
+			<sv:value>cq:PageContent</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:mixinTypes" sv:type="Name"
+			sv:multiple="true">
+			<sv:value>mix:versionable</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:uuid" sv:type="String">
+			<sv:value>f87a0ed2-b2cd-4f4d-bd7a-4cb562bea7bf</sv:value>
+		</sv:property>
+		<sv:property sv:name="cq:lastModified" sv:type="Date">
+			<sv:value>2013-08-09T08:36:32.628+02:00</sv:value>
+		</sv:property>
+		<sv:property sv:name="cq:lastModifiedBy" sv:type="String">
+			<sv:value>admin</sv:value>
+		</sv:property>
+		<sv:property sv:name="cq:lastReplicated" sv:type="Date">
+			<sv:value>2013-08-13T14:16:11.082+02:00</sv:value>
+		</sv:property>
+		<sv:property sv:name="cq:lastReplicatedBy" sv:type="String">
+			<sv:value>admin</sv:value>
+		</sv:property>
+		<sv:property sv:name="cq:lastReplicationAction" sv:type="String">
+			<sv:value>Activate</sv:value>
+		</sv:property>
+		<sv:property sv:name="cq:template" sv:type="String">
+			<sv:value>/apps/webapp/templates/redirectTemplate</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:baseVersion" sv:type="Reference">
+			<sv:value>6e870aa8-1a3f-4f1e-8969-601c6a9cec82</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:created" sv:type="Date">
+			<sv:value>2013-08-22T15:36:09.809+02:00</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:createdBy" sv:type="String">
+			<sv:value>admin</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:isCheckedOut" sv:type="Boolean">
+			<sv:value>true</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:predecessors" sv:type="Reference"
+			sv:multiple="true">
+			<sv:value>6e870aa8-1a3f-4f1e-8969-601c6a9cec82</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:title" sv:type="String">
+			<sv:value>webapp</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:versionHistory" sv:type="Reference">
+			<sv:value>7283c24a-207a-402a-81f2-f2a681e04279</sv:value>
+		</sv:property>
+		<sv:property sv:name="sling:resourceType" sv:type="String">
+			<sv:value>webapp/renderers/redirectTemplate</sv:value>
+		</sv:property>
+		<sv:node sv:name="par">
+			<sv:property sv:name="jcr:primaryType" sv:type="Name">
+				<sv:value>nt:unstructured</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:lastModified" sv:type="Date">
+				<sv:value>2013-08-09T08:36:32.627+02:00</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:lastModifiedBy" sv:type="String">
+				<sv:value>admin</sv:value>
+			</sv:property>
+			<sv:property sv:name="redirectedPath" sv:type="String">
+				<sv:value>/content/webapp/input</sv:value>
+			</sv:property>
+			<sv:property sv:name="sling:resourceType" sv:type="String">
+				<sv:value>webapp/components/redirectComponent</sv:value>
+			</sv:property>
+		</sv:node>
+	</sv:node>
+	<sv:node sv:name="input">
+		<sv:property sv:name="jcr:primaryType" sv:type="Name">
+			<sv:value>cq:Page</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:created" sv:type="Date">
+			<sv:value>2013-08-22T15:36:09.813+02:00</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:createdBy" sv:type="String">
+			<sv:value>admin</sv:value>
+		</sv:property>
+		<sv:node sv:name="jcr:content">
+			<sv:property sv:name="jcr:primaryType" sv:type="Name">
+				<sv:value>cq:PageContent</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:mixinTypes" sv:type="Name"
+				sv:multiple="true">
+				<sv:value>mix:versionable</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:uuid" sv:type="String">
+				<sv:value>4cc387b9-84aa-4932-a272-a7a4a77da587</sv:value>
+			</sv:property>
+			<sv:property sv:name="cq:lastModified" sv:type="Date">
+				<sv:value>2013-08-13T09:11:38.390+02:00</sv:value>
+			</sv:property>
+			<sv:property sv:name="cq:lastModifiedBy" sv:type="String">
+				<sv:value>admin</sv:value>
+			</sv:property>
+			<sv:property sv:name="cq:lastReplicated" sv:type="Date">
+				<sv:value>2013-08-13T14:16:11.578+02:00</sv:value>
+			</sv:property>
+			<sv:property sv:name="cq:lastReplicatedBy" sv:type="String">
+				<sv:value>admin</sv:value>
+			</sv:property>
+			<sv:property sv:name="cq:lastReplicationAction" sv:type="String">
+				<sv:value>Activate</sv:value>
+			</sv:property>
+			<sv:property sv:name="cq:template" sv:type="String">
+				<sv:value>/apps/webapp/templates/inputTemplate</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:baseVersion" sv:type="Reference">
+				<sv:value>a057ff92-5381-4fd9-a163-7d830c54c420</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:created" sv:type="Date">
+				<sv:value>2013-08-22T15:36:09.814+02:00</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:createdBy" sv:type="String">
+				<sv:value>admin</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:isCheckedOut" sv:type="Boolean">
+				<sv:value>true</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:predecessors" sv:type="Reference"
+				sv:multiple="true">
+				<sv:value>a057ff92-5381-4fd9-a163-7d830c54c420</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:title" sv:type="String">
+				<sv:value>input</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:versionHistory" sv:type="Reference">
+				<sv:value>afa0268b-5ca5-45cf-a241-c15891a39b31</sv:value>
+			</sv:property>
+			<sv:property sv:name="sling:resourceType" sv:type="String">
+				<sv:value>webapp/renderers/inputTemplate</sv:value>
+			</sv:property>
+			<sv:node sv:name="inputFormComponent">
+				<sv:property sv:name="jcr:primaryType" sv:type="Name">
+					<sv:value>nt:unstructured</sv:value>
+				</sv:property>
+				<sv:property sv:name="buttonHint" sv:type="String">
+					<sv:value>Go to next page</sv:value>
+				</sv:property>
+				<sv:property sv:name="buttonText" sv:type="String">
+					<sv:value>Ok</sv:value>
+				</sv:property>
+				<sv:property sv:name="fieldNameDescription" sv:type="String">
+					<sv:value>Type your name here</sv:value>
+				</sv:property>
+				<sv:property sv:name="fieldNameErrorMessage" sv:type="String">
+					<sv:value>Please fill this field</sv:value>
+				</sv:property>
+				<sv:property sv:name="fieldNameText" sv:type="String">
+					<sv:value>Name</sv:value>
+				</sv:property>
+				<sv:property sv:name="jcr:lastModified" sv:type="Date">
+					<sv:value>2013-08-13T09:11:38.388+02:00</sv:value>
+				</sv:property>
+				<sv:property sv:name="jcr:lastModifiedBy" sv:type="String">
+					<sv:value>admin</sv:value>
+				</sv:property>
+				<sv:property sv:name="outputPagePath" sv:type="String">
+					<sv:value>/content/webapp/output</sv:value>
+				</sv:property>
+				<sv:property sv:name="pageName" sv:type="String">
+					<sv:value>Input</sv:value>
+				</sv:property>
+				<sv:property sv:name="pageText" sv:type="String">
+					<sv:value>Page</sv:value>
+				</sv:property>
+				<sv:property sv:name="pageTitle" sv:type="String">
+					<sv:value>Hello World</sv:value>
+				</sv:property>
+				<sv:property sv:name="sling:resourceType" sv:type="String">
+					<sv:value>webapp/components/inputFormComponent</sv:value>
+				</sv:property>
+				<sv:property sv:name="textName" sv:type="String">
+					<sv:value>Name</sv:value>
+				</sv:property>
+				<sv:property sv:name="textPage" sv:type="String">
+					<sv:value>Page</sv:value>
+				</sv:property>
+				<sv:node sv:name="title">
+					<sv:property sv:name="jcr:primaryType" sv:type="Name">
+						<sv:value>nt:unstructured</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:lastModified" sv:type="Date">
+						<sv:value>2013-08-12T16:44:21.980+02:00</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:lastModifiedBy" sv:type="String">
+						<sv:value>admin</sv:value>
+					</sv:property>
+					<sv:property sv:name="pageName" sv:type="String">
+						<sv:value>Input</sv:value>
+					</sv:property>
+					<sv:property sv:name="sling:resourceType" sv:type="String">
+						<sv:value>webapp/components/subtitleComponent</sv:value>
+					</sv:property>
+					<sv:property sv:name="text" sv:type="String">
+						<sv:value>Hello World</sv:value>
+					</sv:property>
+				</sv:node>
+			</sv:node>
+		</sv:node>
+	</sv:node>
+	<sv:node sv:name="output">
+		<sv:property sv:name="jcr:primaryType" sv:type="Name">
+			<sv:value>cq:Page</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:created" sv:type="Date">
+			<sv:value>2013-08-22T15:36:09.820+02:00</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:createdBy" sv:type="String">
+			<sv:value>admin</sv:value>
+		</sv:property>
+		<sv:node sv:name="jcr:content">
+			<sv:property sv:name="jcr:primaryType" sv:type="Name">
+				<sv:value>cq:PageContent</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:mixinTypes" sv:type="Name"
+				sv:multiple="true">
+				<sv:value>mix:versionable</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:uuid" sv:type="String">
+				<sv:value>9a3f68ae-9f2c-4aae-aa5b-965c79d05cd2</sv:value>
+			</sv:property>
+			<sv:property sv:name="cq:lastModified" sv:type="Date">
+				<sv:value>2013-08-13T09:12:08.459+02:00</sv:value>
+			</sv:property>
+			<sv:property sv:name="cq:lastModifiedBy" sv:type="String">
+				<sv:value>admin</sv:value>
+			</sv:property>
+			<sv:property sv:name="cq:lastReplicated" sv:type="Date">
+				<sv:value>2013-08-13T14:16:11.907+02:00</sv:value>
+			</sv:property>
+			<sv:property sv:name="cq:lastReplicatedBy" sv:type="String">
+				<sv:value>admin</sv:value>
+			</sv:property>
+			<sv:property sv:name="cq:lastReplicationAction" sv:type="String">
+				<sv:value>Activate</sv:value>
+			</sv:property>
+			<sv:property sv:name="cq:template" sv:type="String">
+				<sv:value>/apps/webapp/templates/outputTemplate</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:baseVersion" sv:type="Reference">
+				<sv:value>b6440ebb-7471-47b3-b490-e10fafc0bfe1</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:created" sv:type="Date">
+				<sv:value>2013-08-22T15:36:09.821+02:00</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:createdBy" sv:type="String">
+				<sv:value>admin</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:isCheckedOut" sv:type="Boolean">
+				<sv:value>true</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:predecessors" sv:type="Reference"
+				sv:multiple="true">
+				<sv:value>b6440ebb-7471-47b3-b490-e10fafc0bfe1</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:title" sv:type="String">
+				<sv:value>output</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:versionHistory" sv:type="Reference">
+				<sv:value>7786a25e-4d16-45e7-9248-65fdb847101a</sv:value>
+			</sv:property>
+			<sv:property sv:name="sling:resourceType" sv:type="String">
+				<sv:value>webapp/renderers/outputTemplate</sv:value>
+			</sv:property>
+			<sv:node sv:name="outputFormComponent">
+				<sv:property sv:name="jcr:primaryType" sv:type="Name">
+					<sv:value>nt:unstructured</sv:value>
+				</sv:property>
+				<sv:property sv:name="buttonHint" sv:type="String">
+					<sv:value>Go to previous page</sv:value>
+				</sv:property>
+				<sv:property sv:name="buttonText" sv:type="String">
+					<sv:value>Back</sv:value>
+				</sv:property>
+				<sv:property sv:name="fieldHelloWorldText" sv:type="String">
+					<sv:value>Hello World</sv:value>
+				</sv:property>
+				<sv:property sv:name="inputPagePath" sv:type="String">
+					<sv:value>/content/webapp/input</sv:value>
+				</sv:property>
+				<sv:property sv:name="jcr:lastModified" sv:type="Date">
+					<sv:value>2013-08-13T09:12:08.448+02:00</sv:value>
+				</sv:property>
+				<sv:property sv:name="jcr:lastModifiedBy" sv:type="String">
+					<sv:value>admin</sv:value>
+				</sv:property>
+				<sv:property sv:name="pageName" sv:type="String">
+					<sv:value>Output</sv:value>
+				</sv:property>
+				<sv:property sv:name="pageText" sv:type="String">
+					<sv:value>Page</sv:value>
+				</sv:property>
+				<sv:property sv:name="pageTitle" sv:type="String">
+					<sv:value>Hello World</sv:value>
+				</sv:property>
+				<sv:property sv:name="sling:resourceType" sv:type="String">
+					<sv:value>webapp/components/outputFormComponent</sv:value>
+				</sv:property>
+				<sv:property sv:name="textHelloWorld" sv:type="String">
+					<sv:value>Hello World</sv:value>
+				</sv:property>
+				<sv:property sv:name="textPage" sv:type="String">
+					<sv:value>Page</sv:value>
+				</sv:property>
+			</sv:node>
+		</sv:node>
+	</sv:node>
+	<sv:node sv:name="nameNode">
+		<sv:property sv:name="jcr:primaryType" sv:type="Name">
+			<sv:value>nt:unstructured</sv:value>
+		</sv:property>
+		<sv:property sv:name="name" sv:type="String">
+			<sv:value>User1</sv:value>
+		</sv:property>
+	</sv:node>
+</sv:node>

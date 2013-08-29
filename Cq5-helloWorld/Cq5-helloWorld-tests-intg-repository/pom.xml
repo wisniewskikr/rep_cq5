@@ -104,7 +104,14 @@
 			<groupId>com.roche.cq</groupId>
     		<artifactId>cq-testing</artifactId>
     		<version>1.0.2</version>
-		</dependency>		
+		</dependency>
+		
+		<dependency>
+			<groupId>com.day.cq</groupId>
+			<artifactId>cq-commons</artifactId>
+			<version>5.4.6</version>
+			<scope>provided</scope>
+		</dependency>
     				
   </dependencies>
   
