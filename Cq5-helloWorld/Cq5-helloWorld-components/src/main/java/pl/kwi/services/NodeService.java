@@ -43,7 +43,7 @@ public class NodeService implements INodeService {
 			newNode.setProperty(entry.getKey(), entry.getValue());
 		}
 		
-		saveSession(session);
+		saveSession();
 				
 	}
 	
@@ -60,7 +60,7 @@ public class NodeService implements INodeService {
 			node = session.getNode(absPath);
 		} 
 		
-		saveSession(session);
+		saveSession();
 		
 		return node;
 					
@@ -86,7 +86,7 @@ public class NodeService implements INodeService {
 		Node node = readNode(absPath, nodeType);
 		node.remove();
 		
-		saveSession(session);
+		saveSession();
 		
 	}
 	
@@ -123,7 +123,7 @@ public class NodeService implements INodeService {
 		
 	}
 	
-	private void saveSession(Session session) throws Exception{
+	private void saveSession() throws Exception{
 		
 		session.save();
 		

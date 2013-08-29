@@ -50,6 +50,22 @@ public class NodeServiceTest {
 	}
 	
 	@Test
+	public void createNode_noExistingParent() throws Exception{
+		
+		InputStream dataStream = getClass().getClassLoader().getResourceAsStream("nodeServiceTest.xml");
+		XmlImporter.load("/", dataStream, XmlImportType.IMPORT_UUID_COLLISION_REMOVE_EXISTING);
+
+		Map<String, String> props = new HashMap<String, String>();
+		props.put("prop1", "value1");
+		service.createNode("/webapp/tmp1/tmp2/tmp3", JcrConstants.NT_UNSTRUCTURED, props);
+		
+		Node node = service.readNode("/webapp/tmp1/tmp2/tmp3", null);
+		Property property = node.getProperty("prop1");
+		assertEquals("value1", property.getValue().getString());
+		
+	}
+	
+	@Test
 	public void readNode() throws Exception{
 		
 		InputStream dataStream = getClass().getClassLoader().getResourceAsStream("nodeServiceTest.xml");
