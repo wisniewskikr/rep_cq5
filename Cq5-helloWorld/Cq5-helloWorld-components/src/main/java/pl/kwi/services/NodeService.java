@@ -11,6 +11,7 @@ import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
 
+import com.day.cq.commons.jcr.JcrConstants;
 import com.day.cq.commons.jcr.JcrUtil;
 
 @Service(value = INodeService.class)
@@ -37,6 +38,7 @@ public class NodeService implements INodeService {
 		
 		Node newNode = JcrUtil.createPath(absPath, nodeType, session);
 		if(props == null) {
+			saveSession();
 			return;
 		}		
 		for (Map.Entry<String, String> entry : props.entrySet()) {
@@ -47,10 +49,14 @@ public class NodeService implements INodeService {
 				
 	}
 	
+	public void createNode(String absPath, Map<String, String> props) throws Exception {
+		createNode(absPath, JcrConstants.NT_UNSTRUCTURED, props);
+	}
+	
 	/* (non-Javadoc)
 	 * @see pl.kwi.services.INodeService#readNode(javax.jcr.Session, java.lang.String, java.lang.String)
 	 */
-	public Node readNode(String absPath, String nodeType) throws Exception {
+	public Node readNode(String absPath) throws Exception {
 		
 		Node node = null;
 		
@@ -69,21 +75,36 @@ public class NodeService implements INodeService {
 	/* (non-Javadoc)
 	 * @see pl.kwi.services.INodeService#updateNode(javax.jcr.Session, java.lang.String, java.lang.String, java.util.Map)
 	 */
-	public void updateNode(String absPath, String nodeType, Map<String, String> props) throws Exception {
+	public void updateNode(String absPath, Map<String, String> props) throws Exception {
 		
-		deleteNode(absPath, nodeType);
-		createNode(absPath, nodeType, props);
+		Node node = readNode(absPath);
+		if(node == null) {
+			throw new Exception("Can not update node because node not exists. Path to node: " + absPath);
+		}
+		
+		openSession();
+		
+		for (Map.Entry<String, String> entry : props.entrySet()) {
+			node.setProperty(entry.getKey(), entry.getValue());
+		}
+		
+		saveSession();
 		
 	}
 	
 	/* (non-Javadoc)
 	 * @see pl.kwi.services.INodeService#deleteNode(javax.jcr.Session, java.lang.String, java.lang.String)
 	 */
-	public void deleteNode(String absPath, String nodeType) throws Exception {
+	public void deleteNode(String absPath) throws Exception {
 		
 		openSession();
 		
-		Node node = readNode(absPath, nodeType);
+		if(!session.nodeExists(absPath)) {
+			saveSession();
+			throw new Exception("Can not delete node because node not exists. Path to node: " + absPath);
+		}
+		
+		Node node = session.getNode(absPath);
 		node.remove();
 		
 		saveSession();
@@ -95,11 +116,13 @@ public class NodeService implements INodeService {
 	 */
 	public void createOrUpdateNode(String absPath, String nodeType, Map<String, String> props) throws Exception{
 		
-		Node node = readNode(absPath, nodeType);
-		if(node == null) {
+		Node node = readNode(absPath);
+		if(node == null && nodeType != null) {
 			createNode(absPath, nodeType, props);
+		} else if(node == null && nodeType == null) {
+			createNode(absPath, props);
 		} else {
-			updateNode(absPath, nodeType, props);
+			updateNode(absPath, props);
 		}
 		
 	}

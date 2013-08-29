@@ -9,12 +9,12 @@ public interface INodeService {
 	public void createNode(String absPath, String nodeType, Map<String, String> props)
 			throws Exception;
 
-	public Node readNode(String absPath, String nodeType) throws Exception;
+	public Node readNode(String absPath) throws Exception;
 
-	public void updateNode(String absPath, String nodeType, Map<String, String> props)
+	public void updateNode(String absPath, Map<String, String> props)
 			throws Exception;
 
-	public void deleteNode(String absPath, String nodeType) throws Exception;
+	public void deleteNode(String absPath) throws Exception;
 
 	public void createOrUpdateNode(String absPath, String nodeType, Map<String, String> props)
 			throws Exception;

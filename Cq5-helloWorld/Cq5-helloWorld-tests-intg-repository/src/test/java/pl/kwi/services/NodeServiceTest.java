@@ -9,6 +9,7 @@ import java.util.Map;
 
 import javax.jcr.Node;
 import javax.jcr.Property;
+import javax.jcr.Session;
 
 import org.junit.After;
 import org.junit.Before;
@@ -22,15 +23,18 @@ import com.roche.testing.sling.jcr.util.XmlImporter;
 public class NodeServiceTest {
 
 	private NodeService service;
+	private Session session;
 	
 	@Before
 	public void setUp() {
-		service = new NodeService(SlingRepositoryProvider.get().getSession());
+		session = SlingRepositoryProvider.get().getSession();
+		service = new NodeService(session);
 	}
 	
 	@After
 	public void tearDown() throws Exception {
 		SlingRepositoryProvider.get().clearRepository();
+		session.logout();
 	}
 	
 	@Test
@@ -43,7 +47,7 @@ public class NodeServiceTest {
 		props.put("prop1", "value1");
 		service.createNode("/webapp/nameNode2", JcrConstants.NT_UNSTRUCTURED, props);
 		
-		Node node = service.readNode("/webapp/nameNode2", null);
+		Node node = service.readNode("/webapp/nameNode2");
 		Property property = node.getProperty("prop1");
 		assertEquals("value1", property.getValue().getString());
 		
@@ -59,7 +63,7 @@ public class NodeServiceTest {
 		props.put("prop1", "value1");
 		service.createNode("/webapp/tmp1/tmp2/tmp3", JcrConstants.NT_UNSTRUCTURED, props);
 		
-		Node node = service.readNode("/webapp/tmp1/tmp2/tmp3", null);
+		Node node = service.readNode("/webapp/tmp1/tmp2/tmp3");
 		Property property = node.getProperty("prop1");
 		assertEquals("value1", property.getValue().getString());
 		
@@ -71,10 +75,22 @@ public class NodeServiceTest {
 		InputStream dataStream = getClass().getClassLoader().getResourceAsStream("nodeServiceTest.xml");
 		XmlImporter.load("/", dataStream, XmlImportType.IMPORT_UUID_COLLISION_REMOVE_EXISTING);
 
-		Node node = service.readNode("/webapp/nameNode", null);
+		Node node = service.readNode("/webapp/nameNode");
 		
 		Property property = node.getProperty("name");
 		assertEquals("User1", property.getValue().getString());
+		
+	}
+	
+	@Test
+	public void readNode_notExistingNode() throws Exception{
+		
+		InputStream dataStream = getClass().getClassLoader().getResourceAsStream("nodeServiceTest.xml");
+		XmlImporter.load("/", dataStream, XmlImportType.IMPORT_UUID_COLLISION_REMOVE_EXISTING);
+
+		Node node = service.readNode("/webapp/tmp");
+		
+		assertNull(node);
 		
 	}
 	
@@ -86,12 +102,22 @@ public class NodeServiceTest {
 
 		Map<String, String> props = new HashMap<String, String>();
 		props.put("name", "User2");
-		service.updateNode("/webapp/nameNode", JcrConstants.NT_UNSTRUCTURED, props);
+		service.updateNode("/webapp/nameNode", props);
 		
-		Node node = service.readNode("/webapp/nameNode", null);
+		Node node = service.readNode("/webapp/nameNode");
 		
 		Property property = node.getProperty("name");
 		assertEquals("User2", property.getValue().getString());
+		
+	}
+	
+	@Test(expected = Exception.class)
+	public void updateNode_notExistingNode() throws Exception{
+		
+		InputStream dataStream = getClass().getClassLoader().getResourceAsStream("nodeServiceTest.xml");
+		XmlImporter.load("/", dataStream, XmlImportType.IMPORT_UUID_COLLISION_REMOVE_EXISTING);
+
+		service.updateNode("/webapp/tmp", null);
 		
 	}
 	
@@ -101,11 +127,21 @@ public class NodeServiceTest {
 		InputStream dataStream = getClass().getClassLoader().getResourceAsStream("nodeServiceTest.xml");
 		XmlImporter.load("/", dataStream, XmlImportType.IMPORT_UUID_COLLISION_REMOVE_EXISTING);
 
-		service.deleteNode("/webapp/nameNode", JcrConstants.NT_UNSTRUCTURED);
+		service.deleteNode("/webapp/nameNode");
 		
-		Node node = service.readNode("/webapp/nameNode", null);
+		Node node = service.readNode("/webapp/nameNode");
 		
 		assertNull(node);
+		
+	}
+	
+	@Test(expected = Exception.class)
+	public void deleteNode_notExistingNode() throws Exception {
+		
+		InputStream dataStream = getClass().getClassLoader().getResourceAsStream("nodeServiceTest.xml");
+		XmlImporter.load("/", dataStream, XmlImportType.IMPORT_UUID_COLLISION_REMOVE_EXISTING);
+
+		service.deleteNode("/webapp/tmp");
 		
 	}
 	
@@ -119,7 +155,7 @@ public class NodeServiceTest {
 		props.put("prop1", "value1");
 		service.createOrUpdateNode("/webapp/nameNode2", JcrConstants.NT_UNSTRUCTURED, props);
 		
-		Node node = service.readNode("/webapp/nameNode2", null);
+		Node node = service.readNode("/webapp/nameNode2");
 		Property property = node.getProperty("prop1");
 		assertEquals("value1", property.getValue().getString());
 		
@@ -135,7 +171,7 @@ public class NodeServiceTest {
 		props.put("name", "User2");
 		service.createOrUpdateNode("/webapp/nameNode", JcrConstants.NT_UNSTRUCTURED, props);
 		
-		Node node = service.readNode("/webapp/nameNode", null);
+		Node node = service.readNode("/webapp/nameNode");
 		
 		Property property = node.getProperty("name");
 		assertEquals("User2", property.getValue().getString());
