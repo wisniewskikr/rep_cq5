@@ -102,7 +102,7 @@
 		<dependency>
 			<groupId>com.roche.cq</groupId>
     		<artifactId>cq-testing</artifactId>
-    		<version>1.0.2</version>
+    		<version>1.0.3-SNAPSHOT</version>
     		<scope>test</scope>
 		</dependency>
 		
