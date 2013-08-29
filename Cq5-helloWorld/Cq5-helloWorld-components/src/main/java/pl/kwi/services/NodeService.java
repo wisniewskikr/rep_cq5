@@ -151,5 +151,9 @@ public class NodeService implements INodeService {
 		session.save();
 		
 	}
+	
+	public Session getSession() {
+		return session;
+	}
 
 }

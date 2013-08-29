@@ -9,7 +9,6 @@ import java.util.Map;
 
 import javax.jcr.Node;
 import javax.jcr.Property;
-import javax.jcr.Session;
 
 import org.junit.After;
 import org.junit.Before;
@@ -23,18 +22,16 @@ import com.roche.testing.sling.jcr.util.XmlImporter;
 public class NodeServiceTest {
 
 	private NodeService service;
-	private Session session;
 	
 	@Before
 	public void setUp() {
-		session = SlingRepositoryProvider.get().getSession();
-		service = new NodeService(session);
+		service = new NodeService(SlingRepositoryProvider.get().getSession());
 	}
 	
 	@After
 	public void tearDown() throws Exception {
 		SlingRepositoryProvider.get().clearRepository();
-		session.logout();
+		service.getSession().logout();
 	}
 	
 	@Test
