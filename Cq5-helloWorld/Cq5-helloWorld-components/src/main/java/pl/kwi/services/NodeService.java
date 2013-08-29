@@ -8,8 +8,6 @@ import javax.jcr.Session;
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Service;
 
-import com.day.cq.commons.jcr.JcrUtil;
-
 @Service(value = INodeService.class)
 @Component(immediate = true)
 public class NodeService implements INodeService {
@@ -39,7 +37,11 @@ public class NodeService implements INodeService {
 	 */
 	public Node readNode(Session session, String absPath, String nodeType) throws Exception {
 		
-		return JcrUtil.createPath(absPath, nodeType, session);
+		if(session.nodeExists(absPath)) {
+			return session.getNode(absPath);
+		} else {
+			return null;
+		}
 					
 	}
 	
