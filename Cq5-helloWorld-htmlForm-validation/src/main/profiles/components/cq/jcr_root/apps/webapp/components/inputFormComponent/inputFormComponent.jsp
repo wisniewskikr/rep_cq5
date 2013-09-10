@@ -1,20 +1,20 @@
 <%@include file="/libs/foundation/global.jsp" %>
 <%%>
-<%@page import="pl.kwi.utils.ResourceUtil" %>
+<%@page import="pl.kwi.utils.pl.kwi.services.ResourceService" %>
 
 
-<c:set var="currentPagePath" value="<%= currentPage.getPath() %>"/>
-<c:set var="errorField" value="<%= request.getParameter("errorField") %>"/>
+<c:set var="currentPagePath" value="<%=currentPage.getPath()%>"/>
+<c:set var="errorField" value="<%=request.getParameter("errorField")%>"/>
 
-<c:set var="outputPagePath" value="<%= ResourceUtil.getResourceProperty(resource, "outputPagePath") %>"/>
-<c:set var="pageTitle" value="<%= ResourceUtil.getResPropWithDefaultValue(resource, "pageTitle", "Title") %>"/>
-<c:set var="textPage" value="<%= ResourceUtil.getResPropWithDefaultValue(resource, "textPage", "Text Page") %>"/>
-<c:set var="pageName" value="<%= ResourceUtil.getResPropWithDefaultValue(resource, "pageName", "Page Name") %>"/>
-<c:set var="textName" value="<%= ResourceUtil.getResPropWithDefaultValue(resource, "textName", "Text Name") %>"/>
-<c:set var="fieldNameDescription" value="<%= ResourceUtil.getResPropWithDefaultValue(resource, "fieldNameDescription", "Description") %>"/>
-<c:set var="fieldNameErrorMessage" value="<%= ResourceUtil.getResPropWithDefaultValue(resource, "fieldNameErrorMessage", "Error Message") %>"/>
-<c:set var="buttonText" value="<%= ResourceUtil.getResPropWithDefaultValue(resource, "buttonText", "Button Text") %>"/>
-<c:set var="buttonHint" value="<%= ResourceUtil.getResPropWithDefaultValue(resource, "buttonHint", "Hint") %>"/>
+<c:set var="outputPagePath" value="<%=ResourceService.getResourceProperty(resource, "outputPagePath")%>"/>
+<c:set var="pageTitle" value="<%=ResourceService.getResPropWithDefaultValue(resource, "pageTitle", "Title")%>"/>
+<c:set var="textPage" value="<%=ResourceService.getResPropWithDefaultValue(resource, "textPage", "Text Page")%>"/>
+<c:set var="pageName" value="<%=ResourceService.getResPropWithDefaultValue(resource, "pageName", "Page Name")%>"/>
+<c:set var="textName" value="<%=ResourceService.getResPropWithDefaultValue(resource, "textName", "Text Name")%>"/>
+<c:set var="fieldNameDescription" value="<%=ResourceService.getResPropWithDefaultValue(resource, "fieldNameDescription", "Description")%>"/>
+<c:set var="fieldNameErrorMessage" value="<%=ResourceService.getResPropWithDefaultValue(resource, "fieldNameErrorMessage", "Error Message")%>"/>
+<c:set var="buttonText" value="<%=ResourceService.getResPropWithDefaultValue(resource, "buttonText", "Button Text")%>"/>
+<c:set var="buttonHint" value="<%=ResourceService.getResPropWithDefaultValue(resource, "buttonHint", "Hint")%>"/>
 
 
 <input type="hidden" id="redirectPath" name="redirectPath" value="${outputPagePath}"/>

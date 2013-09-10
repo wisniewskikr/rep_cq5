@@ -1,17 +1,17 @@
 <%@include file="/libs/foundation/global.jsp" %>
 <%%>
-<%@page import="pl.kwi.utils.ResourceUtil" %>
+<%@page import="pl.kwi.utils.pl.kwi.services.ResourceService" %>
 
 
-<c:set var="name" value="<%= request.getParameter("name") %>"/>
+<c:set var="name" value="<%=request.getParameter("name")%>"/>
 
-<c:set var="inputPagePath" value="<%= ResourceUtil.getResourceProperty(resource, "inputPagePath") %>"/>
-<c:set var="pageTitle" value="<%= ResourceUtil.getResPropWithDefaultValue(resource, "pageTitle", "Title") %>"/>
-<c:set var="textPage" value="<%= ResourceUtil.getResPropWithDefaultValue(resource, "textPage", "Page Text") %>"/>
-<c:set var="pageName" value="<%= ResourceUtil.getResPropWithDefaultValue(resource, "pageName", "Page Name") %>"/>
-<c:set var="textHelloWorld" value="<%= ResourceUtil.getResPropWithDefaultValue(resource, "textHelloWorld", "Field Hello World Text") %>"/>
-<c:set var="buttonText" value="<%= ResourceUtil.getResPropWithDefaultValue(resource, "buttonText", "Button Text") %>"/>
-<c:set var="buttonHint" value="<%= ResourceUtil.getResPropWithDefaultValue(resource, "buttonHint", "Hint") %>"/>
+<c:set var="inputPagePath" value="<%=ResourceService.getResourceProperty(resource, "inputPagePath")%>"/>
+<c:set var="pageTitle" value="<%=ResourceService.getResPropWithDefaultValue(resource, "pageTitle", "Title")%>"/>
+<c:set var="textPage" value="<%=ResourceService.getResPropWithDefaultValue(resource, "textPage", "Page Text")%>"/>
+<c:set var="pageName" value="<%=ResourceService.getResPropWithDefaultValue(resource, "pageName", "Page Name")%>"/>
+<c:set var="textHelloWorld" value="<%=ResourceService.getResPropWithDefaultValue(resource, "textHelloWorld", "Field Hello World Text")%>"/>
+<c:set var="buttonText" value="<%=ResourceService.getResPropWithDefaultValue(resource, "buttonText", "Button Text")%>"/>
+<c:set var="buttonHint" value="<%=ResourceService.getResPropWithDefaultValue(resource, "buttonHint", "Hint")%>"/>
 
 
 <input type="hidden" id="redirectPath" name="redirectPath" value="${inputPagePath}"/>
