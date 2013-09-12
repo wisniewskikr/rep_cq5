@@ -12,6 +12,6 @@
     
     <jcr:content
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="Cq5-helloWorld-41-content-package-maven-plugin/components/testTemplate"/>
+        sling:resourceType="webapp/components/testTemplate"/>
                 
 </jcr:root>

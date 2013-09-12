@@ -5,6 +5,6 @@
 
 	Hello World from Template
 	
-	<cq:include path="par" resourceType="foundation/components/parsys"/>
+	<cq:include path="par"resourceType="webapp/components/testComponent"/>
 
 </body>
