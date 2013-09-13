@@ -4,12 +4,13 @@ CQ5 AND MAVEN SLING PLUGIN
 
 
 
-Maven Sling Plugin enables installig only bundle without any content.
+Maven Sling Plugin enables installing only bundle without any content.
 It other words it enables installing only services. It can be used only
 for project with packaging - bundle.
 
 Attention!!!
-User has to create destination folder by hand. For instance:
+User has to create destination folder by hand. Otherwise he gets exception.
+For instance:
 apps/cq5-helloWorld-40-maven-sling-plugin/install
 
 
