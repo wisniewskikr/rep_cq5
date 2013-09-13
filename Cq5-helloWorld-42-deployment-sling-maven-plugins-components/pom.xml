@@ -1,0 +1,84 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>pl.kwi</groupId>
+  <artifactId>Cq5-helloWorld-42-deployment-sling-maven-plugins-components</artifactId>
+  <version>1.0</version>
+  <packaging>jar</packaging>
+  <description>Test CQ project</description>
+  
+  
+  
+  <parent>
+        <groupId>pl.kwi</groupId>
+        <artifactId>Cq5-helloWorld-42-deployment-sling-maven-plugins</artifactId>
+        <version>1.0</version>
+    </parent>
+  
+  
+  
+  <properties>
+  	<crx.url>http://localhost:4502</crx.url>
+  	<crx.user>admin</crx.user>
+  	<crx.password>admin</crx.password>
+  </properties>
+    
+  
+  
+  <build>
+		<plugins>
+		
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>  			
+
+            <plugin>
+                <groupId>com.day.jcr.vault</groupId>
+                <artifactId>content-package-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <group>My Company</group>                    
+                    <builtContentDirectory>src/main/content/jcr_root</builtContentDirectory>
+                    <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
+                    <targetURL>${crx.url}/crx/packmgr/service.jsp</targetURL>
+                    <embeddeds>
+                        <embedded>
+                            <groupId>pl.kwi</groupId>
+                            <artifactId>Cq5-helloWorld-42-deployment-sling-maven-plugins-bundle</artifactId>
+                            <target>/apps/Cq5-helloWorld-42-deployment-without-crx/install</target>
+                        </embedded>
+                 	</embeddeds> 
+                </configuration>                      
+                <executions>                
+                    <execution>
+                        <phase>install</phase>
+                        <goals>
+                        	<goal>package</goal>
+                            <goal>install</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>    
+  						  
+		</plugins>
+	
+  </build>
+  
+  
+  
+  <dependencies>
+  
+  	<dependency>
+  		<groupId>pl.kwi</groupId>
+ 		<artifactId>Cq5-helloWorld-42-deployment-sling-maven-plugins-bundle</artifactId>
+  		<version>1.0</version>
+  	</dependency>
+  	
+  </dependencies>
+  
+    
+</project>
