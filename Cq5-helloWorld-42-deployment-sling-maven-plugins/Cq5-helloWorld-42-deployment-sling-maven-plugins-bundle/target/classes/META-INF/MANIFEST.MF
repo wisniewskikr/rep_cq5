@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Built-By: wisniewk
+Build-Jdk: 1.6.0_43
+Bundle-Version: 0
+Tool: Bnd-0.0.255
+Bundle-Name: Cq5-helloWorld-42-deployment-sling-maven-plugins-bundle
+Bnd-LastModified: 1379059180966
+Created-By: Apache Maven Bundle Plugin
+Bundle-ManifestVersion: 2
+Bundle-Description: Test CQ project
+Bundle-SymbolicName: pl.kwi
+
