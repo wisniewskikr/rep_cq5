@@ -14,8 +14,15 @@ Configuration and testing
 You can check mapping configuration and test it in location:
 system/console -> Sling Resource Resolver
 
-In section "Configuration test" you can type some url and after pressing button "Resolve"
-result of mapping should be displayed.
+In section "Configuration test" you can test:
+- long path: type url and after pressing button "Resolve" long path (url) should be changed into 
+			 short path
+- short path: type short path and after pressing button "Map" short path should be changed into
+			  long path (url)
+
+ATTENTION!!!
+In "sling:internalRedirect" can not be any regexp sign (like $1) because reverse mapping 
+won`t work. This is because CQ won`t know how to mapp.			  
 
 
 

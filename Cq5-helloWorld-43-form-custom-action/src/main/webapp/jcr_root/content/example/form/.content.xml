@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2013-10-25T11:07:11.070+02:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/apps/webapp/templates/testTemplate"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="form"
+        sling:resourceType="webapp/components/testTemplate">
+        <par
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys">
+            <start
+                jcr:created="{Date}2013-10-25T09:23:29.166+02:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2013-10-25T10:58:35.470+02:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="webapp/components/form/start"
+                action="/content/usergenerated/example/form/cq-gen1382685809197/"
+                actionType="webapp/components/form/actions/customAction"
+                formid="_content_example_form_jcr_content_par_start"
+                pageAfterAction="/content/example/result"/>
+            <text
+                jcr:created="{Date}2013-10-25T10:26:56.505+02:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2013-10-25T11:07:11.068+02:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceSuperType="foundation/components/form/defaults/field"
+                sling:resourceType="webapp/components/form/text"
+                name="text"
+                required="true"/>
+            <form_end_1382689596263
+                jcr:lastModified="{Date}2013-10-25T10:27:23.955+02:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/form/end"
+                submit="true"/>
+        </par>
+    </jcr:content>
+</jcr:root>
