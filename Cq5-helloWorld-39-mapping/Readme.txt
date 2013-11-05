@@ -24,6 +24,10 @@ ATTENTION!!!
 In "sling:internalRedirect" can not be any regexp sign (like $1) because reverse mapping 
 won`t work. This is because CQ won`t know how to mapp.			  
 
+ATTENTION!!!
+Path has to be mapped by method ResourceResolver.map(). For instance:
+request.getResourceResolver().map(...)
+
 
 
 Changing mapping location
