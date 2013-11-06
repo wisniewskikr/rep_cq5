@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="{Long}575"
+    helpPath="en/cq/current/wcm/default_components.html#Form"
+    stateful="{Boolean}false"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <tabs jcr:primaryType="cq:TabPanel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <first
+                    jcr:primaryType="nt:unstructured"
+                    title="Form"
+                    xtype="panel">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <redirect
+                            jcr:primaryType="cq:Widget"
+                            componentId="redirectField"
+                            fieldDescription="Leave empty to redisplay the form after submission"
+                            fieldLabel="Thank You Page"
+                            name="./redirect"
+                            xtype="pathfield"/>
+                        <workflowmodel
+                            jcr:primaryType="cq:Widget"
+                            allowBlank="{Boolean}true"
+                            componentId="cq5_form_action_workflow_id"
+                            fieldDescription="Choose the workflow that should be started on form submission. Click the thumbnail image to view or edit the selected workflow model."
+                            fieldLabel="Start Workflow"
+                            name="./workflowModel"
+                            xtype="cq.workflow.model.selector"/>
+                    </items>
+                </first>
+                <second
+                    jcr:primaryType="nt:unstructured"
+                    title="Advanced"
+                    xtype="panel">
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <actiontype
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Action Type"
+                            name="./actionType"
+                            xtype="formactionselection">
+                            <options jcr:primaryType="cq:WidgetCollection">					            
+					            <customAction
+					                jcr:primaryType="cq:Widget"
+					                text="Custom Action"
+					                value="webapp/components/form/actions/customAction"
+					                qtip="Action with custom behaviour" />					                
+					   		</options>
+                        </actiontype>    
+                        <formid
+                            jcr:primaryType="cq:Widget"
+                            allowBlank="{Boolean}false"
+                            fieldDescription="A unique identifier for the form on the page"
+                            fieldLabel="Form Identifier"
+                            name="./formid"
+                            regex="/^[a-zA-Z0-9_-]+$/"
+                            regexText="This field should only contain numbers, letters, dashes and underscores"
+                            xtype="textfield">
+                            <listeners
+                                jcr:primaryType="nt:unstructured"
+                                loadcontent="function() { var f = this.findParentByType(&quot;form&quot;); if(f &amp;&amp; (typeof(this.value) == &quot;undefined&quot; || this.value.length() == 0)) { this.setValue(f.form.url.replace(/[/:.]/g,&quot;_&quot;))}}"/>
+                        </formid>
+                        <loadPath
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="This repository path can be used to preload the form"
+                            fieldLabel="Load Path"
+                            name="./loadPath"
+                            xtype="textfield"/>
+                        <clientVal
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="If this is enabled java-script client code for validation will be generated"
+                            fieldLabel="Client Validation"
+                            name="./clientValidation"
+                            type="checkbox"
+                            xtype="selection"/>
+                        <valScript
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Optional resource type which is used to find a global form validation script."
+                            fieldLabel="Validation Resource Type"
+                            name="./validationRT"
+                            xtype="textfield"/>
+                        <advanced
+                            jcr:primaryType="cq:Widget"
+                            collapsed="{Boolean}true"
+                            collapsible="{Boolean}true"
+                            componentId="cq5_form_action_config_panel"
+                            name="advanced"
+                            title="Action Configuration"
+                            xtype="dialogfieldset"/>
+                    </items>
+                </second>
+            </items>
+        </tabs>
+    </items>
+</jcr:root>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2013-11-06T09:36:09.559+01:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/apps/webapp/templates/testTemplate"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="form"
+        sling:resourceType="webapp/components/testTemplate">
+        <par
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys">
+            <start
+                jcr:created="{Date}2013-11-05T13:40:30.822+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2013-11-06T09:36:09.553+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="webapp/components/form/start"
+                action="/content/usergenerated/example/form/cq-gen1383655230872/"
+                actionType="webapp/components/form/actions/customAction"
+                clientValidation="true"
+                formid="_content_example_form_jcr_content_par_start"
+                pageAfterAction="/content/example/result"/>
+            <text
+                jcr:created="{Date}2013-11-05T13:40:38.032+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2013-11-05T13:43:42.718+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceSuperType="foundation/components/form/defaults/field"
+                sling:resourceType="webapp/components/form/text"
+                name="text"
+                required="true"
+                requiredMessage="Fill this field, please"/>
+            <form_end_1383655230882
+                jcr:lastModified="{Date}2013-11-05T13:41:03.920+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/form/end"
+                submit="true"/>
+        </par>
+    </jcr:content>
+</jcr:root>
