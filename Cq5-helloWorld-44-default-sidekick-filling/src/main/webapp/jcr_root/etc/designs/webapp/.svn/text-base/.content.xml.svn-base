@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/libs/wcm/core/templates/designpage"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Cobas"
+        sling:resourceType="wcm/core/components/designer">
+        <contentRenderer jcr:primaryType="nt:unstructured">
+            <columnParsys
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys"
+                components="[group:Cobas,group:Cobas - Media,group:Cobas - Text,group:Cobas - Form,group:Columns,/apps/cobas/components/product/dynamicProductsExplorer,/apps/cobas/components/product/relatedProducts,/apps/cobas/components/product/tabs,/apps/cobas/components/product/productTable,/apps/cobas/components/product/productStep,/apps/brightcove-plugin/components/brightcovePlaylist,/apps/brightcove-plugin/components/brightcoveVideo]"/>
+            <mainParsys
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys"
+                components="[group:Cobas,group:Cobas - Media,group:Cobas - Text,group:Cobas - Form,group:Columns,/apps/cobas/components/product/dynamicProductsExplorer,/apps/cobas/components/product/relatedProducts,/apps/cobas/components/product/tabs,/apps/cobas/components/product/productTable,/apps/cobas/components/product/productStep,/apps/brightcove-plugin/components/brightcovePlaylist,/apps/brightcove-plugin/components/brightcoveVideo]"/>
+            <asideParsys
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys"
+                components="[group:Cobas,group:Cobas - Media,group:Cobas - Text,group:Cobas - Form,group:Columns,/apps/cobas/components/product/dynamicProductsExplorer,/apps/cobas/components/product/relatedProducts,/apps/cobas/components/product/tabs,/apps/cobas/components/product/productTable,/apps/cobas/components/product/productStep,/apps/brightcove-plugin/components/brightcovePlaylist,/apps/brightcove-plugin/components/brightcoveVideo]"/>
+            <faqItemListParsys
+                cq:emptyText="Drag 'FAQ List Item' component here"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cobas/components/infrastructure/baseParsys"
+                components="[/apps/cobas/components/text/faqList/faqListItem,/apps/cobas/components/text/text,/apps/cobas/components/media/image,/apps/cobas/components/media/videoViewer,/apps/cobas/components/media/youtube,/apps/brightcove-plugin/components/brightcovePlaylist,/apps/brightcove-plugin/components/brightcoveVideo]">
+                <section jcr:primaryType="nt:unstructured"/>
+            </faqItemListParsys>
+            <faqItemParsys
+                cq:emptyText="Drag add Image, Text, Video or Youtube component here"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cobas/components/infrastructure/baseParsys"
+                components="[/apps/cobas/components/text/faqList/faqListItem,/apps/cobas/components/text/text,/apps/cobas/components/media/image,/apps/cobas/components/media/videoViewer,/apps/cobas/components/media/youtube]">
+                <section jcr:primaryType="nt:unstructured"/>
+            </faqItemParsys>
+            <faqListParsys
+                cq:emptyText="Drag 'FAQ List' component here"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cobas/components/infrastructure/baseParsys"
+                components="/apps/cobas/components/text/faqList">
+                <section jcr:primaryType="nt:unstructured"/>
+            </faqListParsys>
+            <tabsParsys
+                cq:emptyText="Drop 'Tab Item' components here"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cobas/components/infrastructure/baseParsys"
+                components="[/apps/cobas/components/product/tabItem]">
+                <section jcr:primaryType="nt:unstructured"/>
+                <tabItem jcr:primaryType="nt:unstructured">
+                    <firstProductDetailsParsys
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="foundation/components/parsys"
+                        components="[group:Cobas - Products,group:Cobas,group:Cobas - Media,group:Columns,/apps/brightcove-plugin/components/brightcovePlaylist,/apps/brightcove-plugin/components/brightcoveVideo]">
+                        <section jcr:primaryType="nt:unstructured"/>
+                    </firstProductDetailsParsys>
+                    <secondProductDetailsParsys
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="foundation/components/parsys"
+                        components="[group:Cobas - Products,group:Cobas,group:Cobas - Media,group:Columns,/apps/brightcove-plugin/components/brightcovePlaylist,/apps/brightcove-plugin/components/brightcoveVideo]">
+                        <section jcr:primaryType="nt:unstructured"/>
+                    </secondProductDetailsParsys>
+                    <thirdProductDetailsParsys
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="foundation/components/parsys"
+                        components="[group:Cobas - Products,group:Cobas,group:Cobas - Media,group:Columns,/apps/brightcove-plugin/components/brightcovePlaylist,/apps/brightcove-plugin/components/brightcoveVideo]">
+                        <section jcr:primaryType="nt:unstructured"/>
+                    </thirdProductDetailsParsys>
+                </tabItem>
+            </tabsParsys>
+        </contentRenderer>
+        <productRenderer jcr:primaryType="nt:unstructured">
+            <columnParsys
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys"
+                components="[group:Cobas,group:Cobas - Media,group:Cobas - Text,group:Cobas - Form,group:Cobas - Products,group:Columns,/apps/brightcove-plugin/components/brightcovePlaylist,/apps/brightcove-plugin/components/brightcoveVideo]"/>
+            <mainParsys
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys"
+                components="[group:Cobas,group:Cobas - Media,group:Cobas - Text,group:Cobas - Form,group:Cobas - Products,group:Columns,/apps/brightcove-plugin/components/brightcovePlaylist,/apps/brightcove-plugin/components/brightcoveVideo]"/>
+            <asideParsys
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys"
+                components="[group:Cobas,group:Cobas - Media,group:Cobas - Text,group:Cobas - Form,group:Cobas - Products,group:Columns,/apps/brightcove-plugin/components/brightcovePlaylist,/apps/brightcove-plugin/components/brightcoveVideo]"/>
+            <faqItemListParsys
+                cq:emptyText="Drag 'FAQ List Item' component here"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cobas/components/infrastructure/baseParsys"
+                components="/apps/cobas/components/text/faqList/faqListItem">
+                <section jcr:primaryType="nt:unstructured"/>
+            </faqItemListParsys>
+            <faqListParsys
+                cq:emptyText="Drag 'FAQ List' component here"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cobas/components/infrastructure/baseParsys"
+                components="/apps/cobas/components/text/faqList">
+                <section jcr:primaryType="nt:unstructured"/>
+            </faqListParsys>
+            <tabsParsys
+                cq:emptyText="Drop 'Tab Item' components here"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cobas/components/infrastructure/baseParsys"
+                components="[/apps/cobas/components/product/tabItem]">
+                <section jcr:primaryType="nt:unstructured"/>
+                <tabItem jcr:primaryType="nt:unstructured">
+                    <firstProductDetailsParsys
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="foundation/components/parsys"
+                        components="[group:Cobas - Products,group:Cobas,group:Cobas - Media,group:Columns,/apps/brightcove-plugin/components/brightcovePlaylist,/apps/brightcove-plugin/components/brightcoveVideo]">
+                        <section jcr:primaryType="nt:unstructured"/>
+                    </firstProductDetailsParsys>
+                    <secondProductDetailsParsys
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="foundation/components/parsys"
+                        components="[group:Cobas - Products,group:Cobas,group:Cobas - Media,group:Columns,/apps/brightcove-plugin/components/brightcovePlaylist,/apps/brightcove-plugin/components/brightcoveVideo]">
+                        <section jcr:primaryType="nt:unstructured"/>
+                    </secondProductDetailsParsys>
+                    <thirdProductDetailsParsys
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="foundation/components/parsys"
+                        components="[group:Cobas - Products,group:Cobas,group:Cobas - Media,group:Columns,/apps/brightcove-plugin/components/brightcovePlaylist,/apps/brightcove-plugin/components/brightcoveVideo]">
+                        <section jcr:primaryType="nt:unstructured"/>
+                    </thirdProductDetailsParsys>
+                </tabItem>
+            </tabsParsys>
+        </productRenderer>
+        <thankYouRenderer jcr:primaryType="nt:unstructured">
+            <asideParsys
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys"
+                components="[group:Cobas,group:Cobas - Media,group:Cobas - Text,group:Cobas - Form,group:Columns,/apps/cobas/components/product/dynamicProductsExplorer,/apps/cobas/components/product/relatedProducts,/apps/brightcove-plugin/components/brightcovePlaylist,/apps/brightcove-plugin/components/brightcoveVideo]"/>
+        </thankYouRenderer>
+        <stylesConfigurationRenderer jcr:primaryType="nt:unstructured">
+            <styles
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys"
+                components="[/apps/cobas/components/configuration/stylesConfigurationOption]"/>
+        </stylesConfigurationRenderer>
+        <sliderBannerContentRenderer jcr:primaryType="nt:unstructured">
+       		<sliderBannerParsys jcr:primaryType="nt:unstructured"
+       			sling:resourceType="foundation/components/parsys"
+       			cq:emptyText="Drag 'Slider Banner Item' here"
+       			components="[/apps/cobas/components/infrastructure/sliderBanner/sliderBannerItem]"/>
+        </sliderBannerContentRenderer>        
+        <glossaryContentRenderer jcr:primaryType="nt:unstructured">
+            <glossary jcr:primaryType="nt:unstructured">
+                <itemsParsys
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="cobas/components/text/glossaryParsys"
+                    components="[/apps/cobas/components/text/glossaryDefinition]">
+                </itemsParsys>
+            </glossary>
+        </glossaryContentRenderer>
+        <downloadRenderer jcr:primaryType="nt:unstructured">
+        	<downloadGroupParsys jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys"
+       			cq:emptyText="Drag 'Download Group' component here"
+       			components="[/apps/cobas/components/download/downloadGroup]"/>
+       		<downloadItemParsys jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys"
+       			cq:emptyText="Drag 'Download Item' component here"
+       			components="[/apps/cobas/components/download/downloadItem]"/>
+       		<downloadAssetParsys jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys"
+       			cq:emptyText="Drag 'Download Asset' component here"
+       			components="[/apps/cobas/components/download/downloadAsset]"/>
+        </downloadRenderer>
+        <newsletterRenderer jcr:primaryType="nt:unstructured">
+        	<par
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="mcm/components/newsletter/parsys"
+                components="[group:Newsletter]"
+                componentsX="[/libs/mcm/components/newsletter/image,/libs/mcm/components/newsletter/text]"/>
+        </newsletterRenderer>
+    </jcr:content>
+</jcr:root>
