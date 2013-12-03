@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Input Form"
+    xtype="panel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <outputPagePath
+            jcr:primaryType="cq:Widget"
+            xtype="pathfield"
+            fieldLabel="Output page path"                       
+            name="./outputPagePath" 
+            allowBlank="false" />
+        <pageTitle
+            fieldLabel="Page title"                       
+            name="./pageTitle"
+            jcr:primaryType="cq:Widget"
+            xtype="textfield" />
+        <pageText
+            fieldLabel="Text 'Page'"                       
+            name="./textPage"
+            jcr:primaryType="cq:Widget"
+            xtype="textfield" />    
+        <pageName
+            fieldLabel="Page name"                       
+            name="./pageName"
+            jcr:primaryType="cq:Widget"
+            xtype="textfield" />
+        <fieldNameText
+            fieldLabel="Text 'Name'"                       
+            name="./textName"
+            jcr:primaryType="cq:Widget"
+            xtype="textfield" />
+        <fieldNameDescription      
+            fieldLabel="Field 'name' description"                       
+            name="./fieldNameDescription"
+            jcr:primaryType="cq:Widget"
+            xtype="textfield" />
+        <fieldNameErrorMessage      
+            fieldLabel="Field 'name' error message"                       
+            name="./fieldNameErrorMessage"
+            jcr:primaryType="cq:Widget"
+            xtype="textfield" 
+            allowBlank="false" />
+        <buttonText      
+            fieldLabel="Button text"                       
+            name="./buttonText"
+            jcr:primaryType="cq:Widget"
+            xtype="textfield" />
+        <buttonHint      
+            fieldLabel="Button hint"                       
+            name="./buttonHint"
+            jcr:primaryType="cq:Widget"
+            xtype="textfield" 
+            allowBlank="false" />                                         
+    </items>
+</jcr:root>

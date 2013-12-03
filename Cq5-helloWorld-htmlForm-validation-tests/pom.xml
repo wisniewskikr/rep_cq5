@@ -52,6 +52,7 @@
 	<profile>
 		<id>content</id>
 		<modules>
+			<module>../Cq5-helloWorld-htmlForm-validation-tests-components</module>
 		  	<module>../Cq5-helloWorld-htmlForm-validation-tests-content</module>
 		  </modules>
 	</profile>
