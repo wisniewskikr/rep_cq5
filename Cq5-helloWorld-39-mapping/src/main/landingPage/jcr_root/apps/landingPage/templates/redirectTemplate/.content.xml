@@ -5,13 +5,13 @@
 	xmlns:jcr="http://www.jcp.org/jcr/1.0" 
 	xmlns:nt="http://www.jcp.org/jcr/nt/1.0"    
     jcr:primaryType="cq:Template"
-    jcr:title="Landing Page - Home Template"
-    jcr:description="Template of Home Page for Landing Page project"
+    jcr:title="Langing Page - Redirect Template"
+    jcr:description="Template of Redirect Page for Landing Page project"
     allowedPaths="/content(/.*)?"
     ranking="{Long}1">
     
     <jcr:content
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="landingPage/renderers/landingPageRenderer"/>
+        sling:resourceType="cq5-example-helloworld/renderers/redirectRenderer"/>
                 
 </jcr:root>

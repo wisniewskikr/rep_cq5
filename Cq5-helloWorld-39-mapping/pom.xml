@@ -22,7 +22,7 @@
   
   <profiles>
   	<profile>
-		<id>cq-author</id>
+		<id>author</id>
 		<activation>
 			<activeByDefault>true</activeByDefault>
 		</activation>				
@@ -32,7 +32,7 @@
 	</profile>
 	
 	<profile>
-		<id>cq-publish</id>				
+		<id>publish</id>				
 		<properties>							
 			<crx.url>${crx.url.publish}</crx.url>				
 		</properties>

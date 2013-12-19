@@ -2,12 +2,11 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2013-12-09T09:04:54.500+01:00"
+        cq:lastModified="{Date}2013-12-09T09:05:06.207+01:00"
         cq:lastModifiedBy="admin"
         cq:template="/apps/landingPage/templates/redirectTemplate"
         jcr:primaryType="cq:PageContent"
-        jcr:title="landingPage"
+        jcr:title="pl"
         sling:resourceType="cq5-example-helloworld/renderers/redirectRenderer"/>
-    <pl/>
-    <en/>
+    <home/>
 </jcr:root>
