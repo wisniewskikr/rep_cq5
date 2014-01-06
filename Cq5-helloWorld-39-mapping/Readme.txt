@@ -102,3 +102,12 @@ Url												Pattern								Replacement					Result
  - Cq looks for Pattern in Url and if it finds whole Pattern then replaces it with Replacement;
  - When you use regexp in Replacement then only Resolving will work but not Mapping;
  - When you use $ in Pattern then everything else in Url is ignored; 
+ 
+ 
+ Mapping in java and jsp
+ =======================
+ In jsp and java classes path has to be mapped by method ResourceResolver.map(). 
+ 
+ For instance:
+* in java: request.getResourceResolver().map(...);
+* in jsp: <%= resourceResolver.map(...) %>
