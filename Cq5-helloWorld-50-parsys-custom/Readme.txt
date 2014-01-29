@@ -1,19 +1,18 @@
-Cq5 and component sidekick custom:
--	in template *.jsp file you have to just include sidekick component using cq tag:
-	<cq:include path="par" resourceType="foundation/components/parsys"/>
-	
--	if you want to add custom sidekick component then:
-	*	in code
-		*	in file .content of custom component add
-			jcr:title="Component Title"
-			componentGroup="Test Group"
-    		Group="TestGroup"
-    	*	add file _cq_editConfig.xml which adds component to drag and drop sidekick	
-	*	on page
-		*	go to sidekick;
-		*	choose design mode;
-		*	choose edit;
-		*	choose sidekick custom elements - for instance group Test Group;
-		
--	build and install example by Maven command:
-	mvn clean install crx:install
+CQ5 AND CUSTOM PARSYS
+
+
+
+This tutorial is about creatign custom parsys in CQ5 project.
+Parsys means "paragraph system' and it`s a place on template 
+where user can place components. Using parsys you can manage such things like:
+- allowed components in this parsys;
+- empty text massage;
+- etc.
+
+
+
+To create custom parsys user have to:
+- add component with 'sling:resourceSuperType="foundation/components/parsys"';
+- to change empty text user has to in <parsys>/new/_cq_editConfig.xml add 'cq:emptyText="Some empty text"';
+- to restrict components in custom parsys user has to go to "etc/designs/webapp/.content.xml" and use
+element "component".
