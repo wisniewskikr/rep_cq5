@@ -2,5 +2,5 @@
 
 <div>Hello World from Component</div>
 
-<cq:include path="parsys" resourceType="foundation/components/parsys"/>
+<cq:include path="testParsys" resourceType="webapp/components/parsys/testParsys"/>
 

@@ -10,17 +10,17 @@
         jcr:primaryType="cq:PageContent"
         jcr:title="webapp"
         sling:resourceType="wcm/core/components/designer">
-        <testTemplate jcr:primaryType="nt:unstructured">
-        	<testParsys
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="webapp/components/parsys/testParsys"
-                components="[group:Test Group]">
-             </testParsys> 
+        <testTemplate jcr:primaryType="nt:unstructured">        	
              <parsys
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="foundation/components/parsys"                
-                components="[group:General]">
-             </parsys>   
+                components="[group:General,/apps/webapp/components/testComponent]">
+             </parsys> 
+             <testParsys
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="webapp/components/parsys/testParsys"                
+                components="[/apps/webapp/components/testComponentItem]">
+             </testParsys>  
         </testTemplate>             
     </jcr:content>    
 </jcr:root>
