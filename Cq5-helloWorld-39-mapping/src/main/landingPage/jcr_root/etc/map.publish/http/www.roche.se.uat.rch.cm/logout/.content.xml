@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
-    cq:lastReplicated="{Date}2013-07-31T09:04:41.040+02:00"
-    cq:lastReplicatedBy="admin"
-    cq:lastReplicationAction="Activate"
-    jcr:mixinTypes="[cq:ReplicationStatus]"
-    jcr:primaryType="sling:Mapping"
-    sling:internalRedirect="[/system/sling/logout$1]"
-    sling:match="system/sling/logout(.*)$"/>
